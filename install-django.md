@@ -16,6 +16,29 @@ pip install django
 python -m django --version
 ```
 
+### install django on windows using git bash terminal
+
+1. check if you've added python to path
+https://projects.raspberrypi.org/en/projects/using-pip-on-windows/4
+
+2. make sure you have git bash for windows installed
+https://git-scm.com/downloads
+
+3. Make sure you have virtualenv installed
+```
+virtual env --version
+pip install virtualenv
+```
+4. create and navigate to you django app directory
+![img.png](img.png)
+
+5. create virtual environment and install django
+```
+python -m venv django_venv
+source django_venv/Scripts/activate
+pip install django
+```
+
 ### start a django project
 ```
 django-admin startproject mydjangosite
@@ -27,8 +50,8 @@ cd mydjangosite
 python manage.py runserver
 ```
 
-### change the port 
-default port is 8000; 
+### change the port
+default port is 8000;
     if you want to change it, run
 ```
 python manage.py runserver 8080
@@ -89,10 +112,10 @@ python manage.py migrate --fake-initial
 ```
 
 ```
-# sample class of exisiting DB 
+# sample class of exisiting DB
 class Example(models.Model):
   ...
-    
+
   class Meta:
     managed = False # remove this line
     db_table = 'example_table_name'
