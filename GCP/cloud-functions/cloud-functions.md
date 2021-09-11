@@ -200,7 +200,6 @@ In the Triggering event field, enter the following text between the brackets `{
 
 ```bash
 "message":"Hello World!"
-content_copy
 ```
 
 
@@ -555,3 +554,57 @@ D      helloWorld  3zmhpf7l6j5b  2017-12-05 22:17:42.666  Function execution too
 
 
 Your application is deployed, tested, and you can view the logs.
+
+### Deploy a function that user Cloud Storage as a triggers
+
+* deploy a function written in JavaScript
+```bash
+gcloud functions deploy helloGCS \
+--entry-point thumbnail \
+--project qwiklabs-gcp-01-1f0e384c78fd \
+--trigger-resource qwiklabs-gcp-01-1f0e384c78fd \
+--trigger-event google.storage.object.finalize \
+--runtime nodejs14
+```
+
+* deploy a function written in python
+```bash
+gcloud functions deploy hello_gcs \
+--runtime python39 \
+--trigger-resource YOUR_TRIGGER_BUCKET_NAME \
+--trigger-event google.storage.object.finalize
+```
+
+* deploy Pub/Sub functions and check logs
+
+```bash
+gcloud functions deploy publish --trigger-http --runtime RUNTIME
+```
+
+```bash
+gcloud functions deploy subscribe --trigger-topic MY_TOPIC --runtime RUNTIME
+```
+
+```bash
+gcloud functions call publish --data '{"topic":"MY_TOPIC","message":"Hello World!"}'
+```
+
+```bash
+gcloud functions logs read subscribe
+```
+
+* deploy a fucntion that triggers Firestore
+
+```bash
+gcloud functions deploy FUNCTION_NAME \
+  --entry-point ENTRY_POINT \
+  --runtime RUNTIME \
+  --trigger-event "providers/cloud.firestore/eventTypes/document.write" \
+  --trigger-resource "projects/YOUR_PROJECT_ID/databases/(default)/documents/messages/{pushId}"
+```
+
+# Refetrences:
+* https://cloud.google.com/functions/docs/deploying/filesystem
+* https://cloud.google.com/functions/docs/calling/storage#functions-calling-storage-python
+* https://cloud.google.com/functions/docs/calling/pubsub
+* https://cloud.google.com/functions/docs/calling/cloud-firestore
