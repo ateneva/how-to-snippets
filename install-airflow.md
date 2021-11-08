@@ -1,7 +1,11 @@
 
 ## Check pre-requisites
-* python3 is installed 
+* python3 is installed
+  `python3 --version`
+
 * pip is installed
+  `python3 -m pip --version`
+
 * MySQL database is installed
 ** Tasks cannot be parallelized with the default SQLLite database
 
@@ -34,13 +38,13 @@ pip install apache-airflow
 airflow version
 
 # install extra packages
-pip install apache-airflow[mysql]
+pip install 'apache-airflow[mysql]'
 pip install celery==3.1.17
 
 # create DAGS directory in the default airflow directory where the airflow.cfg file is generated
 cd airflow
 mkdir dags
-ls 
+ls
 ```
 
 
@@ -56,14 +60,14 @@ airflow users create \
     --email EMAIL --firstname firstname \
     --lastname lastname --password password \
     --role Admin -username username
-    
+
 airflow users create \
     --email tenevaa21@gmail.com --firstname angelina \
     --lastname teneva --password ateneva2021 \
     --role Admin -username angelinat   
 ```
 
-### 3. start webserver 
+### 3. start webserver
 
 ```
 airflow webserver -p 8080
@@ -80,7 +84,7 @@ airflow scheduler
 pip unistall apache-airflow
 ```
 
-# References 
+# References
 
 * https://airflow.apache.org/docs/apache-airflow/stable/installation.html
 * https://airflow.apache.org/docs/apache-airflow/stable/installation.html#airflow-extra-dependencies
