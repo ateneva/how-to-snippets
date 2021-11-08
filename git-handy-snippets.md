@@ -195,6 +195,27 @@ git push origin feature/login
 git push origin master
 ```
 
+### amend a commit message
+```
+git commit --amend -m "New commit message"
+```
+* if the commit has already been pushed then you will need to force push after amending
+https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commit-messages
+
+
+### push force
+* needed to sync your remote branch after rebasing local branch
+```
+git push origin <branch> -f
+git push origin <branch> --force
+git push <remote> <branch> -f
+```
+https://stackoverflow.com/questions/43567577/what-is-the-different-between-force-push-and-normal-push-in-git#
+
+https://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push
+
+https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push
+
 ### discard local changes
 ```
 git clean -df            # discard untracked files
@@ -217,9 +238,15 @@ git reset HEAD -- <directory>
 ```
 # keeps a copy of your uncommitted changes in stashes
 # and removes them from working tree so you can switch between branches
+# only applies to files that are already tracked
 git stash
 
+# to stash untracked files
+git stash -u
+
+
 # restore your stashed changes to working tree and remove them from stashes
+# this only applies to the latest stash
 git stash pop
 
 # restore your stashed changes to working tree and keep them in your stash
@@ -238,4 +265,12 @@ git stash clear
 
 ### Merging vs. Rebasing
 
+```
+git fetch origin main
+git checkout my-feature-branch
+git rebase origin/main
+git push origin my-feature-branch -f
+```
+
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+https://docs.gitlab.com/ee/topics/git/git_rebase.html
