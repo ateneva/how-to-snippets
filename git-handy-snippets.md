@@ -211,9 +211,7 @@ git push origin <branch> --force
 git push <remote> <branch> -f
 ```
 https://stackoverflow.com/questions/43567577/what-is-the-different-between-force-push-and-normal-push-in-git#
-
 https://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push
-
 https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push
 
 ### discard local changes
@@ -264,14 +262,39 @@ git stash clear
 ```
 
 ### Merging vs. Rebasing
+The major benefit of rebasing is that you get a much cleaner project history. 
+
+First, it eliminates the unnecessary merge commits required by git merge
+Second, rebasing also results in a perfectly linear project history
+    —you can follow the tip of feature all the way to the beginning of the project without any forks. 
+
+* It can be harmful to do it in shared branches. 
+* It can cause complex and hard to resolve merge conflicts. 
+In these cases, instead of rebasing your branch against the default branch, 
+consider pulling it instead (git pull origin master). 
+
+* It has a similar effect without compromising the work of your contributors.
+
+* So, before you run git rebase, always ask yourself, “Is anyone else looking at this branch?” 
+  * If the answer is yes, take your hands off the keyboard and start thinking about a non-destructive way to make your changes 
+    * (e.g., the git revert command). Otherwise, you’re safe to re-write history as much as you like.
 
 ```
 git fetch origin main
 git checkout my-feature-branch
---git rebase origin/main
+
 git pull --rebase origin development
 git push origin my-feature-branch -f
 ```
 
+If you try to push the rebased main branch back to a remote repository, 
+    Git will prevent you from doing so because it conflicts with the remote main branch. 
+But, you can force the push to go through by passing the --force flag, like so:
+
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
+
 https://docs.gitlab.com/ee/topics/git/git_rebase.html
+https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch
+
+## Restting & Revertting
