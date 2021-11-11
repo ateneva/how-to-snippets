@@ -268,7 +268,8 @@ git stash clear
 ```
 git fetch origin main
 git checkout my-feature-branch
-git rebase origin/main
+--git rebase origin/main
+git pull --rebase origin development
 git push origin my-feature-branch -f
 ```
 
