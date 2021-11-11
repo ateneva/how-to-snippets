@@ -261,7 +261,8 @@ git stash drop stash@{1}
 git stash clear
 ```
 
-# Advanced Tips
+# Advanced Tips 
+https://www.atlassian.com/git/tutorialsc
 
 ## Merging vs. Rebasing
 The major benefit of rebasing is that you get a much cleaner project history. 
@@ -319,3 +320,21 @@ You can also think of:
 * git reset HEAD is for undoing uncommitted changes.
 
 https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
+
+## Cherry picking
+
+git cherry-pick is a powerful command that enables arbitrary Git commits to be picked by reference and appended to the current working HEAD
+
+* Bug hotfixes
+When a bug is discovered it is important to deliver a fix to end users as quickly as possible. 
+
+* Undoing changes and restoring lost commits
+Sometimes a feature branch may go stale and not get merged into main. 
+Sometimes a pull request might get closed without merging. 
+Git never loses those commits and through commands like git log and git reflog they can be found and cherry picked back to life.
+
+```
+git checkout main
+git cherry-pick commitSha
+```
+https://www.atlassian.com/git/tutorials/cherry-pick
