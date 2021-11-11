@@ -261,7 +261,9 @@ git stash drop stash@{1}
 git stash clear
 ```
 
-### Merging vs. Rebasing
+# Advanced Tips
+
+## Merging vs. Rebasing
 The major benefit of rebasing is that you get a much cleaner project history. 
 
 First, it eliminates the unnecessary merge commits required by git merge
@@ -297,4 +299,23 @@ https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
 https://docs.gitlab.com/ee/topics/git/git_rebase.html
 https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch
 
-## Restting & Revertting
+## Resetting & Revertting
+
+* commit level
+```
+git reset       # Discard commits in a private branch or throw away uncommited changes
+git checkout    # switch between branches
+git revert      # undo commits in a public branch
+```
+
+* file level
+```
+git reset       # unstage a file
+git chewckout   # discard chnages in the working directory
+```
+
+You can also think of: 
+* git revert as a tool for undoing committed changes, 
+* git reset HEAD is for undoing uncommitted changes.
+
+https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting
