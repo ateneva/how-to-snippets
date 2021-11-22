@@ -198,10 +198,13 @@ git push origin master
 ### amend a commit message
 ```
 git commit --amend -m "New commit message"
+git commit --amend --author="John Doe <john@doe.org>"
+git commit --amend --author="ateneva<tenevaa21@gmail.com>" -m "use explicit field names"
 ```
 * if the commit has already been pushed then you will need to force push after amending
 https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commit-messages
 
+* https://www.git-tower.com/learn/git/faq/change-author-name-email
 
 ### push force
 * needed to sync your remote branch after rebasing local branch
