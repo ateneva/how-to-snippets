@@ -27,8 +27,13 @@ source env_mysql/bin/activate
 
 ## install MySQL database
 ```
+brew install mysql
+
 export PATH=$PATH:/usr/local/mysql/bin
 mysql --version
+
+# start the mysql server 
+mysql.server start
 
 # access MySQL environment
 MySQL -u root -p
@@ -36,6 +41,9 @@ mysql> CREATE DATABASE airflow CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 mysql> GRANT ALL PRIVILEGES ON airflow.* To 'root'@'localhost';
 mysql> FLUSH PRIVILEGES;
 ```
+
+https://flaviocopes.com/mysql-how-to-install/
+https://stackoverflow.com/questions/22436028/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock-2
 
 ## CREATE TABLE on the installed database
 
@@ -75,6 +83,14 @@ quit
 ALTER TABLE table_name    
 MODIFY column_name datatype;  
 ```
+
+## SHOW users
+```
+MySQL -u root -p
+desc mysql.user;
+select user from mysql.user;
+```
+https://alvinalexander.com/blog/post/mysql/show-users-i-ve-created-in-mysql-database/
 
 ## set up MySQL connection through python
 ```
