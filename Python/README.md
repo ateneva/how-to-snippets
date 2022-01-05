@@ -10,7 +10,7 @@ Every docstring has some (although usually not all) of these five key pieces of 
  - Description of errors raised, if any.
  - Optional extra notes or examples of usage.
 
-```
+```python
 def function(arg_1, arg_2=42):
     """Description of what the function does.
 
@@ -35,7 +35,7 @@ def function(arg_1, arg_2=42):
 
  - use the **inspect** module to return the **docstring** for a function
 
-```
+```python
 import inspect
 
 def count_letter(content, letter):
@@ -63,7 +63,7 @@ print(formatted_docstring)
 
 ### DRY = Do Not Repeat Yourself
 
-```
+```python
 def standardize(column):
     """Standardizes the values in a column.
 
@@ -86,7 +86,7 @@ df['y4_z'] = standardize(df['y4_gpa'])
 
 ### DO One Thing
 
-```
+```python
 def calculate_mean(values):
     """Gets the mean of a list of `values`
 
@@ -105,7 +105,7 @@ print(f'The mean of {even} is {calculate_mean(even)}')
 print(f'The mean of {odd} is {calculate_mean(odd)}')
 ```
 
-```
+```python
 def calculate_median(values):
     """Gets the median of a list of `values`
 

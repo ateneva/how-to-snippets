@@ -4,7 +4,7 @@
 ## using mysql-connector
 
 ### create databases
-```
+```python
 import mysql.connector as mysql
 
 db = mysql.connect(
@@ -23,7 +23,7 @@ cursor.execute("CREATE DATABASE datacamp")
 ```
 
 ### connect to a database
-```
+```python
 ## Connecting to the database
 
 ## importing 'mysql.connector' as mysql for convenient
@@ -41,7 +41,7 @@ print(db) # it will print a connection object if everything is fine
 ```
 
 ### show databases
-```
+```python
 import mysql.connector as mysql
 
 db = mysql.connect(
@@ -67,7 +67,7 @@ for database in databases:
 ```
 
 ### create a single table
-```
+```python
 create_movies_table_query = """
 CREATE TABLE movies(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,7 +83,7 @@ with connection.cursor() as cursor:
 ```
 
 ### create multiple tables
-```
+```python
 create_reviewers_table_query = """
 CREATE TABLE reviewers (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -112,7 +112,7 @@ with connection.cursor() as cursor:
 ```
 
 ### alter table schema
-```
+```python
 alter_table_query = """
     ALTER TABLE movies
      MODIFY COLUMN collection_in_mil DECIMAL(4,1)
@@ -132,7 +132,7 @@ for row in result:
 ```
 
 ### insert records
-```
+```python
 insert_reviewers_query = """
 INSERT INTO reviewers
 (first_name, last_name)
@@ -167,7 +167,7 @@ with connection.cursor() as cursor:
     connection.commit()
 ```
 
-```
+```python
 insert_ratings_query = """
 INSERT INTO ratings
 (rating, movie_id, reviewer_id)
@@ -192,7 +192,7 @@ with connection.cursor() as cursor:
     connection.commit()
 ```
 
-```
+```python
 import mysql.connector as mysql
 
 db = mysql.connect(
@@ -220,7 +220,7 @@ print(cursor.rowcount, "record inserted")
 ```
 
 ### read records
-```
+```python
 select_movies_query = """
 SELECT title, collection_in_mil
 FROM movies
@@ -233,7 +233,7 @@ with connection.cursor() as cursor:
     print(movie)
 ```
 
-```
+```python
 select_movies_query = """
 SELECT CONCAT(first_name, " ", last_name), COUNT(*) as num
 FROM reviewers
@@ -251,7 +251,7 @@ with connection.cursor() as cursor:
 ```
 
 ### update records
-```
+```python
 update_query = """
 UPDATE
     reviewers
@@ -267,7 +267,7 @@ with connection.cursor() as cursor:
 ```
 
 ### drop table 
-```
+```python
 drop_table_query = "DROP TABLE ratings"
 with connection.cursor() as cursor:
     cursor.execute(drop_table_query)
@@ -275,7 +275,7 @@ with connection.cursor() as cursor:
 ```
 
 ## using pymysql
-```
+```python
 import pymysql, os, json
 
 # connect to MySQL
@@ -302,7 +302,7 @@ con.close()
 
 ## using sqlalchemy
 ### create engine 
-```
+```python
 # default
 engine = create_engine('mysql://scott:tiger@localhost/foo')
 
@@ -314,7 +314,7 @@ engine = create_engine('mysql+pymysql://scott:tiger@localhost/foo')
 ```
 
 ### create table 
-```
+```python
 connection = engine.connect()
 metadata = db.MetaData()
 
@@ -328,7 +328,7 @@ emp = db.Table('emp', metadata,
 metadata.create_all(engine) #Creates the table
 ```
 ### insert into table 
-```
+```python
 query = db.insert(emp) 
 values_list = [{'Id':'2', 'name':'ram', 'salary':80000, 'active':False},
                {'Id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
