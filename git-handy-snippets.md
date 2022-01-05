@@ -28,7 +28,7 @@ https://stackoverflow.com/questions/2472254/when-should-i-use-git-pull-rebase
 
 
 ### Add .gitignore file
-```
+```bash
 # specify a global exclusion list
 git config --global core.excludesfile ~/.gitignore
 
