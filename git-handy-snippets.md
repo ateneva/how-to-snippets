@@ -2,7 +2,7 @@
 # Setting Up
 
 ### Configure GIT
-```
+```bash
 git config --global user.email ateneva@gmail.com
 git config --global user.name angelinateneva
 git config --global core.editor atom
@@ -40,7 +40,7 @@ find . -name .DS_Store -print0 | xargs -0 git rm --ignore-unmatch
 ```
 
 ### Review GIT configuration
-```
+```bash
 git config user.name          # display the configured user name
 git config user.email         # display the configured email
 git config core.editor        # display the configured editor
@@ -48,21 +48,21 @@ git config core.excludesfile  # review excluded files
 ```
 
 ### Clone a remote repository
-```
+```bash
 mkdir prj
 cd prj
 git clone <url-to-project-name.git>
 ```
 
 ### Create local repository
-```
+```bash
 mkdir proj
 cd proj
 git init
 ```
 
 ### Add local repository as a remote
-```
+```bash
 git remote add origin <url-to-project-name.git>
 
 git add README.md
@@ -79,7 +79,7 @@ git push --set-upstream git@gitlab.example.com:namespace/nonexistent-project.git
 ```
 
 ### Rename/Remove remote repository
-```
+```bash
 git remote rename <old> <new>
 git remote remove <name>
 ```
@@ -87,7 +87,7 @@ https://www.git-tower.com/learn/git/faq/set-upstream/
 
 
 ### Change local repo default tracking branch
-```
+```bash
 git branch -m master main       # move from master to maim
 git fetch origin
 git branch -u origin/main main  # set up tracking to main
@@ -97,7 +97,7 @@ git branch -u origin/main main  # set up tracking to main
 
 ## Branches
 ### review remote repository commit history
-```
+```bash
 git log
 git log --all                           # shows both local and tracking branches
 git log --stat                          # shows more details about the commit
@@ -111,14 +111,14 @@ git log origin --oneline -5             # shows the last 5 commits on default tr
 ```
 
 ### create a new branch
-```
+```bash
 git branch <branch name>            # create a new branch
 git checkout <branch name>          # switch to a different branch
 git checkout -b <branch name>       # create a new branch and switch to it
 ```
 
 ### review existing branches
-```
+```bash
 git branch
 git branch -r         # display only remote branches
 git branch -a         # display both remote and local branches
@@ -128,7 +128,7 @@ git branch --all      # display both remote and tracking branches
 ```
 
 ### merge branches
-```
+```bash
 git merge <branch>
 git merge <branch> --ff        # fast-forward merge
 git merge <branch> --no-ff     # merge commit
@@ -136,7 +136,7 @@ git merge <branch> --ff-only   # abort merge if fast-forward not possible
 ```
 
 ### squash merge
-```
+```bash
 # could be a handy strategy to keep commit history clean
 # it only works if the original branch is deleted
 
@@ -147,7 +147,7 @@ git branch -D feature X
 ```
 
 ### merge conflicts
-```
+```bash
 git merge --abort
 git checkout --ours [filename]     # keep your changes
 git checkout --theirs [filename]   # keep their changes
@@ -155,7 +155,7 @@ git rm <filename>                  # remove a file from working tree
 ```
 
 ### delete branches
-```
+```bash
 git branch -d <branch name>             # delete local branch only
 git branch -D <branch name>             # delete branch with unmerged commits
 git push -d <remote_name> <branch_name> # delete remote branch
@@ -165,7 +165,7 @@ git push -d origin <branch_name>        # often remote name is origin
 ## Committing
 
 ### check local repository status
-```
+```bash
 git status
 git status -s
 git status --short
@@ -178,13 +178,13 @@ git status --verbose
 ```
 
 ### show current commit
-```
+```bash
 git show HEAD -s                 # show current commit on current branch
 git show origin/master HEAD -s   # show current commit on master branch
 ```
 
 ### stage & commit files
-```
+```bash
 git add <file>
 git add <directory>
 git add .
@@ -196,7 +196,7 @@ git push origin master
 ```
 
 ### amend a commit message
-```
+```bash
 git commit --amend -m "New commit message"
 git commit --amend --author="John Doe <john@doe.org>"
 git commit --amend --author="ateneva<tenevaa21@gmail.com>" -m "use explicit field names"
@@ -208,7 +208,7 @@ https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commi
 
 ### push force
 * needed to sync your remote branch after rebasing local branch
-```
+```bash
 git push origin <branch> -f
 git push origin <branch> --force
 git push <remote> <branch> -f
@@ -218,14 +218,14 @@ https://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push
 https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push
 
 ### discard local changes
-```
+```bash
 git clean -df            # discard untracked files
 git checkout -- <file>   # disard changes to unstaged files
 git checkout -- .
 ```
 
 ### unstage files
-```
+```bash
 git restore --staged <file>
 git restore --staged <directory>
 
@@ -236,7 +236,7 @@ git reset HEAD -- <directory>
 ```
 
 ### stash local changes
-```
+```bash
 # keeps a copy of your uncommitted changes in stashes
 # and removes them from working tree so you can switch between branches
 # only applies to files that are already tracked
@@ -285,7 +285,7 @@ consider pulling it instead (git pull origin master).
   * If the answer is yes, take your hands off the keyboard and start thinking about a non-destructive way to make your changes 
     * (e.g., the git revert command). Otherwise, you’re safe to re-write history as much as you like.
 
-```
+```bash
 git fetch origin main
 git checkout my-feature-branch
 
@@ -306,16 +306,16 @@ https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into
 ## Resetting & Revertting
 
 * commit level
-```
+```bash
 git reset       # Discard commits in a private branch or throw away uncommited changes
 git checkout    # switch between branches
 git revert      # undo commits in a public branch
 ```
 
 * file level
-```
+```bash
 git reset       # unstage a file
-git chewckout   # discard chnages in the working directory
+git checkout    # discard chnages in the working directory
 ```
 
 You can also think of: 
@@ -336,7 +336,7 @@ Sometimes a feature branch may go stale and not get merged into main.
 Sometimes a pull request might get closed without merging. 
 Git never loses those commits and through commands like git log and git reflog they can be found and cherry picked back to life.
 
-```
+```bash
 git checkout main
 git cherry-pick commitSha
 ```
