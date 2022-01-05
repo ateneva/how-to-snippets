@@ -1,7 +1,7 @@
 
 ### install django on mac
 
-```
+```bash
 pip install virtualenv
 virtual env --version
 
@@ -25,7 +25,7 @@ https://projects.raspberrypi.org/en/projects/using-pip-on-windows/4
 https://git-scm.com/downloads
 
 3. Make sure you have virtualenv installed
-```
+```bash
 virtual env --version
 pip install virtualenv
 ```
@@ -33,19 +33,19 @@ pip install virtualenv
 ![img.png](img.png)
 
 5. create virtual environment and install django
-```
+```bash
 python -m venv django_venv
 source django_venv/Scripts/activate
 pip install django
 ```
 
 ### start a django project
-```
+```bash
 django-admin startproject mydjangosite
 ```
 
 ### verify that your django project works
-```
+```bash
 cd mydjangosite
 python manage.py runserver
 ```
@@ -53,17 +53,17 @@ python manage.py runserver
 ### change the port
 default port is 8000;
     if you want to change it, run
-```
+```bash
 python manage.py runserver 8080
 ```
 
 ### create a new app
-```
+```bash
 python manage.py startapp comics
 ```
 
 ### create admin user
-```
+```bash
 # detects changes to be made
 python manage.py makemigrations
 
@@ -79,7 +79,7 @@ python manage.py runserver
 ```
 
 ### connect django to MySQL database
-```
+```bash
 # install mysql client
 brew install mysql
 pip install mysqlclient
@@ -104,14 +104,14 @@ python manage.py migrate
 ```
 
 ### create django classes
-```
+```bash
 python manage.py inspectdb > models.py
 
 python manage.py makemigrations
 python manage.py migrate --fake-initial
 ```
 
-```
+```bash
 # sample class of exisiting DB
 class Example(models.Model):
   ...
@@ -124,13 +124,13 @@ class Example(models.Model):
 ```
 
 ### implement the django classes that were written to database
-```
+```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
 ### print out the sql code that is going to run
-```
+```bash
 python manage.py sqlmigrate comics 0001
 ```
 

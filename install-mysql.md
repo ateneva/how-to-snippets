@@ -3,13 +3,13 @@
 * python3 is installed 
 * pip is installed
 
-```
+```bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
 ```
 
 ## create virtual environment
-```
+```bash
 pip install virtualenv
 virtualenv --version
 
@@ -26,7 +26,7 @@ source env_mysql/bin/activate
 ```
 
 ## install MySQL database
-```
+```bash
 export PATH=$PATH:/usr/local/mysql/bin
 mysql --version
 
@@ -39,7 +39,7 @@ mysql> FLUSH PRIVILEGES;
 
 ## CREATE TABLE on the installed database
 
-```
+```sql
 CREATE TABLE movies(
     title VARCHAR(50) NOT NULL,
     genre VARCHAR(30) NOT NULL,
@@ -50,13 +50,13 @@ CREATE TABLE movies(
 ```
 
 ## INSERT values 
-```
+```sql
 INSERT INTO movies 
 VALUES ("Joker", "psychological thriller", "Todd Phillips", 2019);
 ```
 
 ## CHECK DATABASES and TABLES
-```
+```bash
 MySQL -u root -p
 SHOW DATABASES;
 SHOW TABLES from database;
@@ -70,7 +70,7 @@ quit
 ```
 
 ## set up MySQL connection through python
-```
+```bash
 pip install mysqlclient
 pip install mysql-connector-python
 pip install pymysql

@@ -9,13 +9,13 @@
 * MySQL database is installed
 ** Tasks cannot be parallelized with the default SQLLite database
 
-```
+```bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
 ```
 
 ## Create virtual environment
-```
+```bash
 pip install virtualenv
 virtualenv --version
 
@@ -32,7 +32,7 @@ source env_airflow/bin/activate
 ```
 
 ## Install Airflow
-```
+```bash
 # install the basic packages
 pip install apache-airflow
 airflow version
@@ -49,13 +49,13 @@ ls
 
 
 ### 1. initialize database
-```
+```bash
 airflow db init
 ```
 
 ### 2. create airflow user
 
-```
+```bash
 airflow users create \
     --email EMAIL --firstname firstname \
     --lastname lastname --password password \
@@ -69,18 +69,18 @@ airflow users create \
 
 ### 3. start webserver
 
-```
+```bash
 airflow webserver -p 8080
 ```
 
 ### 4. start the scheduler
 
-```
+```bash
 airflow scheduler
 ```
 
 # Uninstalling Airflow
-```
+```bash
 pip unistall apache-airflow
 ```
 

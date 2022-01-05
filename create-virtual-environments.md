@@ -13,7 +13,7 @@
 # Locate where python is installed on your machine
 
 ### Mac OS
-```
+```bash
 import os 
 import sys
 os.path.dirname(sys.executable)
@@ -22,7 +22,7 @@ os.path.dirname(sys.executable)
 **OR** type `where python3`
 
 ### Windows
-```
+```bash
 import os 
 import sys
 os.path.dirname(sys.executable)
@@ -34,7 +34,7 @@ os.path.dirname(sys.executable)
 # Create and activate virtual environment
 
 ### Windows
-```
+```bash
 pip install virtualenv
 virtual env --version
 
@@ -50,7 +50,7 @@ cd Documents\airflow\airflow\venv_airflow
 ```
 
 ### Mac
-```
+```bash
 pip install virtualenv
 virtual env --version
 
@@ -62,7 +62,7 @@ virtualenv airflow_env -p python 3
 source airflow_env/bin/activate
 ```
 
-```
+```bash
 OR
 python3 -m venv env
 source env/bin/activate
