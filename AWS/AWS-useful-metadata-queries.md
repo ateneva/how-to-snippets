@@ -92,3 +92,16 @@ WHERE 1=1
   AND   s.tbl IN (SELECT oid FROM tbles)
 GROUP BY tbl
 ```
+
+### identify Redshift users and their user groups
+```bash
+SELECT
+  usename AS user_name,
+  groname AS user_group
+FROM
+  pg_user,
+  pg_group
+WHERE pg_user.usesysid = ANY (pg_group.grolist
+                             )
+AND   pg_user.usename LIKE '%angelina%';
+```

@@ -1,4 +1,7 @@
 
+# install Python 
+https://www.youtube.com/watch?v=8BiYGIDCvvA&t=192s
+
 # Start up and exit python interpreter
 
 ### Mac OS
@@ -36,7 +39,7 @@ os.path.dirname(sys.executable)
 ### Windows
 ```bash
 pip install virtualenv
-virtual env --version
+virtualenv env --version
 
 # navigate to project folder
 cd Documents\GitHub\airflow

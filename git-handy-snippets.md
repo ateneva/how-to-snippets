@@ -290,7 +290,22 @@ git fetch origin main
 git checkout my-feature-branch
 
 git pull --rebase origin development
-git push origin my-feature-branch -f
+git checkout --ours <file name>       # keep their changes over mine in case of merge conflicts
+
+git add .
+git commit -m "sync with development"
+git rebase --continue                 # finish rebasing after selecting the changes
+
+# redo your changes and add them with 
+git add .
+git commit -m <messsage> 
+git push origin my-feature-branch -f  # a rebased branch needs force-pushing
+```
+
+### note the difference in flags between git merge and git rebase
+```bash
+git rebase --theirs branch-b          # keep my changes over theirs
+git merge --theirs  branch-b          # keep their changes over mine
 ```
 
 If you try to push the rebased main branch back to a remote repository, 
@@ -299,9 +314,11 @@ But, you can force the push to go through by passing the --force flag, like so:
 
 https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
-
 https://docs.gitlab.com/ee/topics/git/git_rebase.html
+https://medium.com/osedea/git-rebase-powerful-command-507bbac4a234
+
 https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch
+https://howchoo.com/git/git-merge-conflicts-rebase-ours-theirs#using-ours-theirs-during-a-rebase
 
 ## Resetting & Revertting
 
