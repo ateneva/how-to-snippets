@@ -160,7 +160,10 @@ git branch -d <branch name>             # delete local branch only
 git branch -D <branch name>             # delete branch with unmerged commits
 git push -d <remote_name> <branch_name> # delete remote branch
 git push -d origin <branch_name>        # often remote name is origin
+
+git remote prune origin                 # remove local tracking branches that have been deleted on the remote
 ```
+https://stackoverflow.com/questions/7726949/remove-tracking-branches-no-longer-on-remote
 
 ## Committing
 
