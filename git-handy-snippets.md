@@ -134,6 +134,7 @@ git merge <branch> --ff        # fast-forward merge
 git merge <branch> --no-ff     # merge commit
 git merge <branch> --ff-only   # abort merge if fast-forward not possible
 ```
+https://www.atlassian.com/git/tutorials/using-branches/git-merge
 
 ### squash merge
 ```bash
@@ -141,9 +142,10 @@ git merge <branch> --ff-only   # abort merge if fast-forward not possible
 # it only works if the original branch is deleted
 
 git checkout master
-git merge --squash featureX   
-git commit
-git branch -D feature X
+git merge --squash featureX --ff  
+git commit -m "merge featureX into development"
+git push origin development
+git push -d origin featureX
 ```
 
 ### merge conflicts
@@ -151,7 +153,6 @@ git branch -D feature X
 git merge --abort
 git checkout --ours [filename]     # keep your changes
 git checkout --theirs [filename]   # keep their changes
-git rm <filename>                  # remove a file from working tree
 ```
 
 ### delete branches
@@ -222,9 +223,11 @@ https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push
 
 ### discard local changes
 ```bash
-git clean -df            # discard untracked files
-git checkout -- <file>   # disard changes to unstaged files
-git checkout -- .
+git clean -df               # discard untracked files
+git checkout -- <file>      # disard changes to a tracked file
+git checkout -- .           # disccard changes to all tracked files
+git rm <filename> --cached  # unstage a file from working tree
+git rm <filename> -f        # remove a file completely from working tree
 ```
 
 ### unstage files
@@ -234,8 +237,8 @@ git restore --staged <directory>
 
 OR
 
-git reset HEAD -- <file>
-git reset HEAD -- <directory>
+git reset HEAD -- <file>        # discard changes in modified files
+git reset HEAD -- <directory>   # discard changes in modified files
 ```
 
 ### stash local changes
