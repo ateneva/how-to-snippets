@@ -275,10 +275,15 @@ https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-
 ```bash
 dbt compile               # check for syntax errors
 dbt run                   # run all dbt models in the dependency graph
-dbt run -m +<model name>  # run a dbt model and its upstream dependenies
-dbt run -m <model_name>+  # run a dbt model and its downstream dependencies
-dbt run -m +<model name>+ # run a dbt model and its upstream and downstream dependencies
-dbt run --full-refresh -m +<model name> # force rebuiild the entire incremental model from scratch
+dbt run -m +<model name>  # run a model and its upstream dependencies
+dbt run -m <model_name>+  # run a model and its downstream dependencies
+dbt run -m +<model name>+ # run a model and its upstream and downstream dependencies
+
+# force rebuiild the entire incremental model from scratch
+dbt run --full-refresh -m +<model name> 
+
+# run all models that depend on a given source
+dbt run -m source:<source name>+  
 ```
 * https://docs.getdbt.com/reference/node-selection/syntax
 * https://docs.getdbt.com/reference/node-selection/graph-operators
