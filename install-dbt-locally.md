@@ -1,5 +1,5 @@
 
-# What is Analytics Engineering 
+# What is Analytics Engineering
 
 * **Data Engineer**
   * build custom data integrations
@@ -11,7 +11,7 @@
 
 * **Analytics Engineer**
   * provide cleaned transformed data, ready for analysis
-  * apply software engineering best practices to analytics code 
+  * apply software engineering best practices to analytics code
     * version control
     * testing
     * continuous integration
@@ -20,7 +20,7 @@
 
 
 * **Data Analyst**
-  * deep insights work 
+  * deep insights work
     - e.g. why did churn spike last month
     - e.g. what are the best acquisition channels
   * work with business users to understand data requirements
@@ -31,13 +31,13 @@ https://www.getdbt.com/what-is-analytics-engineering/
 
 ## What is dbt?
 
-* **dbt** (data build tool) enables analytics engineers to transform data in their warehouses by simply writing select statements. 
+* **dbt** (data build tool) enables analytics engineers to transform data in their warehouses by simply writing select statements.
 
 
 * **dbt** handles turning these select statements into tables and views.
 
 
-* **dbt** does the T in ELT (Extract, Load, Transform) processes 
+* **dbt** does the T in ELT (Extract, Load, Transform) processes
   * it doesn’t extract or load data, but it’s extremely good at transforming data that’s already loaded into your warehouse.
 
 https://docs.getdbt.com/docs/introduction
@@ -50,7 +50,7 @@ https://docs.getdbt.com/docs/introduction
 ```bash
 pip install dbt==0.20.1
 
-OR 
+OR
 
 pip install \
   dbt-core \
@@ -132,14 +132,14 @@ dbt debug
 
 ## DBT materializations
 * **TABLE** -- the model is rebuilt as a table on each run, via a `CREATE TABLE AS` statement.
-  * **Pros**: Tables are fast to query 
+  * **Pros**: Tables are fast to query
   * **Cons**:
-    * Tables can take a long time to rebuild, especially for complex transformations 
-    * New records in underlying source data are not automatically added to the table 
+    * Tables can take a long time to rebuild, especially for complex transformations
+    * New records in underlying source data are not automatically added to the table
   * **Advice**:
-    * Use the table materialization for any models being queried by BI tools, to give your end user a faster experience 
+    * Use the table materialization for any models being queried by BI tools, to give your end user a faster experience
     * Also use the table materialization for any slower transformations that are used by many downstream models
-    
+
 ```json
 {{
     config(
@@ -153,14 +153,14 @@ dbt debug
 
 * **VIEW** -- **the model is rebuilt as a view on each run, via a `CREATE VIEW AS` statement**.
 
-  * **Pros**: 
+  * **Pros**:
     * No additional data is stored, views on top of source data will always have the latest records in them.
-  * **Cons**: 
+  * **Cons**:
     * Views that perform significant transformation, or are stacked on top of other views, are slow to query.
   * **Advice**:
-    * Generally start with views for your models, and only change to another materialization when you're noticing performance problems. 
+    * Generally start with views for your models, and only change to another materialization when you're noticing performance problems.
     * Views are best suited for models that do not do significant transformation, e.g. renaming, recasting columns.
-    
+
 ```json
 {{
     config(
@@ -171,16 +171,16 @@ dbt debug
     )
 }}
 ```
-  
+
 * **INCREMENTAL** -- models allow dbt to insert or update records into a table since the last time that dbt was run
-  * **Pros**: 
-    * You can significantly reduce the build time by just transforming new records 
-  * **Cons**: 
+  * **Pros**:
+    * You can significantly reduce the build time by just transforming new records
+  * **Cons**:
     * Incremental models require extra configuration and are an advanced usage of dbt.
   * **Advice**:
-    * Incremental models are best for event-style data 
+    * Incremental models are best for event-style data
     * Use incremental models when your dbt runs are becoming too slow (i.e. don't start with incremental models)
-    
+
 ```json
 {{
     config(
@@ -193,9 +193,9 @@ dbt debug
 ```
 https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models
 
-Incremental models are built as tables in your data warehouse 
-- the first time a model is run, the table is built by transforming all rows of source data. 
-  - On subsequent runs, dbt transforms **only the rows in your source data that you tell dbt to filter for**, 
+Incremental models are built as tables in your data warehouse
+- the first time a model is run, the table is built by transforming all rows of source data.
+  - On subsequent runs, dbt transforms **only the rows in your source data that you tell dbt to filter for**,
     - **inserting them into the table** that has already been built (the target table)
 
 ```json
@@ -224,35 +224,39 @@ group by 1
 ```
 **Unique_key** is an optional parameter for incremental models that specifies a field which should be unique within your model.
 
-**If the unique key of an existing row in your target table matches one of your incrementally transformed rows**, the existing row will be updated. 
+**If the unique key of an existing row in your target table matches one of your incrementally transformed rows**, the existing row will be updated.
 
 **This ensures that you don't have multiple rows in your target table for a single row in your source data.**
 
+### What if my incremental model changes?
+
+For dbt versions
 
 To force dbt to rebuild the entire incremental model from scratch, use the --full-refresh flag on the command line.
 This flag will cause dbt to drop the existing target table in the database before rebuilding it for all-time.
 
 ```bash
-$ dbt run --full-refresh --select my_incremental_model+
+$ dbt run --full-refresh -m +<model name>+
 ```
+https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models
 
 * **EPHEMERAL** -- models are not directly built into the database.
   * Instead, dbt will interpolate the code from this model into dependent models as a common table expression
 
 * **Pros**:
-  * You can still write reusable logic 
-  * Ephemeral models can help keep your data warehouse clean by reducing clutter (also consider splitting your models across multiple schemas by using custom schemas). 
+  * You can still write reusable logic
+  * Ephemeral models can help keep your data warehouse clean by reducing clutter (also consider splitting your models across multiple schemas by using custom schemas).
 
 
 * **Cons**:
-  * You cannot select directly from this model. 
+  * You cannot select directly from this model.
   * Operations (e.g. macros called via dbt run-operation cannot ref() ephemeral nodes)
   * Overuse of the ephemeral materialization can also make queries harder to debug.
 
 
 * **Advice**: Use the ephemeral materialization for:
-  * very light-weight transformations that are early on in your DAG 
-    * are only used in one or two downstream models, and 
+  * very light-weight transformations that are early on in your DAG
+    * are only used in one or two downstream models, and
     * do not need to be queried directly
 
 ```json
@@ -274,6 +278,7 @@ dbt run                   # run all dbt models in the dependency graph
 dbt run -m +<model name>  # run a dbt model and its upstream dependenies
 dbt run -m <model_name>+  # run a dbt model and its downstream dependencies
 dbt run -m +<model name>+ # run a dbt model and its upstream and downstream dependencies
+dbt run --full-refresh -m +<model name> # force rebuiild the entire incremental model from scratch
 ```
 * https://docs.getdbt.com/reference/node-selection/syntax
 * https://docs.getdbt.com/reference/node-selection/graph-operators
