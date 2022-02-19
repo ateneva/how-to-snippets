@@ -36,7 +36,7 @@ os.path.dirname(sys.executable)
 
 # Create and activate virtual environment
 
-### Windows
+## Windows
 ```bash
 pip install virtualenv
 virtualenv env --version
@@ -52,7 +52,15 @@ cd Documents\airflow\airflow\venv_airflow
 
 ```
 
-### Mac
+## Mac
+
+### create virtual environment using venv
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+
+### create virtual environment using virtualenv
 ```bash
 pip install virtualenv
 virtualenv --version
@@ -64,15 +72,45 @@ virtualenv airflow_env -p python3
 # activate virtual environment
 source airflow_env/bin/activate
 ```
+* https://virtualenv.pypa.io/en/latest/installation.html
+* https://virtualenv.pypa.io/en/latest/
+
+# What if I don't have pip installed?
+ * you can use `pipx` to  install `virtualenv`
 
 ```bash
-OR
-python3 -m venv env
-source env/bin/activate
+# install pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+pipx completions
+
+# install virtualenv via pipx
+pipx install virtualenv
+virtualenv --help
 ```
+
+ * OR you can install `pip` via `homebrew`
+   * this is recommended as it is likely you'll need `pip` for other installations
+
+```bash
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# use brew to install pip
+brew install brew-pip
+```
+* https://brew.sh/
+* https://formulae.brew.sh/formula/brew-pip
+
+
 
 # References
 * https://docs.python-guide.org/dev/virtualenvs/
 * https://programwithus.com/learn/python/pip-virtualenv-windows
+
+* https://pypi.org/project/pipx/
+* https://virtualenv.pypa.io/en/latest/installation.html
+* https://virtualenv.pypa.io/en/latest/
+
 * https://realpython.com/python-virtual-environments-a-primer/
 * https://realpython.com/courses/working-python-virtual-environments/
