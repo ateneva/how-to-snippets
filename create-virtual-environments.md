@@ -55,11 +55,11 @@ cd Documents\airflow\airflow\venv_airflow
 ### Mac
 ```bash
 pip install virtualenv
-virtual env --version
+virtualenv --version
 
 # create project folder
 cd Documents
-virtualenv airflow_env -p python 3
+virtualenv airflow_env -p python3
 
 # activate virtual environment
 source airflow_env/bin/activate
