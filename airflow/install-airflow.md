@@ -3,7 +3,7 @@
 * python3 is installed
   `python3 --version`
 
-* pip is installed
+* pip is installed 
   `python3 -m pip --version`
 
 * MySQL database is installed
@@ -25,7 +25,7 @@ mkdir airflow_setup
 
 # create virtual environement
 cd airflow_setup
-virtualenv env_airflow -p python 3
+virtualenv env_airflow -p python3
 
 # activate virtual environment
 source env_airflow/bin/activate
@@ -38,7 +38,7 @@ pip install apache-airflow
 airflow version
 
 # install extra packages
-pip install 'apache-airflow[mysql]'
+pip install apache-airflow[mysql]
 pip install celery==3.1.17
 
 # create DAGS directory in the default airflow directory where the airflow.cfg file is generated
