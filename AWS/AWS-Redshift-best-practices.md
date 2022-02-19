@@ -5,6 +5,8 @@
 ## Amazon Redshift Best Practices
 * https://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html
 * https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-best-dist-key.html
+  * https://stackoverflow.com/questions/29380281/amazon-redshift-doing-hash-join-even-when-joined-on-column-that-is-both-dist-key
+  * https://stackoverflow.com/questions/31086623/unnecessary-ds-bcast-inner-after-group-by-in-redshift
 
 
 * https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-sort-key.html
