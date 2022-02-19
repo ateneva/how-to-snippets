@@ -89,6 +89,12 @@ pipx install virtualenv
 virtualenv --help
 ```
 
+  * You can install `pip` using 
+```bash
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+```
+
  * OR you can install `pip` via `homebrew`
    * this is recommended as it is likely you'll need `pip` for other installations
 
@@ -101,6 +107,7 @@ brew install brew-pip
 ```
 * https://brew.sh/
 * https://formulae.brew.sh/formula/brew-pip
+
 
 
 
