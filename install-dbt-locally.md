@@ -280,10 +280,14 @@ dbt run -m <model_name>+  # run a model and its downstream dependencies
 dbt run -m +<model name>+ # run a model and its upstream and downstream dependencies
 
 # force rebuiild the entire incremental model from scratch
-dbt run --full-refresh -m +<model name> 
+dbt run --full-refresh -m +<model name>
 
 # run all models that depend on a given source
 dbt run -m source:<source name>+  
+
+# run dbt singular test(s)
+dbt test -m <name_of_the_sql_file_of_the_test>
+dbt test -m <subdirectory_within_where_test_files_exist>
 ```
 * https://docs.getdbt.com/reference/node-selection/syntax
 * https://docs.getdbt.com/reference/node-selection/graph-operators
