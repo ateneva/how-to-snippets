@@ -94,7 +94,7 @@ GROUP BY tbl
 ```
 
 ### identify Redshift users and their user groups
-```bash
+```sql
 SELECT
   usename AS user_name,
   groname AS user_group
@@ -104,4 +104,22 @@ FROM
 WHERE pg_user.usesysid = ANY (pg_group.grolist
                              )
 AND   pg_user.usename LIKE '%angelina%';
+```
+
+
+### check table owner
+```sql
+SELECT
+  tablename,
+  tableowner
+FROM
+  pg_tables
+WHERE
+    tablename IN (
+      'pmi_sku_ras_temp',
+      'pmi_sku_ras_temp2',
+      'pmi_sku_ras'
+    )
+
+AND schemaname = 'trash';
 ```
