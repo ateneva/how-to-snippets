@@ -1,11 +1,11 @@
 
-# install Python 
+# install Python
 https://www.youtube.com/watch?v=8BiYGIDCvvA&t=192s
 
 # Start up and exit python interpreter
 
 ### Mac OS
-* Type `python3` in Terminal to start 
+* Type `python3` in Terminal to start
 * Type `quit()` or `exit()` to exit
 
 
@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=8BiYGIDCvvA&t=192s
 
 ### Mac OS
 ```bash
-import os 
+import os
 import sys
 os.path.dirname(sys.executable)
 ```
@@ -26,7 +26,7 @@ os.path.dirname(sys.executable)
 
 ### Windows
 ```bash
-import os 
+import os
 import sys
 os.path.dirname(sys.executable)
 ```
@@ -89,7 +89,7 @@ pipx install virtualenv
 virtualenv --help
 ```
 
-  * You can install `pip` using 
+  * You can install `pip` using
 ```bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
@@ -102,8 +102,9 @@ python get-pip.py
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# use brew to install pip
+# use brew to install pip and virtualenv
 brew install brew-pip
+brew install virtualenv
 ```
 * https://brew.sh/
 * https://formulae.brew.sh/formula/brew-pip
