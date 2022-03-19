@@ -285,9 +285,11 @@ dbt run --full-refresh -m +<model name>
 # run all models that depend on a given source
 dbt run -m source:<source name>+  
 
-# run dbt singular test(s)
+# run dbt test(s)
 dbt test -m <name_of_the_sql_file_of_the_test>
 dbt test -m <subdirectory_within_where_test_files_exist>
+
+dbt test --select source:<source name>+  # run all tests defined on a source
 ```
 * https://docs.getdbt.com/reference/node-selection/syntax
 * https://docs.getdbt.com/reference/node-selection/graph-operators
