@@ -123,3 +123,12 @@ WHERE
 
 AND schemaname = 'trash';
 ```
+
+### check load errors
+```sql
+SELECT *
+  FROM stl_load_errors
+  WHERE filename LIKE 's3://bucket/folder/%'
+  ORDER BY starttime DESC
+LIMIT 100
+```
