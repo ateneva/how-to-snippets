@@ -86,10 +86,11 @@ t0 >> t1 >> [t2, t3]
 # Dependencies with tuples
 t0 >> t1 >> (t2, t3)
 
-These are equivalent pr 
 
 ```
 * https://www.astronomer.io/guides/managing-dependencies
+* https://godatadriven.com/blog/the-zen-of-python-and-apache-airflow/
+
 
 # References
 * https://airflow.apache.org/docs/apache-airflow/stable/dag-run.html
@@ -98,6 +99,8 @@ These are equivalent pr
 * https://www.youtube.com/watch?v=s_28dAy9it8
 * https://stackoverflow.com/questions/51617236/airflow-backfills-and-new-dag-runs
 * https://www.startdataengineering.com/post/how-to-backfill-sql-query-using-apache-airflow/
+
+* https://godatadriven.com/blog/the-zen-of-python-and-apache-airflow/
 
 ## airflow pre-defined variables 
 https://airflow.apache.org/docs/apache-airflow/1.10.4/macros.html
