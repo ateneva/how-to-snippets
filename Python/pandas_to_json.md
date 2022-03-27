@@ -10,6 +10,9 @@ df = pd.DataFrame.from_dict(data)
 
 # add column to a data frame
 df['inserted_timestamp'] = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+# remove commas from pandas dataframe
+df['x']=df['x'].str.replace(',','')
     
 print(f'Created dataframe {df}')
 
@@ -261,3 +264,11 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='c
 
 ## References
 * https://datatofish.com/export-pandas-dataframe-json/
+* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_json.html
+* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html
+* https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/
+* https://towardsdatascience.com/how-to-add-a-new-column-to-an-existing-pandas-dataframe-310a8e7baf8f
+
+* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html
+* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
+* https://stackoverflow.com/questions/52781750/pandas-and-doubled-double-quote-escaping-in-csv

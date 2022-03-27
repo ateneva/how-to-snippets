@@ -326,7 +326,7 @@ https://medium.com/osedea/git-rebase-powerful-command-507bbac4a234
 https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch
 https://howchoo.com/git/git-merge-conflicts-rebase-ours-theirs#using-ours-theirs-during-a-rebase
 
-## Resetting & Revertting
+## Resetting & Reverting
 
 * commit level
 ```bash
