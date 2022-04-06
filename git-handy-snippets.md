@@ -88,7 +88,7 @@ https://www.git-tower.com/learn/git/faq/set-upstream/
 
 ### Change local repo default tracking branch
 ```bash
-git branch -m master main       # move from master to maim
+git branch -m master main       # move from master to main
 git fetch origin
 git branch -u origin/main main  # set up tracking to main
 ```
@@ -112,9 +112,10 @@ git log origin --oneline -5             # shows the last 5 commits on default tr
 
 ### create a new branch
 ```bash
-git branch <branch name>            # create a new branch
-git checkout <branch name>          # switch to a different branch
-git checkout -b <branch name>       # create a new branch and switch to it
+git branch <branch name>                          # create a new branch
+git checkout <branch name>                        # switch to a different branch
+git checkout -b <branch name>                     # create a new branch and switch to it
+git branch -m <old branch name> <new branch name> # rename a branch without switching to it
 ```
 
 ### review existing branches
@@ -125,6 +126,7 @@ git branch -a         # display both remote and local branches
 
 git branch --remote   # display only remote branches
 git branch --all      # display both remote and tracking branches
+git branch -vv        # display the corresponding tracking branches to your local ones
 ```
 
 ### merge branches
@@ -187,6 +189,14 @@ git show HEAD -s                 # show current commit on current branch
 git show origin/master HEAD -s   # show current commit on master branch
 ```
 
+### show commits difference between two branches
+```bash
+# both branches you're comparing must be checked out
+git rev-list --left-right --pretty=oneline development...master
+
+# every commit sha is preceded by < or > to indicate which branch it can be found on
+```
+
 ### stage & commit files
 ```bash
 git add <file>
@@ -201,14 +211,23 @@ git push origin master
 
 ### amend a commit message
 ```bash
+# modify the latest commit
 git commit --amend -m "New commit message"
 git commit --amend --author="John Doe <john@doe.org>"
 git commit --amend --author="ateneva<tenevaa21@gmail.com>" -m "use explicit field names"
+
+# modify commits no matter how long ago they were
+git rebase --interactive <parent commit SHA>
+git commit --amend
+git rebase --continue
 ```
 * if the commit has already been pushed then you will need to force push after amending
 https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commit-messages
 
 * https://www.git-tower.com/learn/git/faq/change-author-name-email
+* https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history
+* https://stackoverflow.com/questions/30194796/git-rebase-whats-the-difference-between-edit-and-reword
+
 
 ### push force
 * needed to sync your remote branch after rebasing local branch
