@@ -22,6 +22,7 @@ https://www.atlassian.com/git/tutorials/syncing/git-pull
 PRO:
 https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge
 https://coderwall.com/p/7aymfa/please-oh-please-use-git-pull-rebase
+https://spin.atomicobject.com/2020/05/05/git-configurations-default/
 
 CON:
 https://stackoverflow.com/questions/2472254/when-should-i-use-git-pull-rebase
@@ -70,7 +71,8 @@ git commit -m "initial commit"
 
 # setup tracking b/n local and remote
 git push -u [<remote>] [<branch>]
-git push -u git@gitlab.example.com:namespace/nonexistent-project.git main   
+git push -u git@gitlab.example.com:namespace/nonexistent-project.git main
+git push origin -u <branch_name>
 
 OR
 
@@ -115,7 +117,10 @@ git log origin --oneline -5             # shows the last 5 commits on default tr
 git branch <branch name>                          # create a new branch
 git checkout <branch name>                        # switch to a different branch
 git checkout -b <branch name>                     # create a new branch and switch to it
+
 git branch -m <old branch name> <new branch name> # rename a branch without switching to it
+git push origin -u <new_name>                     # update the remote tracking reference
+git push origin --delete <old_name>               # delete the old remote branch
 ```
 
 ### review existing branches
@@ -153,8 +158,11 @@ git push -d origin featureX
 ### merge conflicts
 ```bash
 git merge --abort
-git checkout --ours [filename]     # keep your changes
-git checkout --theirs [filename]   # keep their changes
+git checkout --ours [filename]          # keep your changes
+git checkout --theirs [filename]        # keep their changes
+
+git fetch origin                        # pull only a specific commit
+git checkout [sha]
 ```
 
 ### delete branches
@@ -163,6 +171,7 @@ git branch -d <branch name>             # delete local branch only
 git branch -D <branch name>             # delete branch with unmerged commits
 git push -d <remote_name> <branch_name> # delete remote branch
 git push -d origin <branch_name>        # often remote name is origin
+git push origin --delete <branch_name>  # delete the remote branch
 
 git remote prune origin                 # remove local tracking branches that have been deleted on the remote
 ```
