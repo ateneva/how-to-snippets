@@ -273,21 +273,36 @@ https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-
 
 ## Handy DBT commands
 ```bash
-dbt compile               # check for syntax errors
-dbt run                   # run all dbt models in the dependency graph
-dbt run -m +<model name>  # run a model and its upstream dependencies
-dbt run -m <model_name>+  # run a model and its downstream dependencies
-dbt run -m +<model name>+ # run a model and its upstream and downstream dependencies
+
+dbt debug                         # check if your dbt setup is configured properly
+dbt --version                     # check which dbt version you're running
+
+dbt compile                       # check for syntax errors
+dbt run                           # run all dbt models in the dependency graph
+dbt run -m <model name>           # run only a specific model
+dbt run -m +<model name>          # run a model and its upstream dependencies
+dbt run -m <model_name>+          # run a model and its downstream dependencies
+dbt run -m +<model name>+         # run a model and its upstream and downstream dependencies
+dbt run -m source:<source name>+  # run all models that depend on a given source
+
+# As of dbt 1.0.3 you can also use the --select flag to run models
+dbt run --select <model name>           # run only a specific model
+dbt run --select +<model name>          # run a model and its upstream dependencies
+dbt run --select <model_name>+          # run a model and its downstream dependencies
+dbt run --select +<model name>+         # run a model and its upstream and downstream dependencies
+dbt run --select source:<source name>+  # run all models that depend on a given source
 
 # force rebuiild the entire incremental model from scratch
 dbt run --full-refresh -m +<model name>
-
-# run all models that depend on a given source
-dbt run -m source:<source name>+  
+dbt run --full-refresh --select <model name>
+ 
 
 # run dbt test(s)
 dbt test -m <name_of_the_sql_file_of_the_test>
 dbt test -m <subdirectory_within_where_test_files_exist>
+
+dbt test --select <name_of_the_sql_file_of_the_test>
+dbt test --select <subdirectory_within_where_test_files_exist>
 
 dbt test --select source:<source name>+  # run all tests defined on a source
 ```
