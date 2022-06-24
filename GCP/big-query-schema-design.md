@@ -119,24 +119,31 @@ People often ask, with really wide scheme has like 100 columns, how is it still 
 
 If you did just a count order ID here to get your total order as BigQuery wouldn't even care that you have 99 other columns. 
 
-    - Some of which are more granular with array and data types, it won't even look at them. 
+    - Some of which are more granular with array and data types, it won't even look at them.
+
 
 ✅ That's what gives you the best of both worlds, lots of data all in one place and no issues with multiple granularity pitfalls when doing aggregations.
 
 ![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611957087730_image.png)
 
-![](../../../../../../var/folders/dp/ylq2fsb959qdhsb_jb2ds9d00000gr/T/TemporaryItems/NSIRD_screencaptureui_TbG6ld/Screenshot 2022-06-24 at 23.19.48.png)
+![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611957103426_image.png)
 
-* STRUCTS are unpacked with **CROSS JOIN**
+![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611957121274_image.png)
 
-* ARRAYS are unpacked with **CROSS JOIN UNNEST()**
+![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611957137636_image.png)
 
-
-⚠️ Arrays **can be of any single type like an array of floats or an array of strings.** 
-Arrays can be part of a regular **field or be part of a nested field, nested inside of a struct**💡 
-
-A single table can have zero to many struts and lastly, the real minds bending point is that a struts can have other struts nested inside of it
-
-✅ use arrays and struts when your data naturally arrives in that format, and you'll benefit immediately from optimal performance.
+![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611957171377_image.png)
 
 
+⚠️ Arrays can be of any **single type like an array of floats or an array of strings.** 
+Arrays can be part of a regular field or be part of a nested field, nested inside of a struct💡 
+
+* **STRUCTS** are unpacked with **CROSS JOIN**
+
+* **ARRAYS** are unpacked with **CROSS JOIN UNNEST()**
+
+A single table can have zero to many struts and lastly, the real minds bending point is that 
+**a struts can have other struts nested inside of it**
+
+✅ use arrays and struts when your data naturally arrives in that format, 
+and you'll benefit immediately from optimal performance.
