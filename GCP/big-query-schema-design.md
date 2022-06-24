@@ -1,5 +1,4 @@
 
-
 # 📚 Schema Design: Normalization vs. De-normalization
 
 ![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611954540013_image.png)

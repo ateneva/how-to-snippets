@@ -1,4 +1,4 @@
-# Querying a Bitcoin dataset in BigQuery with nested and repeated columns
+# Querying a dataset with nested and repeated fields
 
 [BQ nested and repeated columns](https://cloud.google.com/bigquery/docs/nested-repeated) 
 allow you to achieve the performance benefits of denormalization while retaining the structure of the data.

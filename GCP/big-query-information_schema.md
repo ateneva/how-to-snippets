@@ -1,5 +1,4 @@
-# Practice using INFORMATION_SCHEMA and __TABLES__ to explore metadata
-
+# Explore metadata with INFORMATION_SCHEMA
 
 ## Querying dataset metadata
 BigQuery stores metadata about each object stored in it. 
