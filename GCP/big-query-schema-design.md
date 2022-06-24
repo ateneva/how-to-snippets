@@ -147,3 +147,4 @@ A single table can have zero to many struts and lastly, the real minds bending p
 
 ✅ use arrays and struts when your data naturally arrives in that format, 
 and you'll benefit immediately from optimal performance.
+
