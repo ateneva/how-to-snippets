@@ -429,6 +429,8 @@ FROM racing.race_results AS r, r.participants AS p
 - **STRUCTs** (and ARRAYs) must be unpacked before you can operate over their elements. 
     - Wrap an `UNNEST()` around the name of the struct itself 🆚 or the struct field that is an array in order to unpack and flatten it
 
+
+---
 ### Lab Question: STRUCT()
 
 Answer the below questions using the `racing.race_results` table you created previously.
@@ -442,6 +444,7 @@ FROM racing.race_results AS r,
       UNNEST(r.participants) AS p
 ```
 
+---
 
 ### Lab Question: Unpacking ARRAYs with UNNEST( )
 
@@ -463,6 +466,8 @@ WHERE p.name LIKE 'R%'
 GROUP BY p.name
 ORDER BY total_race_time ASC;
 ```
+
+---
 
 ### Lab Question: Filtering within ARRAY values
 
