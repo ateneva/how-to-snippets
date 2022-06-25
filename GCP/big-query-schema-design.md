@@ -57,12 +57,12 @@ For this reason, nested and repeated fields is useful for working with data that
 
 **Nested columns can be understood as a form of repeated field.** 
 
-✅ It preserves the relationalism of the original data and the schema, 
-
-        while enabling columnar and parallel processing of the repeated nested fields.
+✅ It preserves the relationalism of the original data and the schema, while enabling columnar and parallel processing of the repeated nested fields.
 
  ❇️ It's the best alternative for data that already has a relational pattern to it.
+ 
 
+![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1656109958720_Screenshot+2022-06-25+at+00.32.35.png)
 
 ![](https://paper-attachments.dropbox.com/s_E897A5F74CEA15BFA7024CE1BD1C9E4DE80AEB7E569FC88A91D2DEE8BBA89841_1611955960076_image.png)
 
@@ -70,13 +70,11 @@ For this reason, nested and repeated fields is useful for working with data that
 
 
 🆘 For relational schemas, often the most intensive computational workloads are JOINs across very large tables. 
-Remember, RDBMS systems are record based so they have to open each record entirely, and pull out the JOIN key from each table where a match exists. 🧐
+Remember, RDBMS systems are record based, so they have to open each record entirely, and pull out the JOIN key from each table where a match exists. 🧐
 
 And that's assuming you know all the tables and need to be joined together. 
 Imagine for each new piece of information about an order like promotion codes are user information,
-and you could be talking about a ten plus table JOIN   😭 
-
-
+and you could be talking about a ten plus table JOIN 😭 
 
 
 ⚠️ The alternative has different drawbacks, pre-joining all your tables into one massive table makes reading data faster, but now you have to be really careful if you have data at different levels of granularity.
