@@ -148,4 +148,6 @@ Final Note: You can use the data from `INFORMATION_SCHEMA` to creatively 're-cre
 
 See the below example link: https://cloud.google.com/bigquery/docs/information-schema-tables#advanced_example
 
-https://cloud.google.com/bigquery/docs/information-schema-tables#advanced_example
+## 📖 Further References:
+
+* https://cloud.google.com/bigquery/docs/information-schema-tables#advanced_example

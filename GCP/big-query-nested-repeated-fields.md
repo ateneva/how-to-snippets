@@ -88,3 +88,8 @@ FROM `cloud-training-demos.bitcoin_blockchain.blocks` AS b
 ORDER BY btc_value DESC
 LIMIT 10;
 ```
+
+
+## 📖 Further References:
+
+* https://cloud.google.com/bigquery/docs/reference/standard-sql/arrays
