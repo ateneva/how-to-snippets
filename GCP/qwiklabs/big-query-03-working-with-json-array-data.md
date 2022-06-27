@@ -429,6 +429,71 @@ FROM racing.race_results AS r, r.participants AS p
 - **STRUCTs** (and ARRAYs) must be unpacked before you can operate over their elements. 
     - Wrap an `UNNEST()` around the name of the struct itself 🆚 or the struct field that is an array in order to unpack and flatten it
 
+    
+![](https://paper-attachments.dropbox.com/s_CE0669443096518804CF187CCBC7C5E04E1F144C4853DE80E3FEDC26503A9A7D_1613761973315_image.png)
+
+```sql
+    WITH staging AS (
+      SELECT 
+        STRUCT(
+          start_stn.name,
+          ST_GEOGPOINT(start_stn.longitude, start_stn.latitude) AS point,
+          start_stn.docks_count,
+          start_stn.install_date
+        ) AS starting,
+        STRUCT(
+          end_stn.name,
+          ST_GEOGPOINT(end_stn.longitude, end_stn.latitude) AS point,
+          end_stn.docks_count,
+          end_stn.install_date
+        ) AS ending,
+        STRUCT(
+          rental_id,
+          bike_id,
+          duration, -- seconds
+          ST_DISTANCE(
+            ST_GEOGPOINT(start_stn.longitude, start_stn.latitude),
+            ST_GEOGPOINT(end_stn.longitude, end_stn.latitude)
+            ) AS distance, -- meters
+          ST_MAKELINE(
+            ST_GEOGPOINT(start_stn.longitude, start_stn.latitude),
+            ST_GEOGPOINT(end_stn.longitude, end_stn.latitude)
+            ) AS trip_line, -- straight line (for GeoViz)
+          start_date,
+          end_date
+        ) AS bike
+      FROM `bigquery-public-data.london_bicycles.cycle_stations` AS start_stn
+      
+      LEFT JOIN `bigquery-public-data.london_bicycles.cycle_hire` AS b
+          ON start_stn.id = b.start_station_id
+      
+      LEFT JOIN `bigquery-public-data.london_bicycles.cycle_stations` AS end_stn
+          ON end_stn.id = b.end_station_id
+    )
+    -- Find the fastest avg biking pace for rides over 30 mins
+    SELECT 
+      starting.name AS starting_name,
+      ending.name AS ending_name,
+      ROUND(bike.distance/1000,2) distance_km,
+      ST_UNION_AGG(bike.trip_line) AS trip_line,
+      COUNT(bike.rental_id) AS total_trips,
+      ROUND(
+          AVG(
+            (bike.distance / 1000) -- meters --> km
+            / (bike.duration / 60 / 60) -- seconds --> hours
+          )
+        ,2)
+      AS avg_kmph
+    FROM staging
+    WHERE bike.duration > (30 * 60) -- at least 30 minutes = 1800 seconds
+    GROUP BY 
+      starting.name,
+      ending.name,
+      bike.distance
+    HAVING total_trips > 100
+    ORDER BY avg_kmph DESC
+    LIMIT 100;
+```
 
 ---
 ### Lab Question: STRUCT()
