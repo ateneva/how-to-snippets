@@ -537,10 +537,57 @@ print(
 ```
 
 
-### ✅  BEST PRACTICES when querying CLUSTERED TABLES
+### ✅ BEST PRACTICES when querying CLUSTERED TABLES
 
-❌ Do not use clustered columns in complex filter expressions
+```sql
+CREATE TABLE --sample table
+  `mydataset.ClusteredSalesData`
+PARTITION BY
+  DATE(timestamp)
+CLUSTER BY
+  customer_id,
+  product_id,
+  order_id AS
+SELECT
+  *
+FROM
+  `mydataset.SalesData`
+```
+
+✅ **FILTER CLUSTERED** columns by **SORT ORDER**
+
+👍
+```sql
+SELECT 
+  SUM(totalSale)
+FROM
+  `mydataset.ClusteredSalesData`
+WHERE
+  customer_id = 10000
+  AND product_id LIKE 'gcp_analytics%'
+  --optimizes performance by filtering the clustered columns by the column order 
+  --given in the CLUSTER BY clause.
+```
+
+👎 
+```sql
+SELECT
+  SUM(totalSale)
+FROM
+  `mydataset.ClusteredSalesData`
+WHERE
+  product_id LIKE 'gcp_analytics%'
+  AND order_id = 20000
+  ---oes not filter the clustered columns in sort order. 
+  -- As a result, the performance of the query is not optimal. 
+  -- as query filters on product_id then on order_id (skipping customer_id)
+```
+
+---
+
+❌ **DO NOT USE** CLUSTERED COLUMNS in complex filter expressions
 If you use a clustered column in a complex filter expression, the performance of the query is not optimized because block pruning cannot be applied.
+
 
 👎 For example, the following query will not prune blocks because a clustered column — `customer_id` — is used in a function in the filter expression.
 
@@ -567,7 +614,9 @@ WHERE
   customer_id = 10000
 ```
 
- ❌ Do not compare clustered columns to other columns
+---
+
+ ❌ **DO NOT COMPARE** clustered columns to other columns
 If a filter expression compares a clustered column to another column (either a clustered column or a non-clustered column), the performance of the query is not optimized because block pruning cannot be applied
 
 👇 The following query does not prune blocks because the filter expression compares a clustered column — `customer_id` to another column — `order_id`
@@ -583,6 +632,7 @@ WHERE
   customer_id = order_id
 ```
 
+---
 
 ## 📖 Further References:
 
