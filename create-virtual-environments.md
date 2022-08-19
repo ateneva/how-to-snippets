@@ -54,11 +54,19 @@ cd Documents\airflow\airflow\venv_airflow
 
 ## Mac
 
-### create virtual environment using venv
+### create virtual environment using venv and the highest installed python
 ```bash
 python3 -m venv env
 source env/bin/activate
 ```
+
+### create virtual environment with a particular python version
+```bash
+python3.8 -m venv dbt_env
+source dbt_env/bin/activate
+python3 --version
+```
+
 
 ### create virtual environment using virtualenv
 ```bash
@@ -110,6 +118,20 @@ brew install virtualenv
 * https://formulae.brew.sh/formula/brew-pip
 
 
+## Install different python versions via homebrew 
+
+```bash
+brew install python@3.8
+brew install python@3.9
+brew install python@3.10
+
+python3 --version
+python3.8 --version
+python3.9 --version
+```
+* https://formulae.brew.sh/formula/python@3.8
+* https://formulae.brew.sh/formula/python@3.9
+* https://formulae.brew.sh/formula/python@3.10
 
 
 # References
