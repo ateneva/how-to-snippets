@@ -289,38 +289,41 @@ https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-
 
 ## Handy DBT commands
 ```bash
+# docs
+dbt docs generate && dbt docs serve          # follow the url after its generated
 
-dbt debug                         # check if your dbt setup is configured properly
-dbt --version                     # check which dbt version you're running
+dbt debug                                    # check if your dbt setup is configured properly
+dbt --version                                # check which dbt version you're running
+dbt compile                                  # check for syntax errors 
 
-dbt compile                       # check for syntax errors
-dbt run                           # run all dbt models in the dependency graph
-dbt run -m <model name>           # run only a specific model
-dbt run -m +<model name>          # run a model and its upstream dependencies
-dbt run -m <model_name>+          # run a model and its downstream dependencies
-dbt run -m +<model name>+         # run a model and its upstream and downstream dependencies
-dbt run -m source:<source name>+  # run all models that depend on a given source
+# models
+dbt run                                      # run all models for the project
+dbt run -m <model name>                      # run only a specific model
+dbt run -m +<model name>                     # run a model and its upstream dependencies
+dbt run -m <model_name>+                     # run a model and its downstream dependencies
+dbt run -m +<model name>+                    # run a model and its upstream and downstream dependencies
+dbt run -m source:<source name>+             # run all models that depend on a given source
+dbt run --full-refresh -m +<model name>      # re-create your incremental model
 
 # As of dbt 1.0.3 you can also use the --select flag to run models
-dbt run --select <model name>           # run only a specific model
-dbt run --select +<model name>          # run a model and its upstream dependencies
-dbt run --select <model_name>+          # run a model and its downstream dependencies
-dbt run --select +<model name>+         # run a model and its upstream and downstream dependencies
-dbt run --select source:<source name>+  # run all models that depend on a given source
+dbt run --select <model name>                # run only a specific model
+dbt run --select +<model name>               # run a model and its upstream dependencies
+dbt run --select <model_name>+               # run a model and its downstream dependencies
+dbt run --select +<model name>+              # run a model and its upstream and downstream dependencies
+dbt run --select source:<source name>+       # run all models that depend on a given source
+dbt run --select <folder path>               # run all models in a specific directory
+dbt run --select <folder path>.<sub foilder>.* # run all models in a specific sub-directory
 
-# force rebuiild the entire incremental model from scratch
-dbt run --full-refresh -m +<model name>
-dbt run --full-refresh --select <model name>
- 
+# run all models except the specified one and its upstream dependencies
+dbt run --select <folder path> --exclude +<model name> 
+dbt run --full-refresh --select <model name> # re-create your incremental model
 
-# run dbt test(s)
-dbt test -m <name_of_the_sql_file_of_the_test>
-dbt test -m <subdirectory_within_where_test_files_exist>
-
-dbt test --select <name_of_the_sql_file_of_the_test>
-dbt test --select <subdirectory_within_where_test_files_exist>
-
-dbt test --select source:<source name>+  # run all tests defined on a source
+# tests
+dbt test --select <model name>
+dbt test --select <subdirectory_where_test_files_exist>
+dbt test --select source:<source name>+      # run all tests defined on a source
+dbt test --select <folder path>              # run all tests in a particular folder
+dbt test --select <parent folder> --exclude <parent folder>.<subfolder>  # exclude tests from a sub-folder
 ```
 * https://docs.getdbt.com/reference/node-selection/syntax
 * https://docs.getdbt.com/reference/node-selection/graph-operators
