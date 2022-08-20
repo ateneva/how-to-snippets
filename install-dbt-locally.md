@@ -44,9 +44,25 @@ https://docs.getdbt.com/docs/introduction
 
 ## DBT installation
 
-### clone the dbt repository and setup a virtual environment
+* ### clone the dbt repository and set up a virtual environment
+```bash
+python3.8 -m venv dbt_env
+source dbt_env/bin/activate
+python3 --version
+```
 
-### install dbt
+* ### install dbt with brew
+```bash
+brew update
+brew install git
+brew tap dbt-labs/dbt
+brew install dbt-postgres
+
+dbt --version
+```
+https://docs.getdbt.com/dbt-cli/install/homebrew
+
+* ### install dbt with pip
 ```bash
 pip install dbt==0.20.1
 
@@ -61,7 +77,7 @@ pip install \
 ```
 * https://docs.getdbt.com/dbt-cli/install/pip
 
-### install dbt dependencies
+* ### install dbt dependencies
 ```bash
 dbt deps
 ```
