@@ -95,7 +95,3 @@ if __name__ == '__main__':
     print(today_data)
     print(today_data[0]['num'])
     print(insert_values(backfill=False))
-
-
-
-

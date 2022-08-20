@@ -2,7 +2,7 @@
 # Loading data into a MySQL database
 
 ## using mysql-connector
-
+---
 ### create databases
 ```python
 import mysql.connector as mysql
@@ -94,9 +94,9 @@ CREATE TABLE reviewers (
 
 create_ratings_table_query = """
 CREATE TABLE ratings (
-    movie_id INT,
-    reviewer_id INT,
-    rating DECIMAL(2,1),
+        movie_id INT,
+        reviewer_id INT,
+        rating DECIMAL(2,1),
     FOREIGN KEY(movie_id) REFERENCES movies(id),
     FOREIGN KEY(reviewer_id) REFERENCES reviewers(id),
     PRIMARY KEY(movie_id, reviewer_id)
@@ -222,7 +222,9 @@ print(cursor.rowcount, "record inserted")
 ### read records
 ```python
 select_movies_query = """
-SELECT title, collection_in_mil
+SELECT 
+    title, c
+    ollection_in_mil
 FROM movies
 WHERE collection_in_mil > 300
 ORDER BY collection_in_mil DESC
@@ -235,7 +237,9 @@ with connection.cursor() as cursor:
 
 ```python
 select_movies_query = """
-SELECT CONCAT(first_name, " ", last_name), COUNT(*) as num
+SELECT 
+    CONCAT(first_name, " ", last_name), 
+    COUNT(*) as num
 FROM reviewers
 INNER JOIN ratings
   ON reviewers.id = ratings.reviewer_id
@@ -271,12 +275,14 @@ with connection.cursor() as cursor:
 drop_table_query = "DROP TABLE ratings"
 with connection.cursor() as cursor:
     cursor.execute(drop_table_query)
-
 ```
 
 ## using pymysql
+---
 ```python
-import pymysql, os, json
+import pymysql
+import os
+import json
 
 # connect to MySQL
 con = pymysql.connect(host = 'localhost',user = 'root',passwd = '',db = 'test')
@@ -297,10 +303,10 @@ for i, item in enumerate(json_obj):
 
 con.commit()
 con.close()
-
 ```
 
 ## using sqlalchemy
+---
 ### create engine 
 ```python
 # default
