@@ -1,28 +1,12 @@
 
 # https://airflow.apache.org/docs/apache-airflow/1.10.4/howto/operator/python.html
 
-# -*- coding: utf-8 -*-
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
 
 from __future__ import print_function
 
 import time
+import requests
+import json
 from builtins import range
 from pprint import pprint
 
@@ -52,7 +36,8 @@ def print_context(ds, **kwargs):
 run_this = PythonOperator(
     task_id='print_the_context',
     provide_context=True,           # allows that you pass additional arguments
-    python_callable=print_context,
+    python_callable=print_context,  # python_callable needs to have **kwargs as argument else conf error ensues
+
     dag=dag,
 )
 # [END howto_operator_python]
@@ -64,7 +49,7 @@ def my_sleeping_function(random_base):
     time.sleep(random_base)
 
 
-# Generate 5 sleeping tasks, sleeping from 0.0 to 0.4 seconds respectively
+# op_kwargs={} allows us to pass the specific function arguments that python_callable expects
 for i in range(5):
     task = PythonOperator(
         task_id='sleep_for_' + str(i),
@@ -74,6 +59,24 @@ for i in range(5):
     )
 
     run_this >> task
+
+
+def retrieve_data(link):
+    response = requests.get(link)
+    daily_comics = [json.loads(response.text)]
+    return daily_comics
+
+
+task_call_api = PythonOperator(
+    task_id='call_api',
+    provide_context=True,
+    python_callable=retrieve_data,
+    op_kwargs={
+               'link': 'https://xkcd.com/info.0.json'
+               },
+    dag=dag
+)
+
 # [END howto_operator_python_kwargs]
 
 

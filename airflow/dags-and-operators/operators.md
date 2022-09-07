@@ -225,7 +225,11 @@ whether to render templates with `Jinja’s default Environment` or `NativeEnvir
 
 
 ## References
+* https://godatadriven.com/blog/the-zen-of-python-and-apache-airflow/
+
 * https://airflow.apache.org/docs/apache-airflow/stable/howto/operator/python.html
+* https://stackoverflow.com/questions/64202437/airflow-got-an-unexpected-keyword-argument-conf
+
 * https://medium.com/@loraxman/how-and-why-of-airflow-shortciruitoperator-85dcbeddb1ba
 * https://registry.astronomer.io/dags/example-short-circuit-operator
 * https://stackoverflow.com/questions/51725746/airflow-run-a-task-when-some-upstream-is-skipped-by-shortcircuit

@@ -53,9 +53,10 @@ Note that the total amount of data ingested is much smaller.
 The slot time consumed is minutes rather than hours, 
 and there are many fewer bytes shuffled because no join was necessary. 
 
-
 **Although both queries are small and complete in about the same time,** 
 the reduction in slot time and data ingest will become increasingly noticeable with larger datasets.
+
+
 
 ### 📌 QUERYING ARRAYS and STRUCTS
 
