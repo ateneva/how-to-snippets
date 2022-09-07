@@ -52,7 +52,7 @@ docker exec -d ubuntu_bash touch /tmp/execWorks
 ```
 https://docs.docker.com/engine/reference/commandline/exec/
 
-## Dpcker files
+## Docker files
 ```bash
 # use the official image as a parent image
 FROM python: 3.7.3-slim    
@@ -60,10 +60,13 @@ FROM python: 3.7.3-slim
 # add labels to help organize images by project
 LABEL mainteiner= "Angelina Teneva <tenevaa21@gmail.com>"
 LABEL version = "0.1"
-LABEL description = "Summer Olympics project"
+LABEL description = "My project"
 
 # set the working directory
 WORKDIR /data      
+
+# ensure credentials are available in the image
+VOLUME ["/secrets"]
 
 # copy all the files from current directory 
 # and add them to working directory of container
