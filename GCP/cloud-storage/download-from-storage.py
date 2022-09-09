@@ -8,7 +8,7 @@ import os
 import json
 from google.cloud import storage
 
-key_path = "C:/Users/angelinat/Documents/GCP/service_account.json"
+key_path = "/Users/angelina.teneva/Documents/GCP/service_account.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
 
 
