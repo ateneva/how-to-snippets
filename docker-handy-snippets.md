@@ -90,3 +90,20 @@ EXPOSE 8888
 CMD["python", "app.py"]
 
 ```
+
+
+### Pulling latest image 
+```bash
+
+```
+
+
+### Pushing image to Container Registry (GCP)
+```bash
+docker pull busybox
+docker tag busybox gcr.io/my-project/busybox
+docker push gcr.io/my-project/busybox
+```
+
+# References: 
+* https://cloud.google.com/container-registry/docs/pushing-and-pulling
