@@ -20,97 +20,113 @@
 ##  1. <a name='Vertica'></a>Vertica
 ```sql
 ---calculate remaining days in fiscal quarter
-select
-case 
-	when Month(Now()) in (11,12,1) then 'FQ1'
-	when Month(Now()) in (2,3,4) then 'FQ2'
-	when Month(Now()) in (5,6,7) then 'FQ3'
-	when Month(Now()) in (8,9,10) then 'FQ4'
-end as CurrentFiscalQuarter,
+SELECT
+	CASE 
+		WHEN MONTH(NOW()) IN (11,12,1) THEN 'FQ1'
+		WHEN MONTH(NOW()) IN (2,3,4) THEN 'FQ2'
+		WHEN MONTH(NOW()) IN (5,6,7) THEN 'FQ3'
+		WHEN MONTH(NOW()) IN (8,9,10) THEN 'FQ4'
+	END AS current_fiscal_quarter,
 
-case 
-	when Month(Now()) in (11,12,1) Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-01-31'), 'YYYY-MM-DD')) 
-	when Month(Now()) in (2,3,4) Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-04-30'), 'YYYY-MM-DD')) 
-	when Month(Now()) in (5,6,7) Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-07-31'), 'YYYY-MM-DD')) 
-	when Month(Now()) in (8,9,10) Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-10-31'), 'YYYY-MM-DD')) 
-end as RemainingDaysInQuarter
+	CASE 
+		WHEN MONTH(NOW()) IN (11,12,1) 
+			THEN DATEDIFF('DD', DATE(NOW()), TO_DATE(CONCAT(YEAR(NOW()),'-01-31'), 'YYYY-MM-DD')) 
+		
+		WHEN MONTH(NOW()) IN (2,3,4) 
+			THEN DATEDIFF('DD', DATE(NOW()), TO_DATE(CONCAT(YEAR(NOW()),'-04-30'), 'YYYY-MM-DD')) 
+		
+		WHEN MONTH(NOW()) IN (5,6,7) 
+			THEN DATEDIFF('DD', DATE(NOW()), TO_DATE(CONCAT(YEAR(NOW()),'-07-31'), 'YYYY-MM-DD')) 
+		
+		WHEN MONTH(NOW()) IN (8,9,10) 
+			THEN DATEDIFF('DD', DATE(NOW()), TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), 'YYYY-MM-DD')) 
+	END AS remaining_days_in_quarter
 ```
 
 ##  2. <a name='SQLServer'></a>SQL Server
 ```sql
-select
-case 
-	when Month(getdate()) in (11,12,1) then 'FQ1'
-	when Month(getdate()) in (2,3,4) then 'FQ2'
-	when Month(getdate()) in (5,6,7) then 'FQ3'
-	when Month(getdate()) in (8,9,10) then 'FQ4'
-end as CurrentFiscalQuarter,
+SELECT
+CASE 
+	WHEN MONTH(GETDATE()) IN (11,12,1) THEN 'FQ1'
+	WHEN MONTH(GETDATE()) IN (2,3,4) THEN 'FQ2'
+	WHEN MONTH(GETDATE()) IN (5,6,7) THEN 'FQ3'
+	WHEN MONTH(GETDATE()) IN (8,9,10) THEN 'FQ4'
+END AS current_fiscal_quarter,
 
-case 
-	when Month(getdate()) in (11,12,1)
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate())+1,'-01-31')) ) 
+CASE 
+	WHEN MONTH(GETDATE()) IN (11,12,1)
+		THEN DATEDIFF(DAY, GETDATE(), CONVERT(DATE, CONCAT(YEAR(GETDATE())+1,'-01-31')) ) 
 		
-	when Month(getdate()) in (2,3,4)
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-04-30')) ) 
+	WHEN MONTH(GETDATE()) IN (2,3,4)
+		THEN DATEDIFF(DAY, GETDATE(), CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-04-30')) ) 
 
-	when Month(getdate()) in (5,6,7)
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-07-31')) ) 
+	WHEN MONTH(GETDATE()) IN (5,6,7)
+		THEN DATEDIFF(DAY, GETDATE(), CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-07-31')) ) 
 
-	when Month(getdate()) in (8,9,10)	
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-10-31')) )
+	WHEN MONTH(GETDATE()) IN (8,9,10)	
+		THEN DATEDIFF(DAY, GETDATE(), CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-10-31')) )
+END AS remaining_days_in_quarter
 		
 ```
 ##  3. <a name='MySQL'></a>MySQL
 
 ```sql	
-select		
-case 
-	when Month(Now()) in (11,12,1) then 'FQ1'
-	when Month(Now()) in (2,3,4) then 'FQ2'
-	when Month(Now()) in (5,6,7) then 'FQ3'
-	when Month(Now()) in (8,9,10) then 'FQ4'
-end as CurrentFiscalQuarter,
+SELECT		
+	CASE 
+		WHEN MONTH(NOW()) IN (11,12,1) THEN 'FQ1'
+		WHEN MONTH(NOW()) IN (2,3,4) THEN 'FQ2'
+		WHEN MONTH(NOW()) IN (5,6,7) THEN 'FQ3'
+		WHEN MONTH(NOW()) IN (8,9,10) THEN 'FQ4'
+	END AS current_fiscal_quarter,
 
-case 
-	when Month(Now()) in (11,12,1)
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now())+1,'-01-31'), '%Y-%m-%d') ) 
-		
-	when Month(Now()) in (2,3,4)
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-04-30'), '%Y-%m-%d') ) 
+	CASE 
+		WHEN MONTH(NOW()) IN (11,12,1)
+			THEN TIMESTAMPDIFF(DAY, NOW(),
+					STR_TO_DATE(CONCAT(YEAR(NOW())+1,'-01-31'), '%Y-%M-%D') ) 
+			
+		WHEN MONTH(NOW()) IN (2,3,4)
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-04-30'), '%Y-%M-%D') ) 
 
-	when Month(Now()) in (5,6,7)
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-07-31'), '%Y-%m-%d') ) 
+		WHEN MONTH(NOW()) IN (5,6,7)
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-07-31'), '%Y-%M-%D') ) 
 
-	when Month(Now()) in (8,9,10)	
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-10-31'), '%Y-%m-%d') )
-		
-end as Remaining_in_Fis_Quarter
+		WHEN MONTH(NOW()) IN (8,9,10)	
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), '%Y-%M-%D') )
+			
+	END AS remaining_in_fis_quarter
  ```
  
 ##  4. <a name='PostgreSQL'></a>PostgreSQL
  ```sql
- select
- case 
-	when date_part('month', Now()) in (11,12,1) then 'FQ1'
-	when date_part('month', Now()) in (2,3,4) then 'FQ2'
-	when date_part('month', Now()) in (5,6,7) then 'FQ3'
-	when date_part('month', Now()) in (8,9,10) then 'FQ4'
-end as CurrentFiscalQuarter,
+ SELECT
+	CASE 
+		WHEN DATE_PART('MONTH', NOW()) IN (11,12,1) THEN 'FQ1'
+		WHEN DATE_PART('MONTH', NOW()) IN (2,3,4) THEN 'FQ2'
+		WHEN DATE_PART('MONTH', NOW()) IN (5,6,7) THEN 'FQ3'
+		WHEN DATE_PART('MONTH', NOW()) IN (8,9,10) THEN 'FQ4'
+	END AS current_fiscal_quarter,
 
-case 
-	when date_part('month', Now()) in (11,12,1)
-		then date_part('day', to_date(date_part('year', current_date)+1 || '-01-31', 'YYYY-MM-DD') - Now() ) + 1
-	
-	when date_part('month', Now()) in (2,3,4)
-		then date_part('day', to_date(date_part('year', current_date) || '-04-30', 'YYYY-MM-DD') - NoW() ) + 1 
+	CASE 
+		WHEN DATE_PART('MONTH', NOW()) IN (11,12,1)
+			THEN DATE_PART('DAY', 
+						TO_DATE(DATE_PART('YEAR', CURRENT_DATE)+1 || '-01-31', 'YYYY-MM-DD') - NOW() ) + 1
 		
-	when date_part('month', Now()) in (5,6,7) 
-		then date_part('day', to_date(date_part('year', current_date) || '-07-31', 'YYYY-MM-DD') - Now() ) + 1
+		WHEN DATE_PART('MONTH', NOW()) IN (2,3,4)
+			THEN DATE_PART('DAY', 
+						TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-04-30', 'YYYY-MM-DD') - NOW() ) + 1 
+			
+		WHEN DATE_PART('MONTH', NOW()) IN (5,6,7) 
+			THEN DATE_PART('DAY', 
+						TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-07-31', 'YYYY-MM-DD') - NOW() ) + 1
 
-	when date_part('month', Now()) in (8,9,10)	
-		then date_part('day', to_date(date_part('year', current_date) || '-10-31', 'YYYY-MM-DD') - Now() ) + 1
-		
-end as Remaining_In_Fis_Quarter
+		WHEN DATE_PART('MONTH', NOW()) IN (8,9,10)	
+			THEN DATE_PART('DAY', 
+						TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-10-31', 'YYYY-MM-DD') - NOW() ) + 1
+			
+	END AS remaining_in_fis_quarter
 ```
 
 ##  5. <a name='Bigquery'></a>Bigquery

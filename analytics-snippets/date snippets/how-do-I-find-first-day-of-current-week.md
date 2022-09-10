@@ -20,64 +20,90 @@
 ##  1. <a name='Vertica'></a>Vertica
 
 ```sql
-select
-Date(date_trunc('week', Now()))  as FirstDayOfCurrentWeek,
-Date(date_trunc('month', Now())) as FirstDayofCurrentMonth,
-Date(date_trunc('year', Now()))  as FirstDayOfCurrentYear
+SELECT
+	DATE(DATE_TRUNC('WEEK', NOW()))  AS first_day_of_current_week,
+	DATE(DATE_TRUNC('MONTH', NOW())) AS first_day_of_current_month,
+	DATE(DATE_TRUNC('YEAR', NOW()))  AS first_day_of_current_year
 ```
 
 ##  2. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
-select
-Date(date_trunc('week', Now()))  as FirstDayOfCurrentWeek,
-Date(date_trunc('month', Now())) as FirstDayofCurrentMonth,
-Date(date_trunc('year', Now()))  as FirstDayOfCurrentYear
+SELECT
+	DATE(DATE_TRUNC('WEEK', NOW()))  AS first_day_of_current_week,
+	DATE(DATE_TRUNC('MONTH', NOW())) AS first_dayof_current_month,
+	DATE(DATE_TRUNC('YEAR', NOW()))  AS first_day_of_current_year
 ```
 
 
 ##  3. <a name='SQLServer'></a>SQL Server
 
 ```sql
-select
-convert(date, getdate()) as Today,
-datepart(dw, getdate()) as Weekday,
+SELECT
+	CONVERT(DATE, GETDATE()) 	AS today,
+	DATEPART(DW, GETDATE()) 	AS weekdaytoday,
 
-case ----------------------------Mon-Sun week-----------------------------------------
-	when datepart(dw, getdate()) = 1 then convert(date, dateadd(day, -6, getdate()))
-	when datepart(dw, getdate()) = 2 then convert(date, dateadd(day,  0, getdate()))
-	when datepart(dw, getdate()) = 3 then convert(date, dateadd(day, -1, getdate()))
-	when datepart(dw, getdate()) = 4 then convert(date, dateadd(day, -2, getdate()))
-	when datepart(dw, getdate()) = 5 then convert(date, dateadd(day, -3, getdate()))
-	when datepart(dw, getdate()) = 6 then convert(date, dateadd(day, -4, getdate()))
-	when datepart(dw, getdate()) = 7 then convert(date, dateadd(day, -5, getdate()))
-                                                          end as FirstDayofCurrentWeek,
+	CASE ----------------------------MON-SUN WEEK---------------------------------
+		WHEN DATEPART(DW, GETDATE()) = 1 
+			THEN CONVERT(DATE, DATEADD(DAY, -6, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 2 
+			THEN CONVERT(DATE, DATEADD(DAY,  0, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 3 
+			THEN CONVERT(DATE, DATEADD(DAY, -1, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 4 
+			THEN CONVERT(DATE, DATEADD(DAY, -2, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 5 
+			THEN CONVERT(DATE, DATEADD(DAY, -3, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 6 
+			THEN CONVERT(DATE, DATEADD(DAY, -4, GETDATE()))
+		
+		WHEN DATEPART(DW, GETDATE()) = 7 
+			THEN CONVERT(DATE, DATEADD(DAY, -5, GETDATE()))
+	END AS first_day_of_current_week,
 
-
-convert(date, convert(varchar(7), getdate(), 120) + '-01')    as FirstDayofCurrentMonth,
-convert(date, convert(varchar(4), getdate(), 120) + '-01-01') as FirstDayofCurrentYear
+	CONVERT(DATE, CONVERT(VARCHAR(7), GETDATE(), 120) + '-01')    AS first_day_of_current_month,
+	
+	CONVERT(DATE, CONVERT(VARCHAR(4), GETDATE(), 120) + '-01-01') AS first_day_of_current_year
 ```
 
 
 ##  4. <a name='MySQL'></a>MySQL
 
 ```sql
-select
-Date(Now())                                                  as Today,
-weekday(Now())                                               as WeekdayToday,
+SELECT
+	DATE(NOW())       AS today,
+	WEEKDAY(NOW())    AS weekdaytoday,
 
-case #---------------------------Mon-Sun week--------------------------------
-	when weekday(Now()) = 0 then date(Now())
-	when weekday(Now()) = 1 then date(date_add(Now(), interval -1 day))
-	when weekday(Now()) = 2 then date(date_add(Now(), interval -2 day))
-	when weekday(Now()) = 3 then date(date_add(Now(), interval -3 day))
-	when weekday(Now()) = 4 then date(date_add(Now(), interval -4 day))
-	when weekday(Now()) = 5 then date(date_add(Now(), interval -5 day))
-	when weekday(Now()) = 6 then date(date_add(Now(), interval -6 day))
-                                                         end as FirstDayofCurrentWeek,
+	CASE #---------------------------MON-SUN WEEK--------------------------------
+		WHEN WEEKDAY(NOW()) = 0 
+			THEN DATE(NOW())
+		
+		WHEN WEEKDAY(NOW()) = 1 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -1 DAY))
+		
+		WHEN WEEKDAY(NOW()) = 2 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -2 DAY))
+		
+		WHEN WEEKDAY(NOW()) = 3 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -3 DAY))
+		
+		WHEN WEEKDAY(NOW()) = 4 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -4 DAY))
+		
+		WHEN WEEKDAY(NOW()) = 5 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -5 DAY))
+		
+		WHEN WEEKDAY(NOW()) = 6 
+			THEN DATE(DATE_ADD(NOW(), INTERVAL -6 DAY))
+	END AS first_day_of_current_week,
 
-date_format(Now(), '%Y-%m-01')                               as FirstDayofCurrentMonth,
-date_format(Now(), '%Y-01-01')                               as FirstDayofCurrentYear
+	DATE_FORMAT(NOW(), '%Y-%M-01')  AS first_day_of_current_month,
+	DATE_FORMAT(NOW(), '%Y-01-01')  AS first_day_of_current_year
 ```
 
 
@@ -85,13 +111,13 @@ date_format(Now(), '%Y-01-01')                               as FirstDayofCurren
 ```sql
 SELECT
 	CURRENT_DATE() AS NOW,
-	DATE_TRUNC(CURRENT_DATE(), WEEK)           AS FirstDayOfCurrentWeek,
-	DATE_TRUNC(CURRENT_DATE(), WEEK(FRIDAY))   AS FirstDayOfDefinedCurrentWeek,
-	DATE_TRUNC(CURRENT_DATE(), ISOWEEK)        AS FirstDayOfCurrentISOWeek,
-	DATE_TRUNC(CURRENT_DATE(), MONTH)          AS FirstDayofCurrentMonth,
-	DATE_TRUNC(CURRENT_DATE(), QUARTER)        AS FirstDayofCurrentQuarter,
-	DATE_TRUNC(CURRENT_DATE(), YEAR)           AS FirstDayOfCurrentYear,
-	DATE_TRUNC(CURRENT_DATE(), ISOYEAR)        AS FirstDayOfCurrentISOYear
+	DATE_TRUNC(CURRENT_DATE(), WEEK)           AS first_day_of_current_week,
+	DATE_TRUNC(CURRENT_DATE(), WEEK(FRIDAY))   AS first_day_of_defined_current_week,
+	DATE_TRUNC(CURRENT_DATE(), ISOWEEK)        AS first_day_of_current_iso_week,
+	DATE_TRUNC(CURRENT_DATE(), MONTH)          AS first_day_of_current_month,
+	DATE_TRUNC(CURRENT_DATE(), QUARTER)        AS first_day_of_current_quarter,
+	DATE_TRUNC(CURRENT_DATE(), YEAR)           AS first_day_of_current_year,
+	DATE_TRUNC(CURRENT_DATE(), ISOYEAR)        AS first_day_of_current_iso_year
 ```
 ```json
 [

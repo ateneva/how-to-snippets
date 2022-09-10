@@ -19,54 +19,50 @@
 
 ##  1. <a name='VERTICA'></a>VERTICA
 ```sql
-select 
-current_timestamp          as CurrentTimestamp,     ---current laptop/pc date and time
-current_date               as CurrentDate,          ---current laptop/pc date
-current_time               as CurrentTime,          ---current laptop/pc time
-
-getutcdate()               as UTCDateAndTime,       ---date and time of UTC standard
-getdate()                                           ---date and time supplied by the operating system of the server to which you are connected
-
-Now()                      as MyTimeRightNow,       ---current laptop/pc date and time
-date(Now())                as Today,                ---current laptop/pc date
-time(Now())                as MyTime                ---current laptop/pc time
+SELECT 
+    CURRENT_TIMESTAMP          AS CurrentTimestamp,
+    CURRENT_DATE               AS CurrentDate,
+    CURRENT_TIME               AS CurrentTime,
+    GETUTCDATE()               AS UTCDateAndTime,
+    getdate()
+    NOW()                      AS MyTimeRightNow,
+    DATE(NOW())                AS Today,
+    TIME(NOW())                AS MyTime
 ```
 
 ##  2. <a name='MySQL'></a>MySQL
 ```sql
-select
-utc_timestamp              as UTCDateAndTime,      #---date and time of UTC standard
-utc_date                   as UTCDate,             #---date of UTC standard
-utc_time                   as UTCTime,             #---time of UTC standard
-current_timestamp          as MyLocalDateAndTime,  #---current laptop/pc date and time
-current_date               as Today,               #---current laptop/pc date
-current_time               as MyTimeNow,           #---current laptop/pc time
-
-Now()                      as MyTimeRightNow,      #---current laptop/pc date and time
-date(Now())                as Today,               #---current laptop/pc date
-time(Now())                as MyTime               #---current laptop/pc time
+SELECT
+    UTC_TIMESTAMP              AS UTCDateAndTime,
+    UTC_DATE                   AS UTCDate,
+    UTC_TIME                   AS UTCTime,
+    CURRENT_TIMESTAMP          AS MyLocalDateAndTime,
+    CURRENT_DATE               AS Today,
+    CURRENT_TIME               AS MyTimeNow,
+    NOW()                      AS MyTimeRightNow,
+    DATE(NOW())                AS Today,
+    TIME(NOW())                AS MyTime
 ```
 
 
 ##  3. <a name='MSSQLServer'></a>MS SQL Server
 ```sql
-select
-getutcdate()               as UTCDateAndTime,
-getdate()                  as LocalServerDateAndTime,
-current_timestamp          as TodayDateAndTime,
-convert(date,getdate())    as Today, 
-convert(time,getdate())    as Now 
+SELECT
+    GETUTCDATE()               AS UTCDATEANDTIME,
+    GETDATE()                  AS LOCALSERVERDATEANDTIME,
+    CURRENT_TIMESTAMP          AS TODAYDATEANDTIME,
+    CONVERT(DATE,GETDATE())    AS TODAY, 
+    CONVERT(TIME,GETDATE())    AS NOW 
 ```
 
 
 ##  4. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
-select 
-current_timestamp          as CurrentTimestamp,     ---current laptop/pc date and time
-current_date               as CurrentDate,          ---current laptop/pc date
-current_time               as CurrentTime,          ---current laptop/pc time
-
-Now()                      as MyTimeRightNow        ---current laptop/pc date and time
+SELECT 
+    CURRENT_TIMESTAMP          AS CurrentTimestamp,
+    CURRENT_DATE               AS CurrentDate,
+    CURRENT_TIME               AS CurrentTime,
+    NOW()                      AS MyTimeRightNow
 ```
 
 ##  5. <a name='BigQuery'></a>BigQueryy

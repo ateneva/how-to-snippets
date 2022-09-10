@@ -21,46 +21,46 @@
 ##  1. <a name='VERTICA'></a>VERTICA
 
 ```sql
-select
-getdate() as ServerTime,
-timestampadd('hour', -1, getdate())  as one_hour_ago,
-timestampadd('hour', -3, getdate())  as three_hours_ago,
-timestampadd('hour', 5,  getdate())  as five_hours_from_now,
-timestampadd('hour', 6,  getdate())  as six_hours_from_now,
-timestampadd('hour', 7,  getdate())  as seven_hours_from_now
+SELECT
+    GETDATE() AS SERVERTIME,
+    TIMESTAMPADD('HOUR', -1, GETDATE())  AS one_hour_ago,
+    TIMESTAMPADD('HOUR', -3, GETDATE())  AS three_hours_ago,
+    TIMESTAMPADD('HOUR', 5,  GETDATE())  AS five_hours_from_now,
+    TIMESTAMPADD('HOUR', 6,  GETDATE())  AS six_hours_from_now,
+    TIMESTAMPADD('HOUR', 7,  GETDATE())  AS seven_hours_from_now
 ```
 
 ##  2. <a name='SQLServer'></a>SQL Server
 ```sql
-select
-dateadd(hour, -1, getdate())         as one_hour_ago,
-dateadd(hour, -3, getdate())         as three_hours_ago,
-dateadd(hour, 5, getdate())          as five_hours_from_now,
-dateadd(hour, 6, getdate())          as six_hours_from_now,
-dateadd(hour, 7, getdate())          as seven_hours_from_now
+SELECT
+    DATEADD(HOUR, -1, GETDATE())         AS one_hour_ago,
+    DATEADD(HOUR, -3, GETDATE())         AS three_hours_ago,
+    DATEADD(HOUR, 5, GETDATE())          AS five_hours_from_now,
+    DATEADD(HOUR, 6, GETDATE())          AS six_hours_from_now,
+    DATEADD(HOUR, 7, GETDATE())          AS seven_hours_from_now
 ```
 
 ##  3. <a name='MySQL'></a>MySQL
 ```sql
-select
-date_add(Now(), interval -1 hour)    as one_hour_ago,
-date_add(Now(), interval -3 hour)    as three_hours_ago,
-date_add(Now(), interval 5 hour)     as five_hours_from_now,
-date_add(Now(), interval 6 hour)     as six_hours_from_now,
-date_add(Now(), interval 7 hour)     as seven_hours_from_now
+SELECT
+    DATE_ADD(NOW(), INTERVAL -1 HOUR)    AS one_hour_ago,
+    DATE_ADD(NOW(), INTERVAL -3 HOUR)    AS three_hours_ago,
+    DATE_ADD(NOW(), INTERVAL 5 HOUR)     AS five_hours_from_now,
+    DATE_ADD(NOW(), INTERVAL 6 HOUR)     AS six_hours_from_now,
+    DATE_ADD(NOW(), INTERVAL 7 HOUR)     AS seven_hours_from_now
 ```
 
 ##  4. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
-select
-Now() - INTERVAL '1 hour'            as one_hour_ago,
-Now() - INTERVAL '3 hour'            as three_hours_ago,
-Now() + INTERVAL '5 hour'            as five_hours_from_now,
-Now() + INTERVAL '6 hour'            as six_hours_from_now,
-Now() + INTERVAL '7 hour'            as seven_hours_from_now
+SELECT
+    NOW() - INTERVAL '1 HOUR'            AS one_hour_ago,
+    NOW() - INTERVAL '3 HOUR'            AS three_hours_ago,
+    NOW() + INTERVAL '5 HOUR'            AS five_hours_from_now,
+    NOW() + INTERVAL '6 HOUR'            AS six_hours_from_now,
+    NOW() + INTERVAL '7 HOUR'            AS seven_hours_from_now
 ```
 
-##  5. <a name='BigQuery'></a>BigQueryy
+##  5. <a name='BigQuery'></a>BigQuery
  ```sql
  ```
 
@@ -68,10 +68,10 @@ Now() + INTERVAL '7 hour'            as seven_hours_from_now
 ```sql
 ```
 
-##  7. <a name='Python'></a>Pythonn
+##  7. <a name='Python'></a>Python
  ```python
  ```
 
-##  8. <a name='Tableau'></a>Tableauu
+##  8. <a name='Tableau'></a>Tableau
  ```
  ```

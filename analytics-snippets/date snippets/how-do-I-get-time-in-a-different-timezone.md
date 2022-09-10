@@ -17,60 +17,60 @@
 
 ##  1. <a name='Vertica'></a>Vertica
 ```sql
-select
-now() at time zone 'Pacific/Auckland NZ'          as NZT,   -- + 12.00 Welington, New Zealand
-now() at time zone 'Australia/Brisbane'           as AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
-now() at time zone 'Australia/Adelaide'           as CAST,  -- Central Australia Standard Time = Adelaide
-now() at time zone 'Asia/Tokyo Japan'             as JST,   -- Japan Standard Time = Tokyo, Seoul
-now() at time zone 'Australia/Perth'              as AWST,  -- Australia Western Standard Time = Perth
+SELECT
+NOW() AT TIME ZONE 'Pacific/Auckland NZ'          AS NZT,   -- + 12.00 Welington, New Zealand
+NOW() AT TIME ZONE 'Australia/Brisbane'           AS AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
+NOW() AT TIME ZONE 'Australia/Adelaide'           AS CAST,  -- Central Australia Standard Time = Adelaide
+NOW() AT TIME ZONE 'Asia/Tokyo Japan'             AS JST,   -- Japan Standard Time = Tokyo, Seoul
+NOW() AT TIME ZONE 'Australia/Perth'              AS AWST,  -- Australia Western Standard Time = Perth
 
-now() at time zone 'Europe/Sofia'                 as EET,   -- Sofia, Athens, Vilnius, Bucharest
-now() at time zone 'Europe/Amsterdam'             as CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
-now() at time zone 'Europe/London'                as GMT,   -- London, Dublin
+NOW() AT TIME ZONE 'Europe/Sofia'                 AS EET,   -- Sofia, Athens, Vilnius, Bucharest
+NOW() AT TIME ZONE 'Europe/Amsterdam'             AS CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
+NOW() AT TIME ZONE 'Europe/London'                AS GMT,   -- London, Dublin
 
-now() at time zone 'America/New_York'             as EST,   -- Toronto, New York, Boston, Rio De Janeiro
-now() at time zone 'America/Chicago'              as CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
-now() at time zone 'America/Denver'               as MST,   -- Edmonton, Calgary, Denver, Phoenix
-now() at time zone 'America/Los_Angeles'          as PST    -- Vancouver, Los Angeles
+NOW() AT TIME ZONE 'America/New_York'             AS EST,   -- Toronto, New York, Boston, Rio De Janeiro
+NOW() AT TIME ZONE 'America/Chicago'              AS CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
+NOW() AT TIME ZONE 'America/Denver'               AS MST,   -- Edmonton, Calgary, Denver, Phoenix
+NOW() AT TIME ZONE 'America/Los_Angeles'          AS PST    -- Vancouver, Los Angeles
 ```
 
 ##  2. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 select
-now() at time zone 'NZT'                          as NZT,   -- + 12.00 Welington, New Zealand
-now() at time zone 'AEST'                         as AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
-now() at time zone 'CAST'                         as cast,  -- Central Australia Standard Time = Adelaide
-now() at time zone 'JST'                          as JST,   -- Japan Standard Time = Tokyo, Seoul
-now() at time zone 'AWST'                         as AWST,  -- Australia Western Standard Time = Perth
+NOW() AT TIME ZONE 'NZT'                          AS NZT,   -- + 12.00 Welington, New Zealand
+NOW() AT TIME ZONE 'AEST'                         AS AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
+NOW() AT TIME ZONE 'CAST'                         AS cast,  -- Central Australia Standard Time = Adelaide
+NOW() AT TIME ZONE 'JST'                          AS JST,   -- Japan Standard Time = Tokyo, Seoul
+NOW() AT TIME ZONE 'AWST'                         AS AWST,  -- Australia Western Standard Time = Perth
 
-now() at time zone 'EET'                          as EET,   -- Sofia, Athens, Vilnius, Bucharest
-now() at time zone 'CET'                          as CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
-now() at time zone 'GMT'                          as GMT,   -- London, Dublin
+NOW() AT TIME ZONE 'EET'                          AS EET,   -- Sofia, Athens, Vilnius, Bucharest
+NOW() AT TIME ZONE 'CET'                          AS CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
+NOW() AT TIME ZONE 'GMT'                          AS GMT,   -- London, Dublin
 
-now() at time zone 'EST'                          as EST,   -- Toronto, New York, Boston, Rio De Janeiro
-now() at time zone 'CST'                          as CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
-now() at time zone 'MST'                          as MST,   -- Edmonton, Calgary, Denver, Phoenix
-now() at time zone 'PST'                          as PST    -- Vancouver, Los Angeles
+NOW() AT TIME ZONE 'EST'                          AS EST,   -- Toronto, New York, Boston, Rio De Janeiro
+NOW() AT TIME ZONE 'CST'                          AS CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
+NOW() AT TIME ZONE 'MST'                          AS MST,   -- Edmonton, Calgary, Denver, Phoenix
+NOW() AT TIME ZONE 'PST'                          AS PST    -- Vancouver, Los Angeles
 ```
 
 
 ##  3. <a name='MySQL'></a>MySQL
 ```sql
 select
-convert_tz(now(), 'CET', 'Pacific/Auckland')      as NZT,   -- + 12.00 Welington, New Zealand
-convert_tz(now(), 'CET', 'Australia/Brisbane')    as AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
-convert_tz(now(), 'CET', 'Australia/Adelaide')    as cast,  -- Central Australia Standard Time = Adelaide
-convert_tz(now(), 'CET', 'Asia/Tokyo')            as JST,   -- Japan Standard Time = Tokyo, Seoul
-convert_tz(now(), 'CET', 'Australia/Perth')       as AWST,  -- Australia Western Standard Time = Perth
+CONVERT_TZ(NOW(), 'CET', 'Pacific/Auckland')      AS NZT,   -- + 12.00 Welington, New Zealand
+CONVERT_TZ(NOW(), 'CET', 'Australia/Brisbane')    AS AEST,  -- Australa Eastern Standard Time = Brisbane, Sydney, Melbourne, Canberra
+CONVERT_TZ(NOW(), 'CET', 'Australia/Adelaide')    AS cast,  -- Central Australia Standard Time = Adelaide
+CONVERT_TZ(NOW(), 'CET', 'Asia/Tokyo')            AS JST,   -- Japan Standard Time = Tokyo, Seoul
+CONVERT_TZ(NOW(), 'CET', 'Australia/Perth')       AS AWST,  -- Australia Western Standard Time = Perth
 
-convert_tz(now(), 'CET', 'EET')                   as EET,   -- Sofia, Athens, Vilnius, Bucharest
-convert_tz(now(), 'CET', 'CET')                   as CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
-convert_tz(now(), 'CET', 'GMT')                   as GMT,   -- London, Dublin
+CONVERT_TZ(NOW(), 'CET', 'EET')                   AS EET,   -- Sofia, Athens, Vilnius, Bucharest
+CONVERT_TZ(NOW(), 'CET', 'CET')                   AS CET,   -- Amsterdam, Paris, Berlin, Madrid, Rome
+CONVERT_TZ(NOW(), 'CET', 'GMT')                   AS GMT,   -- London, Dublin
 
-convert_tz(now(), 'CET', 'EST')                   as EST,   -- Toronto, New York, Boston, Rio De Janeiro
-convert_tz(now(), 'CET', 'America/Chicago')       as CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
-convert_tz(now(), 'CET', 'MST')                   as MST,   -- Edmonton, Calgary, Denver, Phoenix
-convert_tz(now(), 'CET', 'America/Los_Angeles')   as PST    -- Vancouver, Los Angeles
+CONVERT_TZ(NOW(), 'CET', 'EST')                   AS EST,   -- Toronto, New York, Boston, Rio De Janeiro
+CONVERT_TZ(NOW(), 'CET', 'America/Chicago')       AS CST,   -- Winnipeg, Chicago, Houston, Kansas, New Orleans
+CONVERT_TZ(NOW(), 'CET', 'MST')                   AS MST,   -- Edmonton, Calgary, Denver, Phoenix
+CONVERT_TZ(NOW(), 'CET', 'America/Los_Angeles')   AS PST    -- Vancouver, Los Angeles
 ```
 
 ##  4. <a name='BigQuery'></a>BigQueryy

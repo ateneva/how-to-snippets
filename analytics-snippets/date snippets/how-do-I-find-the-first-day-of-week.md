@@ -18,97 +18,99 @@
 
 ##  1. <a name='SQLServer'></a>SQL Server
 ```sql
-select 
+SELECT 
 ----------------------------Mon-Sun week-------------------------------------------------
-convert(date, getdate()) as Today,
-datepart(dw, getdate()) as Weekday,
+	CONVERT(DATE, GETDATE()) AS TODAY,
+	DATEPART(DW, GETDATE()) AS WEEKDAY,
 
-case ---------------previous week--------------------------------------------------------
-	when datepart(dw, getdate()) = 1 then convert(date, dateadd(day, -13, getdate()))
-	when datepart(dw, getdate()) = 2 then convert(date, dateadd(day, -7, getdate()))
-	when datepart(dw, getdate()) = 3 then convert(date, dateadd(day, -8, getdate()))
-	when datepart(dw, getdate()) = 4 then convert(date, dateadd(day, -9, getdate()))
-	when datepart(dw, getdate()) = 5 then convert(date, dateadd(day, -10, getdate()))
-	when datepart(dw, getdate()) = 6 then convert(date, dateadd(day, -11, getdate()))
-	when datepart(dw, getdate()) = 7 then convert(date, dateadd(day, -12, getdate()))
-                                                          end as FirstDayofPreviousWeek,                                                         
+CASE ---------------PREVIOUS WEEK--------------------------------------------------------
+	WHEN DATEPART(DW, GETDATE()) = 1 THEN CONVERT(DATE, DATEADD(DAY, -13, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY, -7, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 3 THEN CONVERT(DATE, DATEADD(DAY, -8, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 4 THEN CONVERT(DATE, DATEADD(DAY, -9, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 5 THEN CONVERT(DATE, DATEADD(DAY, -10, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 6 THEN CONVERT(DATE, DATEADD(DAY, -11, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 7 THEN CONVERT(DATE, DATEADD(DAY, -12, GETDATE()))
+END AS first_dayof_previous_week,                                                         
                                                          
- case ---------------next week--------------------------------------------------------
-	when datepart(dw, getdate()) = 1 then convert(date, dateadd(day, +1, getdate()))
-	when datepart(dw, getdate()) = 2 then convert(date, dateadd(day, +7, getdate()))
-	when datepart(dw, getdate()) = 3 then convert(date, dateadd(day, +6, getdate()))
-	when datepart(dw, getdate()) = 4 then convert(date, dateadd(day, +5, getdate()))
-	when datepart(dw, getdate()) = 5 then convert(date, dateadd(day, +4, getdate()))
-	when datepart(dw, getdate()) = 6 then convert(date, dateadd(day, +3, getdate()))
-	when datepart(dw, getdate()) = 7 then convert(date, dateadd(day, +2, getdate()))
-                                                          end as FirstDayofNextWeek,         
+ CASE ---------------NEXT WEEK--------------------------------------------------------
+	WHEN DATEPART(DW, GETDATE()) = 1 THEN CONVERT(DATE, DATEADD(DAY, +1, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY, +7, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 3 THEN CONVERT(DATE, DATEADD(DAY, +6, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 4 THEN CONVERT(DATE, DATEADD(DAY, +5, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 5 THEN CONVERT(DATE, DATEADD(DAY, +4, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 6 THEN CONVERT(DATE, DATEADD(DAY, +3, GETDATE()))
+	WHEN DATEPART(DW, GETDATE()) = 7 THEN CONVERT(DATE, DATEADD(DAY, +2, GETDATE()))
+END AS first_dayof_next_week,         
 
-convert(date, convert(varchar(7), dateadd(month, -1, getdate()) , 120) + '-01') as FirstDayofPreviousMonth,														  
-convert(date, convert(varchar(7), dateadd(month, +1, getdate()) , 120) + '-01') as FirstDayofNextMonth
+CONVERT(DATE, CONVERT(VARCHAR(7), 
+	DATEADD(MONTH, -1, GETDATE()) , 120) + '-01') AS first_dayof_previous_month,
+														  
+CONVERT(DATE, CONVERT(VARCHAR(7), 
+	DATEADD(MONTH, +1, GETDATE()) , 120) + '-01') AS first_dayof_next_month
 ```
 
 
 ##  2. <a name='MySQL'></a>MySQL
 ```sql
-select 
-Date(Now())  as Today,
+SELECT 
+	DATE(NOW())  AS TODAY,
 
-case #----------------------previous week---------------------------------
-	when weekday(Now()) = 0 then date(date_add(Now(), interval -7 day))
-	when weekday(Now()) = 1 then date(date_add(Now(), interval -8 day))
-	when weekday(Now()) = 2 then date(date_add(Now(), interval -9 day))
-	when weekday(Now()) = 3 then date(date_add(Now(), interval -10 day))
-	when weekday(Now()) = 4 then date(date_add(Now(), interval -11 day))
-	when weekday(Now()) = 5 then date(date_add(Now(), interval -12 day))
-	when weekday(Now()) = 6 then date(date_add(Now(), interval -13 day))
-                                                          end as FirstDayofPreviousWeek,
+	CASE ----------------------PREVIOUS WEEK---------------------------------
+		WHEN WEEKDAY(NOW()) = 0 THEN DATE(DATE_ADD(NOW(), INTERVAL -7 DAY))
+		WHEN WEEKDAY(NOW()) = 1 THEN DATE(DATE_ADD(NOW(), INTERVAL -8 DAY))
+		WHEN WEEKDAY(NOW()) = 2 THEN DATE(DATE_ADD(NOW(), INTERVAL -9 DAY))
+		WHEN WEEKDAY(NOW()) = 3 THEN DATE(DATE_ADD(NOW(), INTERVAL -10 DAY))
+		WHEN WEEKDAY(NOW()) = 4 THEN DATE(DATE_ADD(NOW(), INTERVAL -11 DAY))
+		WHEN WEEKDAY(NOW()) = 5 THEN DATE(DATE_ADD(NOW(), INTERVAL -12 DAY))
+		WHEN WEEKDAY(NOW()) = 6 THEN DATE(DATE_ADD(NOW(), INTERVAL -13 DAY))
+	END AS first_dayof_previous_week,
                           
  
- case #----------------------next week---------------------------------
-	when weekday(Now()) = 0 then date(date_add(Now(), interval +7 day))
-	when weekday(Now()) = 1 then date(date_add(Now(), interval +6 day))
-	when weekday(Now()) = 2 then date(date_add(Now(), interval +5 day))
-	when weekday(Now()) = 3 then date(date_add(Now(), interval +4 day))
-	when weekday(Now()) = 4 then date(date_add(Now(), interval +3 day))
-	when weekday(Now()) = 5 then date(date_add(Now(), interval +2 day))
-	when weekday(Now()) = 6 then date(date_add(Now(), interval +1 day))
-                                                           end as FirstDayofNextWeek,
+	CASE ----------------------NEXT WEEK---------------------------------
+		WHEN WEEKDAY(NOW()) = 0 THEN DATE(DATE_ADD(NOW(), INTERVAL +7 DAY))
+		WHEN WEEKDAY(NOW()) = 1 THEN DATE(DATE_ADD(NOW(), INTERVAL +6 DAY))
+		WHEN WEEKDAY(NOW()) = 2 THEN DATE(DATE_ADD(NOW(), INTERVAL +5 DAY))
+		WHEN WEEKDAY(NOW()) = 3 THEN DATE(DATE_ADD(NOW(), INTERVAL +4 DAY))
+		WHEN WEEKDAY(NOW()) = 4 THEN DATE(DATE_ADD(NOW(), INTERVAL +3 DAY))
+		WHEN WEEKDAY(NOW()) = 5 THEN DATE(DATE_ADD(NOW(), INTERVAL +2 DAY))
+		WHEN WEEKDAY(NOW()) = 6 THEN DATE(DATE_ADD(NOW(), INTERVAL +1 DAY))
+	END AS first_dayof_next_week,
 																  
- date_format(date_add(Now(), interval -1 month), '%Y-%m-01')   as FirstDayofPreviousMonth,                                           
- date_format(date_add(Now(), interval +1 month), '%Y-%m-01')   as FirstDayofNextMonth
+ DATE_FORMAT(DATE_ADD(NOW(), 
+ 	INTERVAL -1 MONTH), '%Y-%M-01')   AS first_day_of_previous_month,                                           
+ 
+ DATE_FORMAT(DATE_ADD(NOW(), 
+ 	INTERVAL +1 MONTH), '%Y-%M-01')   AS first_dayof_next_month
  ```
 
 
 ##  3. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
-select
+SELECT
+	DATE(NOW()) AS Today,
+	DATE(DATE_TRUNC('WEEK',  NOW() - INTERVAL '7 DAY'))   AS first_day_of_previous_week,
+	DATE(DATE_TRUNC('MONTH', NOW() - INTERVAL '1 MONTH')) AS first_day_of_previoust_month,
+	DATE(DATE_TRUNC('YEAR',  NOW() - INTERVAL '1 YEAR'))  AS first_day_of_previous_year,
 
-Date(Now()) as Today,
-
-Date(date_trunc('week',  Now()  - interval '7 day'))   as FirstDayOfPreviousWeek,
-Date(date_trunc('month', Now()  - interval '1 month')) as FirstDayofPrevioustMonth,
-Date(date_trunc('year',  Now()  - interval '1 year'))  as FirstDayOfPreviousYear,
-
-Date(date_trunc('week',  Now()  + interval '7 day'))   as FirstDayOfNextWeek,
-Date(date_trunc('month', Now()  + interval '1 month')) as FirstDayofNextMonth,
-Date(date_trunc('year',  Now()  + interval '1 year'))  as FirstDayOfNextYear
+	DATE(DATE_TRUNC('WEEK',  NOW() + INTERVAL '7 DAY'))   AS first_day_of_next_week,
+	DATE(DATE_TRUNC('MONTH', NOW() + INTERVAL '1 MONTH')) AS first_day_of_next_month,
+	DATE(DATE_TRUNC('YEAR',  NOW() + INTERVAL '1 YEAR'))  AS first_day_of_next_year
 ```
 
 
 ##  4. <a name='Vertica'></a>Vertica
 ```sql
-select
+SELECT
+	DATE(NOW()) AS TODAY,
+	DATE(DATE_TRUNC('WEEK',  TIMESTAMPADD('WEEK', -1, NOW())))   AS first_day_of_previous_week,
+	DATE(DATE_TRUNC('MONTH', TIMESTAMPADD('MONTH', -1, NOW())))  AS first_day_of_previoust_month,
+	DATE(DATE_TRUNC('YEAR',  TIMESTAMPADD('YEAR', -1, NOW())))   AS first_day_of_previous_year,
 
-Date(Now()) as Today,
-
-Date(date_trunc('week',  timestampadd('week', -1, Now())))   as FirstDayOfPreviousWeek,
-Date(date_trunc('month', timestampadd('month', -1, Now())))  as FirstDayofPrevioustMonth,
-Date(date_trunc('year',  timestampadd('year', -1, Now())))   as FirstDayOfPreviousYear,
-
-Date(date_trunc('week',  timestampadd('week', +1, Now())))   as FirstDayOfNextWeek,
-Date(date_trunc('month', timestampadd('month', +1, Now())))  as FirstDayofNextMonth,
-Date(date_trunc('year',  timestampadd('year', +1, Now())))   as FirstDayOfNextYear
+	DATE(DATE_TRUNC('WEEK',  TIMESTAMPADD('WEEK', +1, NOW())))   AS first_day_of_next_week,
+	DATE(DATE_TRUNC('MONTH', TIMESTAMPADD('MONTH', +1, NOW())))  AS first_day_of_next_month,
+	DATE(DATE_TRUNC('YEAR',  TIMESTAMPADD('YEAR', +1, NOW())))   AS first_day_of_next_year
 ```
  
 ##  5. <a name='BigQuery'></a>BigQueryy

@@ -21,42 +21,42 @@
 ##  1. <a name='VERTICA'></a>VERTICA
 ```sql
 SELECT
-'2017-03-31'                          as text_field,
-TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
+  '2017-03-31'                          as text_field,
+  TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
 ##  2. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 SELECT
-'2017-03-31'                          as text_field,
-TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
+  '2017-03-31'                          as text_field,
+  TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
 ##  3. <a name='MySQL'></a>MySQL
 ```sql
 SELECT
-'2017-03-31'                          as text_field,
-STR_TO_DATE('2017-03-31', '%Y-%m-%d') as date_field
+  '2017-03-31'                          as text_field,
+  STR_TO_DATE('2017-03-31', '%Y-%m-%d') as date_field
 ```
 
 
 ##  4. <a name='SQLServer'></a>SQL Server
 ```sql
 SELECT
-'2017-03-31'                          as text_field,
-CONVERT(date, '2017-03-31')           as date_field1,
-CAST('2017-03-31' as date)            as date_field2
+  '2017-03-31'                          as text_field,
+  CONVERT(date, '2017-03-31')           as date_field1,
+  CAST('2017-03-31' as date)            as date_field2
 ```
 
 
 ##  5. <a name='BigQuery'></a>BigQuery
 ```sql
 SELECT
-CURRENT_DATE() AS NOW,
-PARSE_DATE("%Y/%m/%d", "2012/12/21") AS THE_DATE,
+  CURRENT_DATE() AS NOW,
+  PARSE_DATE("%Y/%m/%d", "2012/12/21") AS THE_DATE,
 
-FORMAT_DATE("%Y-%b-%d",
-    PARSE_DATE("%Y/%m/%d", "2012/12/21")) AS THE_DATE_FORMATTED
+  FORMAT_DATE("%Y-%b-%d",
+      PARSE_DATE("%Y/%m/%d", "2012/12/21")) AS THE_DATE_FORMATTED
 ```
 ```json
 [

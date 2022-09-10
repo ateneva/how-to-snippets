@@ -20,80 +20,107 @@
 ##  1. <a name='Vertica'></a>Vertica
 ```sql
 ---calculate remaining days in calendar quarter
-select
-Quarter(Now()) as CurrentCalendarQuarter,
-	case 
-		when Quarter(Now()) = 1 Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-03-31'), 'YYYY-MM-DD')) 
-		when Quarter(Now()) = 2 Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-06-30'), 'YYYY-MM-DD')) 
-		when Quarter(Now()) = 3 Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-09-30'), 'YYYY-MM-DD')) 
-		when Quarter(Now()) = 4 Then datediff('dd', Date(Now()), to_date(Concat(Year(Now()),'-12-31'), 'YYYY-MM-DD')) 
+SELECT
+	QUARTER(NOW()) AS current_calendar_quarter,
+	CASE 
+		WHEN QUARTER(NOW()) = 1 
+			THEN DATEDIFF('DD', DATE(NOW()), 
+					TO_DATE(CONCAT(YEAR(NOW()),'-03-31'), 'YYYY-MM-DD')) 
 		
-	end as Remaining_In_Cal_Quarter
+		WHEN QUARTER(NOW()) = 2 
+			THEN DATEDIFF('DD', DATE(NOW()), 
+					TO_DATE(CONCAT(YEAR(NOW()),'-06-30'), 'YYYY-MM-DD')) 
+		
+		WHEN QUARTER(NOW()) = 3 
+			THEN DATEDIFF('DD', DATE(NOW()), 
+					TO_DATE(CONCAT(YEAR(NOW()),'-09-30'), 'YYYY-MM-DD')) 
+		
+		WHEN QUARTER(NOW()) = 4 
+			THEN DATEDIFF('DD', DATE(NOW()), 
+					TO_DATE(CONCAT(YEAR(NOW()),'-12-31'), 'YYYY-MM-DD')) 
+		
+	END AS remaining_in_cal_quarter
 ```	
 	
 ##  2. <a name='SQLServer'></a>SQL Server
 
 ```sql
-select
-datepart(quarter, getdate()) as CurrentCalendarQuarter
-case 
-	when datepart(quarter, getdate() ) = '1'
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-03-31')) ) 
-		
-	when datepart(quarter, getdate() ) = '2'
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-06-30')) ) 
+SELECT
+	DATEPART(QUARTER, GETDATE()) AS current_calendar_quarter
+	CASE 
+		WHEN DATEPART(QUARTER, GETDATE() ) = '1'
+			THEN DATEDIFF(DAY, GETDATE(), 
+					CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-03-31')) ) 
+			
+		WHEN DATEPART(QUARTER, GETDATE() ) = '2'
+			THEN DATEDIFF(DAY, GETDATE(), 
+					CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-06-30')) ) 
 
-	when datepart(quarter, getdate() ) = '3'	
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-09-30')) ) 
+		WHEN DATEPART(QUARTER, GETDATE() ) = '3'	
+			THEN DATEDIFF(DAY, GETDATE(), 
+					CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-09-30')) ) 
 
-	when datepart(quarter, getdate() ) = '4'		
-		then datediff(day, getdate(), convert(date, Concat(Year(getdate()),'-12-31')) )
-		
-end as Remaining_In_Cal_Quarter
+		WHEN DATEPART(QUARTER, GETDATE() ) = '4'		
+			THEN DATEDIFF(DAY, GETDATE(), 
+					CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-12-31')) )
+			
+	END AS remaining_in_cal_quarter
 ```
 
 ##  3. <a name='MySQL'></a>MySQL
 
 ```sql
-select
-extract(quarter from Now()) as CurrentCalendarQuarter,
-case 
-	when extract(quarter from Now()) = '1'
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-03-31'), '%Y-%m-%d'))
-		
-	when extract(quarter from Now()) = '2'
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-06-30'), '%Y-%m-%d'))
-		
-	when extract(quarter from Now()) = '3'
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-09-30'), '%Y-%m-%d'))
-		
-	when extract(quarter from Now()) = '4' 
-		then timestampdiff(day, Now(), str_to_date(Concat(Year(Now()),'-12-31'), '%Y-%m-%d'))
-		
-end as Remaining_In_Cal_Quarter
+SELECT
+	EXTRACT(QUARTER FROM NOW()) AS current_calendar_quarter,
+	CASE 
+		WHEN EXTRACT(QUARTER FROM NOW()) = '1'
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-03-31'), '%Y-%M-%D'))
+			
+		WHEN EXTRACT(QUARTER FROM NOW()) = '2'
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-06-30'), '%Y-%M-%D'))
+			
+		WHEN EXTRACT(QUARTER FROM NOW()) = '3'
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-09-30'), '%Y-%M-%D'))
+			
+		WHEN EXTRACT(QUARTER FROM NOW()) = '4' 
+			THEN TIMESTAMPDIFF(DAY, NOW(), 
+					STR_TO_DATE(CONCAT(YEAR(NOW()),'-12-31'), '%Y-%M-%D'))
+			
+	END AS remaining_in_cal_quarter
 ```
 
 
 ##  4. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
-select
-date_part('quarter', Now()) as CurrentCalendarQuarter
+SELECT
+DATE_PART('QUARTER', NOW()) AS current_calendar_quarter
 
-case 
-	when date_part('quarter', Now()) = '1' 
-		then date_part('day', to_date(date_part('year', current_date) || '-03-31', 'YYYY-MM-DD') - Now() ) + 1
+CASE 
+	WHEN DATE_PART('QUARTER', NOW()) = '1' 
+		THEN DATE_PART('DAY', 
+				TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-03-31', 'YYYY-MM-DD') 
+				- NOW() ) + 1
 	
-	when date_part('quarter', Now()) = '2' 
-		then date_part('day', to_date(date_part('year', current_date) || '-06-30', 'YYYY-MM-DD') - NoW() ) + 1 
+	WHEN DATE_PART('QUARTER', NOW()) = '2' 
+		THEN DATE_PART('DAY', 
+				TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-06-30', 'YYYY-MM-DD') 
+				- NOW() ) + 1 
 		
-	when date_part('quarter', Now()) = '3' 
-		then date_part('day', to_date(date_part('year', current_date) || '-09-30', 'YYYY-MM-DD') - Now() ) + 1
+	WHEN DATE_PART('QUARTER', NOW()) = '3' 
+		THEN DATE_PART('DAY', 
+				TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-09-30', 'YYYY-MM-DD') 
+				- NOW() ) + 1
 
-	when date_part('quarter', Now()) = '4' 	
-		then date_part('day', to_date(date_part('year', current_date) || '-12-31', 'YYYY-MM-DD') - Now() ) + 1
+	WHEN DATE_PART('QUARTER', NOW()) = '4' 	
+		THEN DATE_PART('DAY', 
+				TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-12-31', 'YYYY-MM-DD') 
+				- NOW() ) + 1
 		
-end as Remaining_In_Cal_Quarter
+END AS remaining_in_cal_quarter
 ```
 
 

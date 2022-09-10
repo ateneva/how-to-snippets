@@ -21,23 +21,23 @@
 ##  1. <a name='SQLServer'></a>SQL Server
 ```sql
 SELECT
-    dateadd(year,    -1, getdate())   as OneYearAgo,
-    dateadd(month,   -1, getdate())   as OneMonthAgo,
-    dateadd(week,    -1, getdate())   as OneWeekAgo,
-    dateadd(day,     -1, getdate())   as OneDayAgo,
-    dateadd(weekday, -1, getdate())   as OneWeekdayAgo,
-    dateadd(hour,    -1, getdate())   as OneHourAgo
+    DATEADD(YEAR,    -1, GETDATE())   AS one_year_ago,
+    DATEADD(MONTH,   -1, GETDATE())   AS one_month_ago,
+    DATEADD(WEEK,    -1, GETDATE())   AS one_week_ago,
+    DATEADD(DAY,     -1, GETDATE())   AS one_day_ago,
+    DATEADD(WEEKDAY, -1, GETDATE())   AS one_weekday_ago,
+    DATEADD(HOUR,    -1, GETDATE())   AS one_hour_ago
 ```
 
 
 ```sql
 SELECT
-    dateadd(year,     1, getdate())   as OneYearFromNow,
-    dateadd(month,    1, getdate())   as MonthFromNow,
-    dateadd(week,     1, getdate())   as OneWeekFromNow,
-    dateadd(day,      1, getdate())   as OneDayFromNow,
-    dateadd(weekday,  1, getdate())   as OneWeekdayFromNow,
-    dateadd(hour,     1, getdate())   as OneHourFromNow
+    DATEADD(YEAR,     1, GETDATE())   AS one_year_from_now,
+    DATEADD(MONTH,    1, GETDATE())   AS month_from_now,
+    DATEADD(WEEK,     1, GETDATE())   AS one_week_from_now,
+    DATEADD(DAY,      1, GETDATE())   AS one_day_from_now,
+    dATEADD(WEEKDAY,  1, GETDATE())   AS one_weekday_from_now,
+    DATEADD(HOUR,     1, GETDATE())   AS one_hour_from_now
 ```
 
 
@@ -45,122 +45,129 @@ SELECT
 ##  2. <a name='MySQL'></a>MySQL
 ```sql
 SELECT
-    date_sub(Now(), interval 1 year)    as OneYearAgo,
-    date_sub(Now(), interval 1 month)   as OneMonthAgo,
-    date_sub(Now(), interval 1 week)    as OneWeekAgo,
-    date_sub(Now(), interval 1 day)     as OneDayAgo,
-    date_sub(Now(), interval 1 hour)    as OneHourAgo
+    DATE_SUB(NOW(), INTERVAL 1 YEAR)    AS one_year_ago,
+    DATE_SUB(NOW(), INTERVAL 1 MONTH)   AS one_month_ago,
+    DATE_SUB(NOW(), INTERVAL 1 WEEK)    AS one_week_ago,
+    DATE_SUB(NOW(), INTERVAL 1 DAY)     AS one_day_ago,
+    DATE_SUB(NOW(), INTERVAL 1 HOUR)    AS one_hour_ago
 
  --or
 
 SELECT
-    date_add(Now(), interval -1 year)    as OneYearAgo,
-    date_add(Now(), interval -1 month)   as OneMonthAgo,
-    date_add(Now(), interval -1 week)    as OneWeekAgo,
-    date_add(Now(), interval -1 day)     as OneDayAgo,
-    date_add(Now(), interval -1 hour)    as OneHourAgo
+    DATE_ADD(NOW(), INTERVAL -1 YEAR)    AS one_year_ago,
+    DATE_ADD(NOW(), INTERVAL -1 MONTH)   AS one_month_ago,
+    DATE_ADD(NOW(), INTERVAL -1 WEEK)    AS one_week_ago,
+    DATE_ADD(NOW(), INTERVAL -1 DAY)     AS one_day_ago,
+    DATE_ADD(NOW(), INTERVAL -1 HOUR)    AS one_hour_ago
 
 --or
 SELECT
-    timestampadd(year,  -1, Now())    	as OneYearAgo,
-    timestampadd(month, -1, Now())    	as OneMonthAgo,
-    timestampadd(week, -1, Now())     	as OneWeekAgo,
-    timestampadd(day, -1, Now())      	as OneDayAgo,
-    timestampadd(hour, -1, Now())     	as OneHourAgo
+    TIMESTAMPADD(YEAR,  -1, NOW())    	AS one_year_ago,
+    TIMESTAMPADD(MONTH, -1, NOW())    	AS one_month_ago,
+    TIMESTAMPADD(WEEK, -1, NOW())     	AS one_week_ago,
+    TIMESTAMPADD(DAY, -1, NOW())      	AS one_day_ago,
+    TIMESTAMPADD(HOUR, -1, NOW())     	AS one_hour_ago
 ```
 
 ```sql
 SELECT
-    date_add(Now(), interval 1 year)    as OneYearFromNow,
-    date_add(Now(), interval 1 month)   as MonthFromNow,
-    date_add(Now(), interval 1 week)    as OneWeekFromNow,
-    date_add(Now(), interval 1 day)     as OneDayFromNow,
-    date_add(Now(), interval 1 hour)    as OneHourFromNow
+    DATE_ADD(NOW(), INTERVAL 1 YEAR)    AS one_year_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 MONTH)   AS month_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 WEEK)    AS one_week_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 DAY)     AS one_day_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 HOUR)    AS one_hour_from_now
 
 --OR
 
 SELECT
-    timestampadd(year, 1, Now())        as OneYearFromNow,
-    timestampadd(month, 1, Now())       as MonthFromNow,
-    timestampadd(week, 1, Now())        as OneWeekFromNow,
-    timestampadd(day, 1, Now())         as OneDayFromNow,
-    timestampadd(hour, 1, Now())        as OneHourFromNow
+    TIMESTAMPADD(YEAR, 1, NOW())        AS one_year_from_now,
+    TIMESTAMPADD(MONTH, 1, NOW())       AS month_from_now,
+    TIMESTAMPADD(WEEK, 1, NOW())        AS one_week_from_now,
+    TIMESTAMPADD(DAY, 1, NOW())         AS one_day_from_now,
+    TIMESTAMPADD(HOUR, 1, NOW())        AS one_hour_from_now
 ```
 
 OR 
 
 ```sql
-select 
+SELECT 
+    NOW(),
+    DATE(ADDDATE(NOW(), 5)) AS 5_days_from_now,    
+    TIME(ADDTIME(NOW(), 5)) AS 5_seconds_from_now,
 
-now(),
-date(adddate(now(), 5)) as 5DaysFromNow,    
-time(addtime(now(), 5)) as 5SecondsFromNow,
-
-date(subdate(now(), 5)) as 5DaysAgo,
-time(subtime(now(), 5)) as 5SecondsAgo,
+    DATE(SUBDATE(NOW(), 5)) AS 5_days_ago,
+    TIME(SUBTIME(NOW(), 5)) AS 5_seconds_ago,
 
 
-#fixed input month
-period_add(201801, 3) as 3MonthFromYM,
-period_add(201801,-3) as 3MonthAgo,
+    --fixed input month
+    PERIOD_ADD(201801, 3) AS 3_month_from_ym,
+    PERIOD_ADD(201801,-3) AS 3_month_ago,
 
-concat(year(now()),  #get current year month
-	case when month(now()) < 10 then concat(0, month(now())) else month(now()) end) as ThisYM,
-	
-#dynamic input month
-period_add(concat(year(now()),  #get current year month
-				case when month(now()) < 10 then concat(0, month(now())) else month(now()) end), 5) as 5MonthsFromNow
+    CONCAT(YEAR(NOW()),  --GET CURRENT YEAR MONTH
+        CASE 
+            WHEN MONTH(NOW()) < 10 
+            THEN CONCAT(0, MONTH(NOW())) 
+            ELSE MONTH(NOW()) 
+        END) AS this_ym,
+        
+    --dynamic input month
+    PERIOD_ADD(CONCAT(YEAR(NOW()),
+                    CASE 
+                        WHEN MONTH(NOW()) < 10 
+                        THEN CONCAT(0, MONTH(NOW())) 
+                        ELSE MONTH(NOW()) 
+                    END), 5) AS 5_months_from_now
 ```
 
 ##  3. <a name='VERTICA:timestampaddd'></a>VERTICA: timestampaddd
 ```sql
 SELECT
-    timestampadd('year',  -1, Now())    as OneYearAgo,
-    timestampadd('month', -1, Now())    as OneMonthAgo,
-    timestampadd('week', -1, Now())     as OneWeekAgo,
-    timestampadd('day', -1, Now())      as OneDayAgo,
-    timestampadd('hour', -1, Now())     as OneHourAgo,
+    TIMESTAMPADD('YEAR',  -1, NOW())    AS one_year_ago,
+    TIMESTAMPADD('MONTH', -1, NOW())    AS one_month_ago,
+    TIMESTAMPADD('WEEK', -1, NOW())     AS one_week_ago,
+    TIMESTAMPADD('DAY', -1, NOW())      AS one_day_ago,
+    TIMESTAMPADD('HOUR', -1, NOW())     AS one_hour_ago,
 
-    timestampadd('year', 1, Now())      as OneYearFromNow,
-    timestampadd('month', 1, Now())     as MonthFromNow,
-    timestampadd('week', 1, Now())      as OneWeekFromNow,
-    timestampadd('day', 1, Now())       as OneDayFromNow,
-    timestampadd('hour', 1, Now())      as OneHourFromNow
+    TIMESTAMPADD('YEAR', 1, NOW())      AS one_year_from_now,
+    TIMESTAMPADD('MONTH', 1, NOW())     AS month_from_now,
+    TIMESTAMPADD('WEEK', 1, NOW())      AS one_week_from_now,
+    TIMESTAMPADD('DAY', 1, NOW())       AS one_day_from_now,
+    TIMESTAMPADD('HOUR', 1, NOW())      AS one_hour_from_now
 ```
 
 OR 
 
 ```sql
-select 
-    Now(),
-    add_months(Now(), 1) as 1MonthFromNow,
-    add_months(Now(),-1) as 1MonthAgo,
+SELECT 
+    NOW(),
+    ADD_MONTHS(NOW(), 1) AS 1_month_from_now,
+    ADD_MONTHS(NOW(),-1) AS 1_month_ago,
 
-    add_months(Now(), 5) as 5MonthsFromNow,
-    add_months(Now(),-5) as 5MonthsAgo,
+    ADD_MONTHS(NOW(), 5) AS 5_months_from_now,
+    ADD_MONTHS(NOW(),-5) AS 5_months_ago,
 
-    add_months(Now(), 8) as 8MonthsFromNow,
-    add_months(Now(),-8) as 8MonthsAgo
+    ADD_MONTHS(NOW(), 8) AS 8_months_from_now,
+    ADD_MONTHS(NOW(),-8) AS 8_months_ago
 ```
 
 ##  4. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 SELECT
-    Now() - INTERVAL '1 year'    as OneYearAgo,
-    Now() - INTERVAL '1 month'   as OneMonthAgo,
-    Now() - INTERVAL '1 week'    as OneWeekAgo,
-    Now() - INTERVAL '1 day'     as OneDayAgo,
-    Now() - INTERVAL '1 hour'    as OneHourAgo
+    NOW() - INTERVAL '1 YEAR'    AS one_year_ago,
+    NOW() - INTERVAL '1 MONTH'   AS one_month_ago,
+    NOW() - INTERVAL '1 WEEK'    AS one_week_ago,
+    NOW() - INTERVAL '1 DAY'     AS one_day_ago,
+    NOW() - INTERVAL '1 HOUR'    AS one_hour_ago
 ```
 
 
 ```sql
 SELECT
-    Now() + INTERVAL '1 year'    as OneYearFromNow,
-    Now() + INTERVAL '1 month'   as OneMonthFromNow,
-    Now() + INTERVAL '1 week'    as OneWeekFromNow,
-    Now() + INTERVAL '1 day'     as OneDayFromNow,
-    Now() + INTERVAL '1 hour'    as OneHourFromNow
+    NOW() + INTERVAL '1 YEAR'    AS one_year_from_now,
+    NOW() + INTERVAL '1 MONTH'   AS one_month_from_now,
+    NOW() + INTERVAL '1 WEEK'    AS one_week_from_now,
+    NOW() + INTERVAL '1 DAY'     AS one_day_from_now,
+    NOW() + INTERVAL '1 HOUR'    AS one_hour_from_now
 ```
 
 ##  5. <a name='BigQuery'></a>BigQuery
