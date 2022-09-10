@@ -14,24 +14,24 @@ STR_TO_DATE('2017-03-31', '%Y-%m-%d') as DateField
 
 ```sql
 SELECT
-NOW(),
-DATE(CURRENT_DATE())        as Today,
-YEAR(CURRENT_DATE())        as ThisYear,
-QUARTER(CURRENT_DATE())     as ThisQuarter,
-MONTH(CURRENT_DATE())       as ThisMonth,
-DAY(CURRENT_DATE())         as ThisDay,
-
-DAYOFYEAR(CURRENT_DATE())   as DayOfYear,
-DAYOFMONTH(CURRENT_DATE())  as DayOfMonth,
-
-#1 = Sunday, 2 = Monday, …, 7 = Saturday)
-DAYOFWEEK(CURRENT_DATE())   as DayofWeek, 
-
-#0 = Monday, 1 = Tuesday, … 6 = Sunday  
-WEEKDAY(CURRENT_DATE())     as WeekdayNum,  
-
-WEEKOFYEAR(CURRENT_DATE())	as WeekNumUS,
-WEEK(CURRENT_DATE())		as WeekNumUS
+    NOW(),
+    DATE(CURRENT_DATE())        as Today,
+    YEAR(CURRENT_DATE())        as ThisYear,
+    QUARTER(CURRENT_DATE())     as ThisQuarter,
+    MONTH(CURRENT_DATE())       as ThisMonth,
+    DAY(CURRENT_DATE())         as ThisDay,
+    
+    DAYOFYEAR(CURRENT_DATE())   as DayOfYear,
+    DAYOFMONTH(CURRENT_DATE())  as DayOfMonth,
+    
+    #1 = Sunday, 2 = Monday, …, 7 = Saturday)
+    DAYOFWEEK(CURRENT_DATE())   as DayofWeek, 
+    
+    #0 = Monday, 1 = Tuesday, … 6 = Sunday  
+    WEEKDAY(CURRENT_DATE())     as WeekdayNum,  
+    
+    WEEKOFYEAR(CURRENT_DATE())	as WeekNumUS,
+    WEEK(CURRENT_DATE())		as WeekNumUS
 ```
 
 ```text
@@ -51,13 +51,13 @@ DayOfYear |DayOfMonth |DayofWeek |WeekdayNum |WeekNumUS |WeekNumUS |
 
 ```sql
 SELECT
-CURRENT_TIMESTAMP                   	 as MyLocalDateAndTime,
-EXTRACT(YEAR FROM CURRENT_TIMESTAMP)     as CurrentYear,            
-EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)  as CurrentQuarter,
-EXTRACT(month FROM CURRENT_TIMESTAMP)    as CurrentMonth,
-EXTRACT(week FROM CURRENT_TIMESTAMP)     as CurrentWeek,
-EXTRACT(day FROM CURRENT_TIMESTAMP)      as CurrentDay,
-EXTRACT(hour FROM CURRENT_TIMESTAMP)     as CurrentHour
+    CURRENT_TIMESTAMP                   	 as MyLocalDateAndTime,
+    EXTRACT(YEAR FROM CURRENT_TIMESTAMP)     as CurrentYear,            
+    EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)  as CurrentQuarter,
+    EXTRACT(month FROM CURRENT_TIMESTAMP)    as CurrentMonth,
+    EXTRACT(week FROM CURRENT_TIMESTAMP)     as CurrentWeek,
+    EXTRACT(day FROM CURRENT_TIMESTAMP)      as CurrentDay,
+    EXTRACT(hour FROM CURRENT_TIMESTAMP)     as CurrentHour
 ```
 
 ```text
@@ -71,11 +71,11 @@ MyLocalDateAndTime  |CurrentYear |CurrentQuarter |CurrentMonth |CurrentWeek |Cur
 
 ```sql
 SELECT
-DATE_ADD(NOW(), INTERVAL 1 YEAR)    as OneYearFromNOW,
-DATE_ADD(NOW(), INTERVAL 1 MONTH)   as MonthFromNOW,
-DATE_ADD(NOW(), INTERVAL 1 WEEK)    as OneWeekFromNOW,
-DATE_ADD(NOW(), INTERVAL 1 DAY)     as OneDayFromNOW,
-DATE_ADD(NOW(), INTERVAL 1 HOUR)    as OneHourFromNOW
+    DATE_ADD(NOW(), INTERVAL 1 YEAR)    as OneYearFromNOW,
+    DATE_ADD(NOW(), INTERVAL 1 MONTH)   as MonthFromNOW,
+    DATE_ADD(NOW(), INTERVAL 1 WEEK)    as OneWeekFromNOW,
+    DATE_ADD(NOW(), INTERVAL 1 DAY)     as OneDayFromNOW,
+    DATE_ADD(NOW(), INTERVAL 1 HOUR)    as OneHourFromNOW
 ```
 
 ```text
@@ -87,22 +87,22 @@ OneYearFromNOW      |MonthFromNOW        |OneWeekFromNOW      |OneDayFromNOW    
 
 ```sql
 SELECT
-DATE_ADD(NOW(), INTERVAL -1 YEAR)    as OneYearAgo,
-DATE_ADD(NOW(), INTERVAL -1 MONTH)   as OneMonthAgo,
-DATE_ADD(NOW(), INTERVAL -1 WEEK)    as OneWeekAgo,
-DATE_ADD(NOW(), INTERVAL -1 DAY)     as OneDayAgo,
-DATE_ADD(NOW(), INTERVAL -1 HOUR)    as OneHourAgo,
+    DATE_ADD(NOW(), INTERVAL -1 YEAR)    as OneYearAgo,
+    DATE_ADD(NOW(), INTERVAL -1 MONTH)   as OneMonthAgo,
+    DATE_ADD(NOW(), INTERVAL -1 WEEK)    as OneWeekAgo,
+    DATE_ADD(NOW(), INTERVAL -1 DAY)     as OneDayAgo,
+    DATE_ADD(NOW(), INTERVAL -1 HOUR)    as OneHourAgo
 ```
 
  or
 
 ```sql
 SELECT
-DATE_SUB(NOW(), INTERVAL 1 YEAR)    as OneYearAgo,
-DATE_SUB(NOW(), INTERVAL 1 MONTH)   as OneMonthAgo,
-DATE_SUB(NOW(), INTERVAL 1 WEEK)    as OneWeekAgo,
-DATE_SUB(NOW(), INTERVAL 1 DAY)     as OneDayAgo,
-DATE_SUB(NOW(), INTERVAL 1 HOUR)    as OneHourAgo,
+    DATE_SUB(NOW(), INTERVAL 1 YEAR)    as OneYearAgo,
+    DATE_SUB(NOW(), INTERVAL 1 MONTH)   as OneMonthAgo,
+    DATE_SUB(NOW(), INTERVAL 1 WEEK)    as OneWeekAgo,
+    DATE_SUB(NOW(), INTERVAL 1 DAY)     as OneDayAgo,
+    DATE_SUB(NOW(), INTERVAL 1 HOUR)    as OneHourAgo
 ```
 
 ```text
@@ -117,24 +117,24 @@ OneYearAgo          |OneMonthAgo         |OneWeekAgo          |OneDayAgo        
 ```sql
 # fixed input month
 SELECT
-NOW(),
-PERIOD_ADD(201801, 3) as 3MonthFromYM,
-PERIOD_ADD(201801,-3) as 3MonthAgo,
+    NOW(),
+    PERIOD_ADD(201801, 3) as 3MonthFromYM,
+    PERIOD_ADD(201801,-3) as 3MonthAgo,
 
 # get current year month
-CONCAT(YEAR(NOW()),  
-	CASE
-		WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
-		ELSE  MONTH(NOW())
-	END) as ThisYM,
+    CONCAT(YEAR(NOW()),  
+        CASE
+            WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
+            ELSE  MONTH(NOW())
+        END) as ThisYM,
 
 
 # dynamic input month
-PERIOD_ADD(CONCAT(YEAR(NOW()),  
-				CASE
-					WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
-					ELSE MONTH(NOW())
-				END), 5) as 5MonthsFromNow
+    PERIOD_ADD(CONCAT(YEAR(NOW()),  
+                    CASE
+                        WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
+                        ELSE MONTH(NOW())
+                    END), 5) as 5MonthsFromNow
 ```
 
 ```text
@@ -148,14 +148,14 @@ now()               |3MonthFromYM |3MonthAgo |ThisYM |5MonthsFromNow |
 
 ```sql
 SELECT
-DATEDIFF(NOW(), '1988-06-21') as DaysBetween,
-DATEDIFF(YEAR,    '1988-06-21', NOW()) as YearsBetweenDates,
-DATEDIFF(QUARTER, '1988-06-21', NOW()) as QuartersBetweenDates,
-DATEDIFF(MONTH,   '1988-06-21', NOW()) as MonthsBetweenDates,
-DATEDIFF(DAY,     '1988-06-21', NOW()) as DaysBetweenDates,
-DATEDIFF(HOUR,    '1988-06-21', NOW()) as HoursBetweenDates,
-DATEDIFF(MINUTE,  '1988-06-21', NOW()) as MinutesBetweenDates,
-DATEDIFF(SECOND,  '1988-06-21', NOW()) as SecondsBetweenDates
+    DATEDIFF(NOW(), '1988-06-21') as DaysBetween,
+    DATEDIFF(YEAR,    '1988-06-21', NOW()) as YearsBetweenDates,
+    DATEDIFF(QUARTER, '1988-06-21', NOW()) as QuartersBetweenDates,
+    DATEDIFF(MONTH,   '1988-06-21', NOW()) as MonthsBetweenDates,
+    DATEDIFF(DAY,     '1988-06-21', NOW()) as DaysBetweenDates,
+    DATEDIFF(HOUR,    '1988-06-21', NOW()) as HoursBetweenDates,
+    DATEDIFF(MINUTE,  '1988-06-21', NOW()) as MinutesBetweenDates,
+    DATEDIFF(SECOND,  '1988-06-21', NOW()) as SecondsBetweenDates
 ```
 
 ```text
@@ -176,10 +176,10 @@ DaysBetween |YearsBetweenDates |QuartersBetweenDates |MonthsBetweenDates |DaysBe
 
 ```sql
 SELECT
-DATE(NOW())                   as Today,
-LAST_DAY(ADDDATE(NOW(), -31)) as LastDayPreviousMonth,
-LAST_DAY(NOW())               as LastDayThisMonth,
-LAST_DAY(ADDDATE(Now(), +31)) as LastDayNextMonth
+    DATE(NOW())                   as Today,
+    LAST_DAY(ADDDATE(NOW(), -31)) as LastDayPreviousMonth,
+    LAST_DAY(NOW())               as LastDayThisMonth,
+    LAST_DAY(ADDDATE(Now(), +31)) as LastDayNextMonth
 ```
 
 ```text

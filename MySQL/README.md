@@ -38,7 +38,7 @@ mysql --version
 mysql.server start
 
 # access MySQL environment
-MySQL -u root -p
+mysql -u root -p
 mysql> CREATE DATABASE airflow CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 mysql> GRANT ALL PRIVILEGES ON airflow.* To 'root'@'localhost';
 mysql> FLUSH PRIVILEGES;
@@ -46,6 +46,7 @@ mysql> FLUSH PRIVILEGES;
 
 * https://flaviocopes.com/mysql-how-to-install/
 * https://stackoverflow.com/questions/22436028/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock-2
+
 
 ## CREATE TABLE on the installed database
 
@@ -102,6 +103,37 @@ pip install pymysql
 pip install sqlalchemy
 ```
 * [check examples](https://github.com/ateneva/how-to-snippets/blob/e083e939d6600248ef853f5c63db2caf9c0f6471/MySQL/load-data-to-mysql-db-with-python.md)
+
+
+
+# Install MySQL database with Docker image
+
+* pull latest image
+```bash
+docker pull mysql
+docker pull mysql/mysql-server:latest
+```
+
+* verify the image exists on your machien
+```bash
+docker image ls -a
+--or 
+sudo docker images
+```
+
+* deploy and start the container
+```bash
+docker run --name=mysql -d mysql/mysql-server:latest
+```
+
+* verify the container is running
+```bash
+docker container ls -a
+---or 
+docker ps
+```
+
+* https://hevodata.com/learn/docker-mysql/
 
 # MySQL Functions
 
