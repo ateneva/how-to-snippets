@@ -21,9 +21,9 @@ docker container run -p 8888:8888 olympics
 ```bash
 docker container ls                       # list all running containers
 docker container ls -a
-docker container stop <container id>      # greacefuly stop containers
+docker container stop <container id>      # gracefuly stop containers
 docker container kill <container id>      # force quit containers
-docker container rm <container id>        # delete contaners
+docker container rm <container id>        # delete containers
 docker container run <image name>         # run the image
 docker container run -it <image name>     # run the image and interact with it
 ```

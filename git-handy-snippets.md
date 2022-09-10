@@ -1,6 +1,14 @@
 
 # Setting Up
 
+### Review GIT configuration
+```bash
+git config user.name          # display the configured user name
+git config user.email         # display the configured email
+git config core.editor        # display the configured editor
+git config core.excludesfile  # review excluded files
+```
+
 ### Configure GIT
 ```bash
 git config --global user.email ateneva@gmail.com
@@ -38,14 +46,6 @@ echo .DS_Store >> ~/.gitignore
 
 # remove any existing files from the repo, skipping over ones not in repo
 find . -name .DS_Store -print0 | xargs -0 git rm --ignore-unmatch
-```
-
-### Review GIT configuration
-```bash
-git config user.name          # display the configured user name
-git config user.email         # display the configured email
-git config core.editor        # display the configured editor
-git config core.excludesfile  # review excluded files
 ```
 
 ### Clone a remote repository
