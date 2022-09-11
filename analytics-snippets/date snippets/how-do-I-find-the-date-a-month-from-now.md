@@ -17,8 +17,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='SQLServer'></a>SQL Server
+## 1. <a name='SQLServer'></a>SQL Server
+
 ```sql
 SELECT
     DATEADD(YEAR,    -1, GETDATE())   AS one_year_ago,
@@ -28,7 +30,6 @@ SELECT
     DATEADD(WEEKDAY, -1, GETDATE())   AS one_weekday_ago,
     DATEADD(HOUR,    -1, GETDATE())   AS one_hour_ago
 ```
-
 
 ```sql
 SELECT
@@ -40,9 +41,8 @@ SELECT
     DATEADD(HOUR,     1, GETDATE())   AS one_hour_from_now
 ```
 
+## 2. <a name='MySQL'></a>MySQL
 
-
-##  2. <a name='MySQL'></a>MySQL
 ```sql
 SELECT
     DATE_SUB(NOW(), INTERVAL 1 YEAR)    AS one_year_ago,
@@ -62,11 +62,11 @@ SELECT
 
 --or
 SELECT
-    TIMESTAMPADD(YEAR,  -1, NOW())    	AS one_year_ago,
-    TIMESTAMPADD(MONTH, -1, NOW())    	AS one_month_ago,
-    TIMESTAMPADD(WEEK, -1, NOW())     	AS one_week_ago,
-    TIMESTAMPADD(DAY, -1, NOW())      	AS one_day_ago,
-    TIMESTAMPADD(HOUR, -1, NOW())     	AS one_hour_ago
+    TIMESTAMPADD(YEAR,  -1, NOW())     AS one_year_ago,
+    TIMESTAMPADD(MONTH, -1, NOW())     AS one_month_ago,
+    TIMESTAMPADD(WEEK, -1, NOW())      AS one_week_ago,
+    TIMESTAMPADD(DAY, -1, NOW())       AS one_day_ago,
+    TIMESTAMPADD(HOUR, -1, NOW())      AS one_hour_ago
 ```
 
 ```sql
@@ -87,7 +87,7 @@ SELECT
     TIMESTAMPADD(HOUR, 1, NOW())        AS one_hour_from_now
 ```
 
-OR 
+OR
 
 ```sql
 SELECT 
@@ -119,7 +119,8 @@ SELECT
                     END), 5) AS 5_months_from_now
 ```
 
-##  3. <a name='VERTICA:timestampaddd'></a>VERTICA: timestampaddd
+## 3. <a name='VERTICA:timestampaddd'></a>VERTICA: timestampaddd
+
 ```sql
 SELECT
     TIMESTAMPADD('YEAR',  -1, NOW())    AS one_year_ago,
@@ -135,7 +136,7 @@ SELECT
     TIMESTAMPADD('HOUR', 1, NOW())      AS one_hour_from_now
 ```
 
-OR 
+OR
 
 ```sql
 SELECT 
@@ -150,7 +151,8 @@ SELECT
     ADD_MONTHS(NOW(),-8) AS 8_months_ago
 ```
 
-##  4. <a name='PostgreSQL'></a>PostgreSQL
+## 4. <a name='PostgreSQL'></a>PostgreSQL
+
 ```sql
 SELECT
     NOW() - INTERVAL '1 YEAR'    AS one_year_ago,
@@ -159,7 +161,6 @@ SELECT
     NOW() - INTERVAL '1 DAY'     AS one_day_ago,
     NOW() - INTERVAL '1 HOUR'    AS one_hour_ago
 ```
-
 
 ```sql
 SELECT
@@ -170,18 +171,22 @@ SELECT
     NOW() + INTERVAL '1 HOUR'    AS one_hour_from_now
 ```
 
-##  5. <a name='BigQuery'></a>BigQuery
+## 5. <a name='BigQuery'></a>BigQuery
+
 ```sql
 ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```

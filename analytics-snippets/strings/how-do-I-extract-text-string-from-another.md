@@ -16,7 +16,9 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='SQL Server'></a>SQL Server
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='SQLServer'></a>SQL Server
 
 ```sql
 SELECT
@@ -34,7 +36,7 @@ SELECT
 
 ```
 
-##  2. <a name='PostgreSQL'></a>PostgreSQL
+## 2. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
 SELECT
@@ -52,7 +54,7 @@ SELECT
     --longer, more complex phrase but pattermn obvious
 ```
 
-##  3. <a name='MySQL'></a>MySQL
+## 3. <a name='MySQL'></a>MySQL
 
 ```sql
 SELECT
@@ -70,19 +72,22 @@ SELECT
 
 ```
 
-##  4. <a name='Bigquery'></a>Bigquery
+## 4. <a name='Bigquery'></a>Bigquery
+
 ```sql
 ```
 
+## 5. <a name='Redshift'></a>Redshift
 
-##  5. <a name='Redshift'></a>Redshift
 ```sql
 ```
 
-##  6. <a name='Python'></a>Python
+## 6. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  7. <a name='Tableau'></a>Tableau
-```
+## 7. <a name='Tableau'></a>Tableau
+
+```text
 ```

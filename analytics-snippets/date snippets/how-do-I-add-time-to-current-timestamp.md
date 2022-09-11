@@ -17,8 +17,9 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='VERTICA'></a>VERTICA
+## 1. <a name='VERTICA'></a>VERTICA
 
 ```sql
 SELECT
@@ -30,7 +31,8 @@ SELECT
     TIMESTAMPADD('HOUR', 7,  GETDATE())  AS seven_hours_from_now
 ```
 
-##  2. <a name='SQLServer'></a>SQL Server
+## 2. <a name='SQLServer'></a>SQL Server
+
 ```sql
 SELECT
     DATEADD(HOUR, -1, GETDATE())         AS one_hour_ago,
@@ -40,7 +42,8 @@ SELECT
     DATEADD(HOUR, 7, GETDATE())          AS seven_hours_from_now
 ```
 
-##  3. <a name='MySQL'></a>MySQL
+## 3. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
     DATE_ADD(NOW(), INTERVAL -1 HOUR)    AS one_hour_ago,
@@ -50,7 +53,8 @@ SELECT
     DATE_ADD(NOW(), INTERVAL 7 HOUR)     AS seven_hours_from_now
 ```
 
-##  4. <a name='PostgreSQL'></a>PostgreSQL
+## 4. <a name='PostgreSQL'></a>PostgreSQL
+
 ```sql
 SELECT
     NOW() - INTERVAL '1 HOUR'            AS one_hour_ago,
@@ -60,18 +64,22 @@ SELECT
     NOW() + INTERVAL '7 HOUR'            AS seven_hours_from_now
 ```
 
-##  5. <a name='BigQuery'></a>BigQuery
+## 5. <a name='BigQuery'></a>BigQuery
+
  ```sql
  ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
  ```python
  ```
 
-##  8. <a name='Tableau'></a>Tableau
- ```
+## 8. <a name='Tableau'></a>Tableau
+
+ ```text
  ```

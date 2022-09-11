@@ -17,7 +17,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='Vertica'></a>Vertica
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='Vertica'></a>Vertica
+
 ```sql
 SELECT
     REPLACE('WE LOVE YOU', 'WE', 'I'), 
@@ -27,7 +30,7 @@ SELECT
     TRIM('  I LOVE YOU ')                AS before_trim             
 ```
 
-##  2. <a name='MySQL'></a>MySQL
+## 2. <a name='MySQL'></a>MySQL
 
 ```sql
 SELECT
@@ -44,9 +47,8 @@ SELECT
     LENGTH(TRIM(' I LOVE YOU  '))        AS after_trim
 ```
 
+## 3. <a name='PostgreSQL'></a>PostgreSQL
 
-
-##  3. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 SELECT
     REPLACE('I LOVE YOU', 'I', 'WE'),
@@ -62,7 +64,7 @@ SELECT
     LENGTH(TRIM(' I LOVE YOU  '))        AS after_trim
 ```
 
-##  4. <a name='SQLServer'></a>SQL Server
+## 4. <a name='SQLServer'></a>SQL Server
 
 ```sql
 SELECT
@@ -77,18 +79,22 @@ SELECT
     DATALENGTH(LTRIM(' I LOVE YOU'))     AS after_ltrim
 ```
 
-##  5. <a name='BigQuery'></a>BigQuery
+## 5. <a name='BigQuery'></a>BigQuery
+
 ```sql
 ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```

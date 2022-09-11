@@ -16,28 +16,31 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='Vertica'></a>Vertica
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='Vertica'></a>Vertica
 
 ```sql
 SELECT
-DATEDIFF('YEAR',    '1988-06-21', NOW()) AS years_between_dates,
-DATEDIFF('QUARTER', '1988-06-21', NOW()) AS quarters_between_dates,
-DATEDIFF('MONTH',   '1988-06-21', NOW()) AS months_between_dates,
-DATEDIFF('DAY',     '1988-06-21', NOW()) AS days_between_dates,
-DATEDIFF('HOUR',    '1988-06-21', NOW()) AS hours_between_dates,
-DATEDIFF('MINUTE',  '1988-06-21', NOW()) AS minutes_between_dates,
-DATEDIFF('SECOND',  '1988-06-21', NOW()) AS seconds_between_dates,
+    DATEDIFF('YEAR',    '1988-06-21', NOW()) AS years_between_dates,
+    DATEDIFF('QUARTER', '1988-06-21', NOW()) AS quarters_between_dates,
+    DATEDIFF('MONTH',   '1988-06-21', NOW()) AS months_between_dates,
+    DATEDIFF('DAY',     '1988-06-21', NOW()) AS days_between_dates,
+    DATEDIFF('HOUR',    '1988-06-21', NOW()) AS hours_between_dates,
+    DATEDIFF('MINUTE',  '1988-06-21', NOW()) AS minutes_between_dates,
+    DATEDIFF('SECOND',  '1988-06-21', NOW()) AS seconds_between_dates,
 
 
-TIMESTAMPDIFF('YEAR',   '2015-08-22', NOW()) AS years_between,
-TIMESTAMPDIFF('MONTH',  '2015-08-22', NOW()) AS months_between,
-TIMESTAMPDIFF('WEEK',   '2015-08-22', NOW()) AS weeks_between,
-TIMESTAMPDIFF('DAY',    '2015-08-22', NOW()) AS days_between,
-TIMESTAMPDIFF('HOUR',   '2015-08-22', NOW()) AS hours_between,
-TIMESTAMPDIFF('MINUTE', '2015-08-22', NOW()) AS minutes_betwee
+    TIMESTAMPDIFF('YEAR',   '2015-08-22', NOW()) AS years_between,
+    TIMESTAMPDIFF('MONTH',  '2015-08-22', NOW()) AS months_between,
+    TIMESTAMPDIFF('WEEK',   '2015-08-22', NOW()) AS weeks_between,
+    TIMESTAMPDIFF('DAY',    '2015-08-22', NOW()) AS days_between,
+    TIMESTAMPDIFF('HOUR',   '2015-08-22', NOW()) AS hours_between,
+    TIMESTAMPDIFF('MINUTE', '2015-08-22', NOW()) AS minutes_betwee
 ```
 
-OR 
+OR
+
 ```sql
 SELECT
 
@@ -57,34 +60,34 @@ DATEDIFF('YEAR', '1988-06-21', NOW()) AS years_between_dates,
 MONTHS_BETWEEN (NOW(),'2017-01-01')                                
 ```
 
-##  2. <a name='SQLServer'></a>SQL Server
-```sql
-SELECT
-  DATEDIFF(YEAR,    '1988-06-21', GETDATE()) AS years_between_dates,
-  DATEDIFF(QUARTER, '1988-06-21', GETDATE()) AS quarters_between_dates,
-  DATEDIFF(MONTH,   '1988-06-21', GETDATE()) AS months_between_dates,
-  DATEDIFF(DAY,     '1988-06-21', GETDATE()) AS days_between_dates,
-  DATEDIFF(HOUR,    '1988-06-21', GETDATE()) AS hours_between_dates,
-  DATEDIFF(MINUTE,  '1988-06-21', GETDATE()) AS minutes_between_dates,
-  DATEDIFF(SECOND,  '1988-06-21', GETDATE()) AS seconds_between_dates
-```
-
-
-##  3. <a name='MySQL'></a>MySQL
+## 2. <a name='SQLServer'></a>SQL Server
 
 ```sql
 SELECT
-  DATEDIFF(NOW(), '1988-06-21')               AS days_between,
-  TIMESTAMPDIFF(YEAR,    '1988-06-21', NOW()) AS years_between_dates,
-  TIMESTAMPDIFF(QUARTER, '1988-06-21', NOW()) AS quarters_between_dates,
-  TIMESTAMPDIFF(MONTH,   '1988-06-21', NOW()) AS months_between_dates,
-  TIMESTAMPDIFF(DAY,     '1988-06-21', NOW()) AS days_between_dates,
-  TIMESTAMPDIFF(HOUR,    '1988-06-21', NOW()) AS hours_between_dates,
-  TIMESTAMPDIFF(MINUTE,  '1988-06-21', NOW()) AS minutes_between_dates,
-  TIMESTAMPDIFF(SECOND,  '1988-06-21', NOW()) AS seconds_between_dates
+    DATEDIFF(YEAR,    '1988-06-21', GETDATE()) AS years_between_dates,
+    DATEDIFF(QUARTER, '1988-06-21', GETDATE()) AS quarters_between_dates,
+    DATEDIFF(MONTH,   '1988-06-21', GETDATE()) AS months_between_dates,
+    DATEDIFF(DAY,     '1988-06-21', GETDATE()) AS days_between_dates,
+    DATEDIFF(HOUR,    '1988-06-21', GETDATE()) AS hours_between_dates,
+    DATEDIFF(MINUTE,  '1988-06-21', GETDATE()) AS minutes_between_dates,
+    DATEDIFF(SECOND,  '1988-06-21', GETDATE()) AS seconds_between_dates
 ```
 
-OR 
+## 3. <a name='MySQL'></a>MySQL
+
+```sql
+SELECT
+    DATEDIFF(NOW(), '1988-06-21')               AS days_between,
+    TIMESTAMPDIFF(YEAR,    '1988-06-21', NOW()) AS years_between_dates,
+    TIMESTAMPDIFF(QUARTER, '1988-06-21', NOW()) AS quarters_between_dates,
+    TIMESTAMPDIFF(MONTH,   '1988-06-21', NOW()) AS months_between_dates,
+    TIMESTAMPDIFF(DAY,     '1988-06-21', NOW()) AS days_between_dates,
+    TIMESTAMPDIFF(HOUR,    '1988-06-21', NOW()) AS hours_between_dates,
+    TIMESTAMPDIFF(MINUTE,  '1988-06-21', NOW()) AS minutes_between_dates,
+    TIMESTAMPDIFF(SECOND,  '1988-06-21', NOW()) AS seconds_between_dates
+```
+
+OR
 
 ```sql
 SELECT
@@ -95,87 +98,84 @@ PERIOD_DIFF(201712, 201707) AS past,
 PERIOD_DIFF(201806, 201712) AS future    
 ```
 
-
-##  4. <a name='PostgreSQL'></a>PostgreSQL 
+## 4. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
 SELECT
 AGE(NOW(), '1988-06-21') AS years_between_dates
 ```
 
-```
+```text
 yearsbetweendates                                      |
 -------------------------------------------------------|
 29 years 5 mons 19 days 21 hours 0 mins 39.466046 secs |
 ```
 
-
-
-##  5. <a name='BigQuerydatetime_expressiondatetime_expressionpart'></a>BigQuery (datetime_expression, datetime_expression, part)
+## 5. <a name='BigQuerydatetime_expressiondatetime_expressionpart'></a>BigQuery (datetime_expression, datetime_expression, part)
 
 ```sql
 SELECT
-  CURRENT_DATE() AS NOW,
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), YEAR )          AS years_between_datetimes,
+    CURRENT_DATE() AS NOW,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), YEAR )          AS years_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), QUARTER)        AS quarters_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), QUARTER)        AS quarters_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), MONTH)          AS months_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), MONTH)          AS months_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), ISOWEEK)        AS iso_weeks_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), ISOWEEK)        AS iso_weeks_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), WEEK)           AS weeks_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), WEEK)           AS weeks_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(),
-    CAST('2019-01-21' AS DATE), WEEK(FRIDAY))   AS defined_weeks_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(),
+        CAST('2019-01-21' AS DATE), WEEK(FRIDAY))   AS defined_weeks_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), DAY)            AS days_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), DAY)            AS days_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), HOUR)           AS hours_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), HOUR)           AS hours_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), MINUTE)         AS minutes_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), MINUTE)         AS minutes_between_datetimes,
 
-  DATETIME_DIFF(CURRENT_DATE(), 
-    CAST('2019-01-21' AS DATE), SECOND)         AS seconds_between_datetimes,
+    DATETIME_DIFF(CURRENT_DATE(), 
+        CAST('2019-01-21' AS DATE), SECOND)         AS seconds_between_datetimes,
 
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), YEAR )                      AS years_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), YEAR )                      AS years_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), QUARTER)                    AS quarters_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), QUARTER)                    AS quarters_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), MONTH)                      AS months_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), MONTH)                      AS months_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), ISOWEEK)                    AS iso_weeks_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), ISOWEEK)                    AS iso_weeks_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), WEEK)                       AS weeks_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), WEEK)                       AS weeks_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), WEEK(FRIDAY))               AS defined_weeks_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), WEEK(FRIDAY))               AS defined_weeks_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), DAY)                        AS days_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), DAY)                        AS days_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), HOUR)                       AS hours_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), HOUR)                       AS hours_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), MINUTE)                     AS minutess_between_datetimes,
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), MINUTE)                     AS minutess_between_datetimes,
 
-  DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
-    CURRENT_DATE(), SECOND)                     AS seconds_between_datetimes
+    DATETIME_DIFF(CAST('2019-01-21' AS DATE), 
+        CURRENT_DATE(), SECOND)                     AS seconds_between_datetimes
 ```
 
 ```json
@@ -207,15 +207,18 @@ SELECT
 ]
 ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```

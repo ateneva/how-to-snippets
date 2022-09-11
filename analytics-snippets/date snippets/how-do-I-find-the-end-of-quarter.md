@@ -18,7 +18,9 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='Vertica'></a>Vertica
+<!-- markdownlint-disable MD033 -->
+## 1. <a name='Vertica'></a>Vertica
+
 ```sql
 SELECT
     TO_DATE(CONCAT(YEAR(NOW()),'-03-31'), 'YYYY-MM-DD') AS end_of_cal_q1,
@@ -32,7 +34,8 @@ SELECT
     TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), 'YYYY-MM-DD') AS end_of_fq4
 ```
 
-##  2. <a name='PostgreSQL'></a>PostgreSQL
+## 2. <a name='PostgreSQL'></a>PostgreSQL
+
 ```sql
 SELECT
     TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-03-31', 'YYYY-MM-DD') AS end_of_cal_q1,
@@ -46,7 +49,8 @@ SELECT
     TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-10-31', 'YYYY-MM-DD') AS end_of_fq4
 ```
 
-##  3. <a name='MySQL'></a>MySQL 
+## 3. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
     STR_TO_DATE(CONCAT(YEAR(NOW()),'-03-31'), '%Y-%M-%D') AS end_of_cal_q1,
@@ -60,8 +64,8 @@ SELECT
     STR_TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), '%Y-%M-%D') AS end_of_fq4
 ```
 
+## 4. <a name='SQLServer:Convert'></a>SQL Server: Convert
 
-##  4. <a name='SQLServer:Convert'></a>SQL Server: Convert
 ```sql
 SELECT
     CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-03-31')) AS end_of_cal_q1,
@@ -75,7 +79,8 @@ SELECT
     CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-10-31')) AS end_of_fq4
 ```
 
-##  5. <a name='SQLServer:Cast'></a>SQL Server: Cast
+## 5. <a name='SQLServer:Cast'></a>SQL Server: Cast
+
 ```sql
 SELECT
     CAST(CONCAT(YEAR(GETDATE()),'-03-31') AS DATE) AS end_of_cal_q1,
@@ -89,18 +94,22 @@ SELECT
     CAST(CONCAT(YEAR(GETDATE()),'-10-31') AS DATE) AS end_of_fq4
 ```
 
-##  6. <a name='BigQuery'></a>BigQuery
+## 6. <a name='BigQuery'></a>BigQuery
+
 ```sql
 ```
 
-##  7. <a name='Redshift'></a>Redshift
+## 7. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  8. <a name='Python'></a>Python
+## 8. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  9. <a name='Tableau'></a>Tableau
-```
+## 9. <a name='Tableau'></a>Tableau
+
+```text
 ```

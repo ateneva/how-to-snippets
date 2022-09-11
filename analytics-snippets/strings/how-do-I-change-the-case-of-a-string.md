@@ -30,8 +30,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='SQLServer'></a>SQL Server
+## 1. <a name='SQLServer'></a>SQL Server
+
 ```sql
 SELECT
     TITLE,
@@ -41,8 +43,8 @@ SELECT
 FROM datageeking.dbo.films
 ```
 
+## 2. <a name='MySQL'></a>MySQL
 
-##  2. <a name='MySQL'></a>MySQL
 ```sql
 SELECT
     TITLE,
@@ -55,9 +57,8 @@ SELECT
 FROM sakila.film
 ```
 
+## 3. <a name='PostgreSQL'></a>PostgreSQL
 
-
-##  3. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 SELECT
     TITLE,
@@ -67,18 +68,22 @@ SELECT
 FROM public.film
 ```
 
-##  4. <a name='Bigquery'></a>Bigquery
+## 4. <a name='Bigquery'></a>Bigquery
+
 ```sql
 ```
 
-##  5. <a name='Redshift'></a>Redshift
+## 5. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  6. <a name='Python'></a>Python
+## 6. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  7. <a name='Tableau'></a>Tableau
-```
+## 7. <a name='Tableau'></a>Tableau
+
+```text
 ```

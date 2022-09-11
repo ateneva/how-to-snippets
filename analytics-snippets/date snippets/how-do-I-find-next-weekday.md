@@ -16,7 +16,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='Vertica'></a>Vertica
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='Vertica'></a>Vertica
+
 ```sql
 SELECT
     NOW()                          AS today,
@@ -29,7 +32,7 @@ SELECT
     NEXT_DAY(NOW(), 'SUNDAY')      AS next_sunday
 ```
 
-##  2. <a name='SQLServer'></a>SQL Server
+## 2. <a name='SQLServer'></a>SQL Server
 
 ```sql
 SELECT 
@@ -57,10 +60,11 @@ SELECT
             
     CONVERT(DATE, DATEADD(DAY, 1, GETDATE() - DATEPART(DW, GETDATE())
             + CASE WHEN DATEPART(DW, GETDATE()) < 1 THEN 0 ELSE 7 END )) AS next_sunday
-	
+ 
 ```
-		   
-##  3. <a name='MySQL'></a>MySQL
+
+## 3. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT 
     DATE(NOW()) AS today,
@@ -88,9 +92,8 @@ SELECT
     DATE(ADDDATE(NOW(), 1 - DAYOFWEEK(NOW())
             + CASE WHEN DAYOFWEEK(NOW()) < 1 THEN 0 ELSE 7 END )) AS next_sunday
 ```
-       
 
-##  4. <a name='PostgreSQL'></a>PostgreSQL
+## 4. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
 SELECT
@@ -121,7 +124,7 @@ SELECT
             + (CASE WHEN EXTRACT(DOW FROM NOW()) < 6 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_saturday,
             
     DATE(NOW() + CAST((7 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_sunday		  
+            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_sunday    
 ```
 
 --------------------------------------OR------------------------------------------------------------------
@@ -156,24 +159,26 @@ SELECT
             + (CASE WHEN EXTRACT(DOW FROM NOW()) < 6 THEN 0 ELSE 7 END) || ' DAY')) AS next_saturday,
             
     DATE(NOW() + "INTERVAL" ((7 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY')) AS next_sunday	
+            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY')) AS next_sunday 
 
 ```
 
+## 5. <a name='BigQuery'></a>BigQuery
 
-##  5. <a name='BigQuery'></a>BigQuery
 ```sql
 ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
+## 7. <a name='Python'></a>Python
 
-##  7. <a name='Python'></a>Python
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```

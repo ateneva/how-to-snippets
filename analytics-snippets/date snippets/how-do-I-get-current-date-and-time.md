@@ -16,8 +16,10 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='VERTICA'></a>VERTICA
+## 1. <a name='VERTICA'></a>VERTICA
+
 ```sql
 SELECT 
     CURRENT_TIMESTAMP          AS CurrentTimestamp,
@@ -30,7 +32,8 @@ SELECT
     TIME(NOW())                AS MyTime
 ```
 
-##  2. <a name='MySQL'></a>MySQL
+## 2. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
     UTC_TIMESTAMP              AS UTCDateAndTime,
@@ -44,8 +47,8 @@ SELECT
     TIME(NOW())                AS MyTime
 ```
 
+## 3. <a name='MSSQLServer'></a>MS SQL Server
 
-##  3. <a name='MSSQLServer'></a>MS SQL Server
 ```sql
 SELECT
     GETUTCDATE()               AS UTCDATEANDTIME,
@@ -55,8 +58,8 @@ SELECT
     CONVERT(TIME,GETDATE())    AS NOW 
 ```
 
+## 4. <a name='PostgreSQL'></a>PostgreSQL
 
-##  4. <a name='PostgreSQL'></a>PostgreSQL
 ```sql
 SELECT 
     CURRENT_TIMESTAMP          AS CurrentTimestamp,
@@ -65,18 +68,22 @@ SELECT
     NOW()                      AS MyTimeRightNow
 ```
 
-##  5. <a name='BigQuery'></a>BigQueryy
+## 5. <a name='BigQuery'></a>BigQueryy
+
  ```sql
  ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  7. <a name='Python'></a>Pythonn
+## 7. <a name='Python'></a>Pythonn
+
  ```python
  ```
 
-##  8. <a name='Tableau'></a>Tableauu
- ```
+## 8. <a name='Tableau'></a>Tableauu
+
+ ```text
  ```

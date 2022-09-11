@@ -1,7 +1,8 @@
 
-## How can I round numbers?
+# How can I round numbers?
 
-### Vertica
+## Vertica
+
 ```sql
     SELECT
     CEILING(285.32)     as ceiling,
@@ -18,7 +19,8 @@
     ROUND(285.753,2)    as roundmore5to2
 ```
 
-### MySQL
+## MySQL
+
 ```sql
     SELECT
     CEILING(285.32)     as ceiling,
@@ -35,7 +37,8 @@
     ROUND(285.753,2)    as roundmore5to2
 ```
 
-### PostgreSQL
+## PostgreSQL
+
 ```sql
     SELECT
     CEILING(285.32)     as ceiling,
@@ -52,8 +55,9 @@
     ROUND(285.753,2)    as roundmore5to2
 ```
 
-### SQL Server
-```sql 
+## SQL Server
+
+```sql
     SELECT
     CEILING(285.32)     as ceiling,
     FLOOR(285.82)       as floor,
@@ -69,8 +73,22 @@
     ROUND(285.753,2)    as roundmore5to2
 ```
 
-### BigQuery
+## BigQuery
 
-### Python
+```sql
+```
 
-### Tableau
+## Reshift
+
+```sql
+```
+
+## Python
+
+```python
+```
+
+## Tableau
+
+```text
+```

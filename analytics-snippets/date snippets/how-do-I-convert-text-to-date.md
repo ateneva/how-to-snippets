@@ -17,30 +17,34 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='VERTICA'></a>VERTICA
+## 1. <a name='VERTICA'></a>VERTICA
+
 ```sql
 SELECT
   '2017-03-31'                          as text_field,
   TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
-##  2. <a name='PostgreSQL'></a>PostgreSQL
+## 2. <a name='PostgreSQL'></a>PostgreSQL
+
 ```sql
 SELECT
   '2017-03-31'                          as text_field,
   TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
-##  3. <a name='MySQL'></a>MySQL
+## 3. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
   '2017-03-31'                          as text_field,
   STR_TO_DATE('2017-03-31', '%Y-%m-%d') as date_field
 ```
 
+## 4. <a name='SQLServer'></a>SQL Server
 
-##  4. <a name='SQLServer'></a>SQL Server
 ```sql
 SELECT
   '2017-03-31'                          as text_field,
@@ -48,8 +52,8 @@ SELECT
   CAST('2017-03-31' as date)            as date_field2
 ```
 
+## 5. <a name='BigQuery'></a>BigQuery
 
-##  5. <a name='BigQuery'></a>BigQuery
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -58,6 +62,7 @@ SELECT
   FORMAT_DATE("%Y-%b-%d",
       PARSE_DATE("%Y/%m/%d", "2012/12/21")) AS THE_DATE_FORMATTED
 ```
+
 ```json
 [
   {
@@ -68,14 +73,17 @@ SELECT
 ]
 ```
 
-##  6. <a name='Redshift'></a>Redshift
+## 6. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```

@@ -24,16 +24,17 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+<!-- markdownlint-disable MD033 -->
 
-##  1. <a name='MySQL'></a>MySQL
+## 1. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
     INSTR(sentence, 'IMPECCABLE') AS first_pos
 FROM phrases
 ```
 
-
-##  2. <a name='PostgreSQL'></a>PostgreSQL
+## 2. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
 SELECT
@@ -43,7 +44,8 @@ FROM phrases
 ---add full syntax
 ```
 
-##  3. <a name='SQLServer'></a>SQL Server
+## 3. <a name='SQLServer'></a>SQL Server
+
 ```sql
 SELECT
     CHARINDEX('IMPECCABLE', sentence) AS first_pos,
@@ -51,18 +53,22 @@ SELECT
 FROM phrases
 ```
 
-##  4. <a name='BigQuery'></a>BigQuery
+## 4. <a name='BigQuery'></a>BigQuery
+
 ```sql
 ```
 
-##  5. <a name='Redshift'></a>Redshift
+## 5. <a name='Redshift'></a>Redshift
+
 ```sql
 ```
 
-##  6. <a name='Python'></a>Python
+## 6. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  7. <a name='Tableau'></a>Tableau
-```
+## 7. <a name='Tableau'></a>Tableau
+
+```text
 ```

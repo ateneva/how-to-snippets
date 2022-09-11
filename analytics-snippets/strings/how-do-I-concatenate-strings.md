@@ -17,21 +17,25 @@
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
-##  1. <a name='MySQL'></a>MySQL
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='MySQL'></a>MySQL
+
 ```sql
 SELECT
     CONCAT('2017','-FEB')               AS two_strings,
     CONCAT('2017','-','FEB')            AS multiple_strings
 ```
 
-##  2. <a name='SQLServer'></a>SQL Server
+## 2. <a name='SQLServer'></a>SQL Server
+
 ```sql
 SELECT
     CONCAT('2017','-FEB')                AS two_strings,
     Concat('2017','-','Feb')             as multiple_strings
 ```
 
-##  3. <a name='PostgreSQL'></a>PostgreSQL
+## 3. <a name='PostgreSQL'></a>PostgreSQL
 
 ```sql
 SELECT
@@ -39,7 +43,8 @@ SELECT
     '2017' || '-' || 'FEB'               AS multiple_strings
 ```
 
-##  4. <a name='Vertica'></a>Vertica
+## 4. <a name='Vertica'></a>Vertica
+
 ```sql
 SELECT
     --concat in vertica is only applicable to two strings
@@ -48,20 +53,22 @@ SELECT
     '2017' || '-' || 'FEB'                AS multiple_strings
 ```
 
+## 5. <a name='BigQuery'></a>BigQuery
 
-##  5. <a name='BigQuery'></a>BigQuery
 ```sql
 ```
 
+## 6. <a name='Redshift'></a>Redshift
 
-##  6. <a name='Redshift'></a>Redshift
 ```sql
 ```
 
-##  7. <a name='Python'></a>Python
+## 7. <a name='Python'></a>Python
+
 ```python
 ```
 
-##  8. <a name='Tableau'></a>Tableau
-```
+## 8. <a name='Tableau'></a>Tableau
+
+```text
 ```
