@@ -2,8 +2,9 @@
 # Loading data into a MySQL database
 
 ## using mysql-connector
----
+
 ### create databases
+
 ```python
 import mysql.connector as mysql
 
@@ -23,6 +24,7 @@ cursor.execute("CREATE DATABASE datacamp")
 ```
 
 ### connect to a database
+
 ```python
 ## Connecting to the database
 
@@ -41,6 +43,7 @@ print(db) # it will print a connection object if everything is fine
 ```
 
 ### show databases
+
 ```python
 import mysql.connector as mysql
 
@@ -67,6 +70,7 @@ for database in databases:
 ```
 
 ### create a single table
+
 ```python
 create_movies_table_query = """
 CREATE TABLE movies(
@@ -83,6 +87,7 @@ with connection.cursor() as cursor:
 ```
 
 ### create multiple tables
+
 ```python
 create_reviewers_table_query = """
 CREATE TABLE reviewers (
@@ -112,6 +117,7 @@ with connection.cursor() as cursor:
 ```
 
 ### alter table schema
+
 ```python
 alter_table_query = """
     ALTER TABLE movies
@@ -132,6 +138,7 @@ for row in result:
 ```
 
 ### insert records
+
 ```python
 insert_reviewers_query = """
 INSERT INTO reviewers
@@ -220,6 +227,7 @@ print(cursor.rowcount, "record inserted")
 ```
 
 ### read records
+
 ```python
 select_movies_query = """
 SELECT 
@@ -255,6 +263,7 @@ with connection.cursor() as cursor:
 ```
 
 ### update records
+
 ```python
 update_query = """
 UPDATE
@@ -270,7 +279,8 @@ with connection.cursor() as cursor:
     connection.commit()
 ```
 
-### drop table 
+### drop table
+
 ```python
 drop_table_query = "DROP TABLE ratings"
 with connection.cursor() as cursor:
@@ -278,7 +288,9 @@ with connection.cursor() as cursor:
 ```
 
 ## using pymysql
+
 ---
+
 ```python
 import pymysql
 import os
@@ -306,8 +318,9 @@ con.close()
 ```
 
 ## using sqlalchemy
----
-### create engine 
+
+### create engine
+
 ```python
 # default
 engine = create_engine('mysql://scott:tiger@localhost/foo')
@@ -319,7 +332,8 @@ engine = create_engine('mysql+mysqldb://scott:tiger@localhost/foo')
 engine = create_engine('mysql+pymysql://scott:tiger@localhost/foo')
 ```
 
-### create table 
+### create table
+
 ```python
 connection = engine.connect()
 metadata = db.MetaData()
@@ -332,35 +346,30 @@ emp = db.Table('emp', metadata,
               )
 
 metadata.create_all(engine) #Creates the table
-```
-### insert into table 
-```python
+
+### insert into table
+
 query = db.insert(emp) 
 values_list = [{'Id':'2', 'name':'ram', 'salary':80000, 'active':False},
                {'Id':'3', 'name':'ramesh', 'salary':70000, 'active':True}]
 ResultProxy = connection.execute(query,values_list)
 ```
 
-
-
 # References
-### using mysql connector
-* https://realpython.com/python-mysql/
-* https://www.datacamp.com/community/tutorials/mysql-python
-* https://realpython.com/prevent-python-sql-injection/
-* https://stackoverflow.com/questions/775296/mysql-parameterized-queries
-* http://howisonlab.github.io/datawrangling/class_modules/11_parameterized_sql_queries/
-* https://www.tutorialspoint.com/python_data_access/python_mysql_insert_data.htm
-* https://www.mysqltutorial.org/python-mysql-insert
-* https://dev.to/romainnorberg/python-avoid-sql-injection-when-using-mysqlcursor-execute-4dn0
-* https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html
-  
-### using pymysql
-* https://blog.softhints.com/python-read-validate-and-import-csv-json-file-to-mysql
-* https://www.youtube.com/watch?v=mo-FU0mGNx4
-* https://www.educative.io/edpresso/resolving-typeerror-not-all-arguments-converted-in-python
 
-### using sqlalchemy
-* https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91
-* https://www.pythonsheets.com/notes/python-sqlalchemy.html
-* https://www.youtube.com/watch?v=aWN1CqMtzIE
+* <https://realpython.com/python-mysql/>
+* <https://www.datacamp.com/community/tutorials/mysql-python>
+* <https://realpython.com/prevent-python-sql-injection/>
+* <https://stackoverflow.com/questions/775296/mysql-parameterized-queries>
+* <http://howisonlab.github.io/datawrangling/class_modules/11_parameterized_sql_queries/>
+* <https://www.tutorialspoint.com/python_data_access/python_mysql_insert_data.htm>
+* <https://www.mysqltutorial.org/python-mysql-insert>
+* <https://dev.to/romainnorberg/python-avoid-sql-injection-when-using-mysqlcursor-execute-4dn0>
+* <https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html>
+* <https://blog.softhints.com/python-read-validate-and-import-csv-json-file-to-mysql>
+* <https://www.youtube.com/watch?v=mo-FU0mGNx4>
+* <https://www.educative.io/edpresso/resolving-typeerror-not-all-arguments-converted-in-python>
+
+* <https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91>
+* <https://www.pythonsheets.com/notes/python-sqlalchemy.html>
+* <https://www.youtube.com/watch?v=aWN1CqMtzIE>

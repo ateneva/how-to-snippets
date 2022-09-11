@@ -4,10 +4,11 @@
 ## **DATETIME FUNCTIONS**
 
 * **STR_TO_DATE**
+
 ```sql
 SELECT
-'2017-03-31'                          as TextField,
-STR_TO_DATE('2017-03-31', '%Y-%m-%d') as DateField
+    '2017-03-31'                          AS text_field,
+    STR_TO_DATE('2017-03-31', '%Y-%m-%d') AS date_field
 ```
 
 * **STANDARD DATE FUNCTIONS**
@@ -15,102 +16,68 @@ STR_TO_DATE('2017-03-31', '%Y-%m-%d') as DateField
 ```sql
 SELECT
     NOW(),
-    DATE(CURRENT_DATE())        as Today,
-    YEAR(CURRENT_DATE())        as ThisYear,
-    QUARTER(CURRENT_DATE())     as ThisQuarter,
-    MONTH(CURRENT_DATE())       as ThisMonth,
-    DAY(CURRENT_DATE())         as ThisDay,
+    DATE(CURRENT_DATE())        AS today,
+    YEAR(CURRENT_DATE())        AS this_year,
+    QUARTER(CURRENT_DATE())     AS this_quarter,
+    MONTH(CURRENT_DATE())       AS this_month,
+    DAY(CURRENT_DATE())         AS this_day,
     
-    DAYOFYEAR(CURRENT_DATE())   as DayOfYear,
-    DAYOFMONTH(CURRENT_DATE())  as DayOfMonth,
+    DAYOFYEAR(CURRENT_DATE())   AS day_of_year,
+    DAYOFMONTH(CURRENT_DATE())  AS day_of_month,
     
     #1 = Sunday, 2 = Monday, …, 7 = Saturday)
-    DAYOFWEEK(CURRENT_DATE())   as DayofWeek, 
+    DAYOFWEEK(CURRENT_DATE())   AS day_of_week, 
     
     #0 = Monday, 1 = Tuesday, … 6 = Sunday  
-    WEEKDAY(CURRENT_DATE())     as WeekdayNum,  
+    WEEKDAY(CURRENT_DATE())     AS weekday_num,  
     
-    WEEKOFYEAR(CURRENT_DATE())	as WeekNumUS,
-    WEEK(CURRENT_DATE())		as WeekNumUS
+    WEEKOFYEAR(CURRENT_DATE())  AS week_num_us,
+    WEEK(CURRENT_DATE())        AS week_num_us
 ```
-
-```text
-Now()               |Today      |ThisYear |ThisQuarter |ThisMonth |ThisDay |
---------------------|-----------|---------|------------|----------|--------|
-2017-10-26 17:03:43 |2017-10-26 |2017     |4           |10        |26      |
-
-
-DayOfYear |DayOfMonth |DayofWeek |WeekdayNum |WeekNumUS |WeekNumUS |
-----------|-----------|----------|-----------|----------|----------|
-299       |26         |5         |3          |43        |43        |
-```
-
-
 
 * ### **EXTRACT**
 
 ```sql
 SELECT
-    CURRENT_TIMESTAMP                   	 as MyLocalDateAndTime,
-    EXTRACT(YEAR FROM CURRENT_TIMESTAMP)     as CurrentYear,            
-    EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)  as CurrentQuarter,
-    EXTRACT(month FROM CURRENT_TIMESTAMP)    as CurrentMonth,
-    EXTRACT(week FROM CURRENT_TIMESTAMP)     as CurrentWeek,
-    EXTRACT(day FROM CURRENT_TIMESTAMP)      as CurrentDay,
-    EXTRACT(hour FROM CURRENT_TIMESTAMP)     as CurrentHour
+    CURRENT_TIMESTAMP                        AS my_local_date_and_time,
+    EXTRACT(YEAR FROM CURRENT_TIMESTAMP)     AS current_year,            
+    EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)  AS current_quarter,
+    EXTRACT(month FROM CURRENT_TIMESTAMP)    AS current_month,
+    EXTRACT(week FROM CURRENT_TIMESTAMP)     AS current_week,
+    EXTRACT(day FROM CURRENT_TIMESTAMP)      AS current_day,
+    EXTRACT(hour FROM CURRENT_TIMESTAMP)     AS current_hour
 ```
 
-```text
-MyLocalDateAndTime  |CurrentYear |CurrentQuarter |CurrentMonth |CurrentWeek |CurrentDay |CurrentHour |
---------------------|------------|---------------|-------------|------------|-----------|------------|
-2017-10-13 13:44:51 |2017        |4              |10           |43          |13         |13          |
-```
-
-
-* ### **DATE_ADD() / DATE_SUB()** 
+* ### **DATE_ADD() / DATE_SUB()**
 
 ```sql
 SELECT
-    DATE_ADD(NOW(), INTERVAL 1 YEAR)    as OneYearFromNOW,
-    DATE_ADD(NOW(), INTERVAL 1 MONTH)   as MonthFromNOW,
-    DATE_ADD(NOW(), INTERVAL 1 WEEK)    as OneWeekFromNOW,
-    DATE_ADD(NOW(), INTERVAL 1 DAY)     as OneDayFromNOW,
-    DATE_ADD(NOW(), INTERVAL 1 HOUR)    as OneHourFromNOW
-```
-
-```text
-OneYearFromNOW      |MonthFromNOW        |OneWeekFromNOW      |OneDayFromNOW       |OneHourFromNOW      |
---------------------|--------------------|--------------------|--------------------|--------------------|
-2018-10-10 13:18:56 |2017-11-10 13:18:56 |2017-10-17 13:18:56 |2017-10-11 13:18:56 |2017-10-10 14:18:56 |
-
+    DATE_ADD(NOW(), INTERVAL 1 YEAR)    AS one_year_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 MONTH)   AS month_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 WEEK)    AS one_week_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 DAY)     AS one_day_from_now,
+    DATE_ADD(NOW(), INTERVAL 1 HOUR)    AS one_hour_from_now
 ```
 
 ```sql
 SELECT
-    DATE_ADD(NOW(), INTERVAL -1 YEAR)    as OneYearAgo,
-    DATE_ADD(NOW(), INTERVAL -1 MONTH)   as OneMonthAgo,
-    DATE_ADD(NOW(), INTERVAL -1 WEEK)    as OneWeekAgo,
-    DATE_ADD(NOW(), INTERVAL -1 DAY)     as OneDayAgo,
-    DATE_ADD(NOW(), INTERVAL -1 HOUR)    as OneHourAgo
+    DATE_ADD(NOW(), INTERVAL -1 YEAR)    AS one_year_ago,
+    DATE_ADD(NOW(), INTERVAL -1 MONTH)   AS one_month_ago,
+    DATE_ADD(NOW(), INTERVAL -1 WEEK)    AS one_week_ago,
+    DATE_ADD(NOW(), INTERVAL -1 DAY)     AS one_day_ago,
+    DATE_ADD(NOW(), INTERVAL -1 HOUR)    AS one_hour_ago
 ```
 
  or
 
 ```sql
 SELECT
-    DATE_SUB(NOW(), INTERVAL 1 YEAR)    as OneYearAgo,
-    DATE_SUB(NOW(), INTERVAL 1 MONTH)   as OneMonthAgo,
-    DATE_SUB(NOW(), INTERVAL 1 WEEK)    as OneWeekAgo,
-    DATE_SUB(NOW(), INTERVAL 1 DAY)     as OneDayAgo,
-    DATE_SUB(NOW(), INTERVAL 1 HOUR)    as OneHourAgo
+    DATE_SUB(NOW(), INTERVAL 1 YEAR)    AS one_year_ago,
+    DATE_SUB(NOW(), INTERVAL 1 MONTH)   AS one_month_ago,
+    DATE_SUB(NOW(), INTERVAL 1 WEEK)    AS one_week_ago,
+    DATE_SUB(NOW(), INTERVAL 1 DAY)     AS one_day_ago,
+    DATE_SUB(NOW(), INTERVAL 1 HOUR)    AS one_hour_ago
 ```
-
-```text
-OneYearAgo          |OneMonthAgo         |OneWeekAgo          |OneDayAgo           |OneHourAgo          |
---------------------|--------------------|--------------------|--------------------|--------------------|
-2016-10-10 13:11:12 |2017-09-10 13:11:12 |2017-10-03 13:11:12 |2017-10-09 13:11:12 |2017-10-10 12:11:12 |
-```
-
 
 * ### **PERIOD_ADD / PERIOD_DIF**
 
@@ -118,15 +85,15 @@ OneYearAgo          |OneMonthAgo         |OneWeekAgo          |OneDayAgo        
 # fixed input month
 SELECT
     NOW(),
-    PERIOD_ADD(201801, 3) as 3MonthFromYM,
-    PERIOD_ADD(201801,-3) as 3MonthAgo,
+    PERIOD_ADD(201801, 3) AS 3_month_from_ym,
+    PERIOD_ADD(201801,-3) AS 3_month_ago,
 
 # get current year month
     CONCAT(YEAR(NOW()),  
         CASE
             WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
             ELSE  MONTH(NOW())
-        END) as ThisYM,
+        END) AS this_ym,
 
 
 # dynamic input month
@@ -134,56 +101,29 @@ SELECT
                     CASE
                         WHEN MONTH(NOW()) < 10 THEN CONCAT(0, MONTH(NOW()))
                         ELSE MONTH(NOW())
-                    END), 5) as 5MonthsFromNow
+                    END), 5) AS 5_months_from_now
 ```
 
-```text
-now()               |3MonthFromYM |3MonthAgo |ThisYM |5MonthsFromNow |
---------------------|-------------|----------|-------|---------------|
-2017-10-18 16:17:29 |201804       |201710    |201710 |201803         |
-```
-
-
- * ### **DATEDIFF**
+* ### **DATEDIFF**
 
 ```sql
 SELECT
-    DATEDIFF(NOW(), '1988-06-21') as DaysBetween,
-    DATEDIFF(YEAR,    '1988-06-21', NOW()) as YearsBetweenDates,
-    DATEDIFF(QUARTER, '1988-06-21', NOW()) as QuartersBetweenDates,
-    DATEDIFF(MONTH,   '1988-06-21', NOW()) as MonthsBetweenDates,
-    DATEDIFF(DAY,     '1988-06-21', NOW()) as DaysBetweenDates,
-    DATEDIFF(HOUR,    '1988-06-21', NOW()) as HoursBetweenDates,
-    DATEDIFF(MINUTE,  '1988-06-21', NOW()) as MinutesBetweenDates,
-    DATEDIFF(SECOND,  '1988-06-21', NOW()) as SecondsBetweenDates
+    DATEDIFF(NOW(), '1988-06-21') AS days_between,
+    DATEDIFF(YEAR,    '1988-06-21', NOW()) AS years_between_dates,
+    DATEDIFF(QUARTER, '1988-06-21', NOW()) AS quarters_between_dates,
+    DATEDIFF(MONTH,   '1988-06-21', NOW()) AS months_between_dates,
+    DATEDIFF(DAY,     '1988-06-21', NOW()) AS days_between_dates,
+    DATEDIFF(HOUR,    '1988-06-21', NOW()) AS hours_between_dates,
+    DATEDIFF(MINUTE,  '1988-06-21', NOW()) AS minutes_between_dates,
+    DATEDIFF(SECOND,  '1988-06-21', NOW()) AS seconds_between_dates
 ```
 
-```text
-DaysBetween |YearsBetweenDates |QuartersBetweenDates |MonthsBetweenDates |DaysBetweenDates |
-------------|------------------|---------------------|-------------------|-----------------|
-10764       |29                |117                  |353                |10764            |
-```
-
-
-```text
-|HoursBetweenDates |MinutesBetweenDates |SecondsBetweenDates |
-------------------|--------------------|--------------------|
-|258357            |15501421            |930085304
-
-```
-
-* ### **LAST DAY** 
+* ### **LAST DAY**
 
 ```sql
 SELECT
-    DATE(NOW())                   as Today,
-    LAST_DAY(ADDDATE(NOW(), -31)) as LastDayPreviousMonth,
-    LAST_DAY(NOW())               as LastDayThisMonth,
-    LAST_DAY(ADDDATE(Now(), +31)) as LastDayNextMonth
+    DATE(NOW())                   AS today,
+    LAST_DAY(ADDDATE(NOW(), -31)) AS last_day_previous_month,
+    LAST_DAY(NOW())               AS last_day_this_month,
+    LAST_DAY(ADDDATE(Now(), +31)) AS last_day_next_month
 ```
-
-```text
-Today      |LastDayPreviousMonth |LastDayThisMonth |LastDayNextMonth |
------------|---------------------|-----------------|-----------------|
-2017-11-18 |2017-10-31           |2017-11-30       |2017-12-31       |
-text

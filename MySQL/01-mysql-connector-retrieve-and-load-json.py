@@ -3,6 +3,8 @@ import json
 import requests
 from mysql.connector import connect, Error
 
+# pylint: disable=C0116  # docstring
+# pylint: disable=C0103  # snake_case naming of variables
 
 def retrieve_data(link):
     response = requests.get(link)
@@ -19,8 +21,8 @@ def establish_connection(ip, username, credentials, database):
                 database=database
         ) as connection:
             print(connection)
-    except Error as e:
-        print(e)
+    except Error as err:
+        print(err)
 
 
 def insert_values():

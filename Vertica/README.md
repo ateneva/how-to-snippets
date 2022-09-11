@@ -1,6 +1,30 @@
 
+# VERTICA functions and syntax
 
-### COMMON FUNCTIONS
+<!-- vscode-markdown-toc -->
+* 1. [DATETIME functions](#DATETIMEfunctions)
+  * 1.1. [COMMON FUNCTIONS](#COMMONFUNCTIONS)
+  * 1.2. [CONVERT string to date](#CONVERTstringtodate)
+  * 1.3. [EXTRACT TIME from  DATE](#EXTRACTTIMEfromDATE)
+  * 1.4. [TIMESTAMPADD: add backward and forward date periods](#TIMESTAMPADD:addbackwardandforwarddateperiods)
+    * 1.4.1. [DATE_SUB: add backwward date periods](#DATE_SUB:addbackwwarddateperiods)
+  * 1.5. [DATEDIFF: calculate the difference between twp days](#DATEDIFF:calculatethedifferencebetweentwpdays)
+  * 1.6. [DATE_TRUNC: calculate to the first date of the specified period](#DATE_TRUNC:calculatetothefirstdateofthespecifiedperiod)
+  * 1.7. [LAST_DAY: calculate to the last date of the specified period](#LAST_DAY:calculatetothelastdateofthespecifiedperiod)
+  * 1.8. [NEXT_DAY](#NEXT_DAY)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+<!-- markdownlint-disable MD033 -->
+
+## 1. <a name='DATETIMEfunctions'></a>DATETIME functions
+
+### 1.1. <a name='COMMONFUNCTIONS'></a>COMMON FUNCTIONS
+
 ```sql
 SELECT
     NOW(),                                 ---find current timestamp
@@ -18,132 +42,98 @@ SELECT
     WEEK_ISO(NOW()) as WeekNumEU           ---week numbeer, ISO standard
 ```
 
+### 1.2. <a name='CONVERTstringtodate'></a>CONVERT string to date
 
-### CONVERT string to date
 ```sql
 SELECT
-    '2017-03-31'                          as TextField,
-    TO_DATE('2017-03-31', 'YYYY-MM-DD')   as Datefield
+    '2017-03-31'                          as text_field,
+    TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
-### EXTRACT TIME from  DATE
+### 1.3. <a name='EXTRACTTIMEfromDATE'></a>EXTRACT TIME from  DATE
+
 ```sql
     SELECT
-    CURRENT_DATE()                      as Today,
-    CURRENT_TIME()                      as TimeNow,
-    CURRENT_TIMESTAMP                   as TodayDateAndTime,        ----find current timestamp
+    CURRENT_DATE()                      as today,
+    CURRENT_TIME()                      as time_now,
+    CURRENT_TIMESTAMP                   as today_date_and_time,        
     NOW(),
-    DATE_PART('century', Now())         as Century,                 ----find current century
-    DATE_PART('decade', Now())          as Decade,                  ----find current decade
-    DATE_PART('doy', Now())             as DayOfYear,               ----find day of current year
-    DATE_PART('doq', Now())             as DayofQuarter,            ----find day of current quarter
-    DATE_PART('dow', Now())             as DayOfWeek,               ----find day of current week (0 to 6)
-    DATE_PART('isoyear', Now())         as ISOYear,                 ----find current year
-    DATE_PART('isoweek', Now())         as ISOWeek,                 ----find current week number
-    DATE_PART('isodow', Now())          as DayOfISOWeek,            ----find day of current week (1 to 7)
-    DATE_PART('year', Now())            as CurrentYear,             ----find current year
-    DATE_PART('quarter', Now())         as CurrentQuarter,          ----find current quarter
-    DATE_PART('month', Now())           as CurrentMonth,            ----find current month
-    DATE_PART('day', Now())             as CurrentDay,              ----find current day
-    DATE_PART('hour', Now())            as CurrentHour              ----find current hour
+    DATE_PART('century', Now())         as century,                 
+    DATE_PART('decade', Now())          as decade,                  
+    DATE_PART('doy', Now())             as day_of_year,               
+    DATE_PART('doq', Now())             as day_of_quarter,            
+    DATE_PART('dow', Now())             as day_of_week,               
+    DATE_PART('isoyear', Now())         as iso_year,                 
+    DATE_PART('isoweek', Now())         as iso_week,                 
+    DATE_PART('isodow', Now())          as day_of_iso_week,            
+    DATE_PART('year', Now())            as current_year,             
+    DATE_PART('quarter', Now())         as current_quarter,          
+    DATE_PART('month', Now())           as current_month,            
+    DATE_PART('day', Now())             as current_day,              
+    DATE_PART('hour', Now())            as current_hour              
 ```
 
+### 1.4. <a name='TIMESTAMPADD:addbackwardandforwarddateperiods'></a>TIMESTAMPADD: add backward and forward date periods
 
-### TIMESTAMPADD: add backward and forward date periods
 ```sql
 SELECT
-    TIMESTAMPADD('year',  -1, Now())    as OneYearAgo,
-    TIMESTAMPADD('month', -1, Now())    as OneMonthAgo,
-    TIMESTAMPADD('week', -1, Now())     as OneWeekAgo,
-    TIMESTAMPADD('day', -1, Now())      as OneDayAgo,
-    TIMESTAMPADD('hour', -1, Now())     as OneHourAgo,
+    TIMESTAMPADD('year',  -1, Now())    as one_year_ago,
+    TIMESTAMPADD('month', -1, Now())    as one_month_ago,
+    TIMESTAMPADD('week', -1, Now())     as one_week_ago,
+    TIMESTAMPADD('day', -1, Now())      as one_day_ago,
+    TIMESTAMPADD('hour', -1, Now())     as one_hour_ago,
 
-    TIMESTAMPADD('year', 1, Now())      as OneYearFromNow,
-    TIMESTAMPADD('month', 1, Now())     as MonthFromNow,
-    TIMESTAMPADD('week', 1, Now())      as OneWeekFromNow,
-    TIMESTAMPADD('day', 1, Now())       as OneDayFromNow,
-    TIMESTAMPADD('hour', 1, Now())      as OneHourFromNow
+    TIMESTAMPADD('year', 1, Now())      as one_year_from_now,
+    TIMESTAMPADD('month', 1, Now())     as month_from_now,
+    TIMESTAMPADD('week', 1, Now())      as one_week_from_now,
+    TIMESTAMPADD('day', 1, Now())       as one_day_from_now,
+    TIMESTAMPADD('hour', 1, Now())      as one_hour_from_now
 ```
 
+#### 1.4.1. <a name='DATE_SUB:addbackwwarddateperiods'></a>DATE_SUB: add backwward date periods
 
-```text
-OneYearAgo          |OneMonthAgo         |OneWeekAgo          |OneDayAgo           |OneHourAgo          |
---------------------|--------------------|--------------------|--------------------|--------------------|
-2016-10-10 13:11:12 |2017-09-10 13:11:12 |2017-10-03 13:11:12 |2017-10-09 13:11:12 |2017-10-10 12:11:12 |
+### 1.5. <a name='DATEDIFF:calculatethedifferencebetweentwpdays'></a>DATEDIFF: calculate the difference between twp days
 
-
-
-OneYearFromNow      |MonthFromNow        |OneWeekFromNow      |OneDayFromNow       |OneHourFromNow      |
---------------------|--------------------|--------------------|--------------------|--------------------|
-2018-10-10 13:18:56 |2017-11-10 13:18:56 |2017-10-17 13:18:56 |2017-10-11 13:18:56 |2017-10-10 14:18:56 |
-```
-
-#### DATE_SUB: add backwward date periods
-
-
-### DATEDIFF: calculate the difference between twp days
 ```sql
 SELECT
-    DATEDIFF('year',    '1988-06-21', NOW()) as YearsBetweenDates,
-    DATEDIFF('quarter', '1988-06-21', NOW()) as QuartersBetweenDates,
-    DATEDIFF('month',   '1988-06-21', NOW()) as MonthsBetweenDates,
-    DATEDIFF('day',     '1988-06-21', NOW()) as DaysBetweenDates,
-    DATEDIFF('hour',    '1988-06-21', NOW()) as HoursBetweenDates,
-    DATEDIFF('minute',  '1988-06-21', NOW()) as MinutesBetweenDates,
-    DATEDIFF('second',  '1988-06-21', NOW()) as SecondsBetweenDates
-```
-```text
-YearsBetweenDates |QuartersBetweenDates |MonthsBetweenDates |DaysBetweenDates |HoursBetweenDates |MinutesBetweenDates |SecondsBetweenDates |
-------------------|---------------------|-------------------|-----------------|------------------|--------------------|--------------------|
-29                |117                  |353                |10764            |258357            |15501421            |930085304           |
+    DATEDIFF('year',    '1988-06-21', NOW()) as years_between_dates,
+    DATEDIFF('quarter', '1988-06-21', NOW()) as quarters_between_dates,
+    DATEDIFF('month',   '1988-06-21', NOW()) as months_between_dates,
+    DATEDIFF('day',     '1988-06-21', NOW()) as days_between_dates,
+    DATEDIFF('hour',    '1988-06-21', NOW()) as hours_between_dates,
+    DATEDIFF('minute',  '1988-06-21', NOW()) as minutes_between_dates,
+    DATEDIFF('second',  '1988-06-21', NOW()) as seconds_between_dates
 ```
 
+### 1.6. <a name='DATE_TRUNC:calculatetothefirstdateofthespecifiedperiod'></a>DATE_TRUNC: calculate to the first date of the specified period
 
-### DATE_TRUNC: calculate to the first date of the specified period
 ```sql
 SELECT
-    DATE(DATE_TRUNC('week', Now()))  as FirstDayOfCurrentWeek,
-    DATE(DATE_TRUNC('month', Now())) as FirstDayofCurrentMonth,
-    DATE(DATE_TRUNC('year', Now()))  as FirstDayOfCurrentYear
+    DATE(DATE_TRUNC('week', Now()))  as first_day_of_current_week,
+    DATE(DATE_TRUNC('month', Now())) as first_day_of_current_month,
+    DATE(DATE_TRUNC('year', Now()))  as first_day_of_current_year
 ```
 
-```text
-firstdayofcurrentweek |firstdayofcurrentmonth |firstdayofcurrentyear |
-----------------------|-----------------------|----------------------|
-2017-11-06            |2017-11-01             |2017-01-01            |
-```
+### 1.7. <a name='LAST_DAY:calculatetothelastdateofthespecifiedperiod'></a>LAST_DAY: calculate to the last date of the specified period
 
-
-### LAST_DAY: calculate to the last date of the specified period
 ```sql
 SELECT
-    NOW()                          as Today
-    LAST_DAY(NOW())                as LastDayofCurrentMonth,
-    LAST_DAY(ADD_MONTHS(NOW(),-1)) as LastDayofPreviousMonth,
-    LAST_DAY(ADD_MONTHS(NOW(), 1)) as LastDayofNextMonth
+    NOW()                          as today
+    LAST_DAY(NOW())                as last_day_of_current_month,
+    LAST_DAY(ADD_MONTHS(NOW(),-1)) as last_day_of_previous_month,
+    LAST_DAY(ADD_MONTHS(NOW(), 1)) as last_day_of_next_month
 ```
 
-```text
-Today      |LastDayPreviousMonth |LastDayThisMonth |LastDayNextMonth |
------------|---------------------|-----------------|-----------------|
-2017-11-18 |2017-10-31           |2017-11-30       |2017-12-31       |
-```
+### 1.8. <a name='NEXT_DAY'></a>NEXT_DAY
 
-
-### NEXT_DAY
 ```sql
 SELECT
-    NOW()                          as Today,
-    NEXT_DAY(NOW(), 'Monday')      as NextMonday,       --returns the date of next Monday
-    NEXT_DAY(NOW(), 'Tuesday')     as NextTuesday,      --returns the date of next Tuesday
-    NEXT_DAY(NOW(), 'Wednesday')   as NextWednesday,    --returns the date of next Wednesday
-    NEXT_DAY(NOW(), 'Thursday')    as NextThursday,     --returns the date of next Thursday
-    NEXT_DAY(NOW(), 'Friday')      as NextFriday,       --returns the date of next Friday
-    NEXT_DAY(NOW(), 'Saturday')    as NextSaturday,     --returns the date of next Saturday
-    NEXT_DAY(NOW(), 'Sunday')      as NextSunday        --returns the date of next Sunday
-```
-```text
-Today      |NextMonday |NextTuesday |NextWednesday |NextThursday |NextFriday |NextSaturday |NextSunday |
------------|-----------|------------|--------------|-------------|-----------|-------------|-----------|
-2017-11-23 |2017-11-27 |2017-11-28  |2017-11-29    |2017-11-30   |2017-11-24 |2017-11-25   |2017-11-26 |
+    NOW()                          as today,
+    NEXT_DAY(NOW(), 'Monday')      as next_monday,
+    NEXT_DAY(NOW(), 'Tuesday')     as next_tuesday,
+    NEXT_DAY(NOW(), 'Wednesday')   as next_wednesday,
+    NEXT_DAY(NOW(), 'Thursday')    as next_thursday,
+    NEXT_DAY(NOW(), 'Friday')      as next_friday,
+    NEXT_DAY(NOW(), 'Saturday')    as next_saturday,
+    NEXT_DAY(NOW(), 'Sunday')      as next_sunday
 ```

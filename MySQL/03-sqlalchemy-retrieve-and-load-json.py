@@ -1,16 +1,19 @@
 
+""" functions to retrieve data with sql alchemy """
+from datetime import datetime
 import time
 import json
 import requests
 import sqlalchemy as db
 
-from datetime import datetime
 today = datetime.today().strftime('%Y-%m-%d')
 
 engine = db.create_engine('mysql+pymysql://root:ateneva2021@localhost/airflow')
 connection = engine.connect()
 metadata = db.MetaData()
 
+# pylint: disable=C0116  # docstring
+# pylint: disable=C0103  # snake_case naming of variables
 
 def create_table():
     xkcd_comics = db.Table('xkcd_comics', metadata,
