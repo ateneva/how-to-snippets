@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  dvd_rental:
+    image: postgres
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: rentals
+      POSTGRES_USER: ateneva
+      POSTGRES_DB: dvd
+      PGDATA: /var/lib/dvd/data/pgdata
+    volumes: 
+      - ./dvd:/var/lib/dvd/data

@@ -21,6 +21,12 @@ services:
       - ./dvd:/var/lib/dvd/data
 ```
 
+* run the imavge in a container
+
+```bash
+docker-compose -f dvd-retnal.yml up
+```
+
 # Loading DVD-rental sample database
 
 ## Creating the table structure
