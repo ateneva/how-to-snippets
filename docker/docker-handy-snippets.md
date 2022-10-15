@@ -43,6 +43,21 @@ docker-compose -f docker-compose.yml up --force-recreate
 <https://stackoverflow.com/questions/52106464/what-is-the-difference-between-the-build-and-force-recreate-flags-to-do>
 <https://stackoverflow.com/questions/47081505/docker-compose-force-recreate-specific-service>
 
+
+### copy all files from a local folder to existing container
+
+```bash
+# copy a single file from a local folder to a folder inside existing container
+docker cp ./src/build/index.html <container name>:/app/
+
+# copy all files from a local folder to a folder inside existing container
+docker cp <local path>. <container name>:/<folder on container>/
+docker cp /Users/angelina.teneva/Documents/postgres/sample_db/. postgres_dvd_rental_1/:/home/
+```
+
+https://stackoverflow.com/questions/32566624/docker-cp-all-files-from-a-folder-to-existing-container-folder
+
+
 ### Execute a command on a running container
 
 ```bash
@@ -54,6 +69,14 @@ docker exec -it ubuntu_bash bash                           ### execute an intera
 ```
 
 <https://docs.docker.com/engine/reference/commandline/exec/>
+
+### handy commands
+
+```bash
+# run psql inside a postgresql container
+docker exec -ti <container name> psql -U user database
+docker exec -ti postgres_dvd_rental_1 psql -U ateneva dvd
+```
 
 ## Docker files
 
