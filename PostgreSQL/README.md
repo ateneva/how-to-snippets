@@ -1,4 +1,79 @@
 
+# SETUP PostgreSQL Server
+
+* prepare a `yml` file that pulls up the latest docker image
+
+```yml
+version: '3.4'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: rentals
+      POSTGRES_USER: ateneva
+      POSTGRES_DB: dvd
+      PGDATA: /var/lib/dvd/data/pgdata
+    volumes: 
+      - ./dvd:/var/lib/dvd/data
+```
+
+# Loading DVD-rental sample database
+
+## Creating the table structure
+
+* run `how-to-snippets/postgresql/ddl-dvd-rental.sql`  to crate the table structure
+
+## Loading the data
+
+* navigate to postgres designated folder and make a sample directory
+
+```bash
+# navigate to postgres designated folder
+cd Documents/postgress
+
+# make sample directory there and navigate further 
+mkdir sample_db && cd sample_db
+```
+
+* download the sample database from [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip) 
+
+```bash
+# download zip file 
+wget https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
+```
+
+* unzip it and unarchive the `tar` files
+
+```bash
+# unzip and create tar archive instead
+unzip dvdrental.zip
+
+# unarchive the newly created tar file
+tar -xvf dvdrental.tar
+```
+
+* copy the unzipped data files to the postgresql db container
+
+```bash
+docker cp /Users/angelina.teneva/Documents/postgres/sample_db/. postgres_dvd_rental_1/:/home/
+```
+
+* run psql with the container
+
+```bash
+docker exec -ti postgres_dvd_rental_1 psql -U ateneva dvd
+```
+
+* execute the `COPY` commands from `how-to-snippets/postgresql/copy-dvd-rental.sql` in the following format
+
+```bash
+\COPY public.actor (actor_id, first_name, last_name, last_update) FROM 'home/3057.dat';
+```
+
 # PostgreSQL functions and syntax
 
 <!-- vscode-markdown-toc -->
@@ -19,16 +94,9 @@
 
 <!-- markdownlint-disable MD033 -->
 
-## 1. <a name='DATETIMEfunctions'></a>DATETIME functions
+### 1. <a name='DATETIMEfunctions'></a>DATETIME functions
 
-* convert string to date
-* add INTERVALs to a date
-* `DATE_PART(INTERVAL, timestamp)`
-* `EXTRACT(INTERVAL FROM timestamp)`
-* `DATE_TRUNC(INTERVAL, date/timestamp)`
-* find the difference between two timestamps
-
-### 1.1. <a name='PostgreSQL:converttexttodate'></a>PostgreSQL: convert text to date
+#### 1.1. <a name='PostgreSQL:converttexttodate'></a>PostgreSQL: convert text to date
 
 ```sql
 SELECT
@@ -36,7 +104,7 @@ SELECT
     TO_DATE('2017-03-31', 'YYYY-MM-DD')   AS date_field
 ```
 
-### 1.2. <a name='PostgreSQL:DATEadditions'></a>PostgreSQL: DATE additions
+#### 1.2. <a name='PostgreSQL:DATEadditions'></a>PostgreSQL: add `INTERVAL` to a date
 
 ```sql
 SELECT
@@ -58,7 +126,7 @@ SELECT
     NOW() + INTERVAL '1 hour'    AS one_hour_from_now
 ```
 
-### 1.3. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: DATE_PART
+#### 1.3. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: `DATE_PART(INTERVAL, timestamp)`
 
 ```sql
 SELECT
@@ -79,7 +147,7 @@ SELECT
     DATE_PART('hour', CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-### 1.4. <a name='PostgreSQL:EXTRACTs'></a>PostgreSQL: EXTRACTs
+#### 1.4. <a name='PostgreSQL:EXTRACTs'></a>PostgreSQL: `EXTRACT(INTERVAL FROM timestamp)`
 
 ```sql
 SELECT
@@ -96,7 +164,7 @@ SELECT
     EXTRACT(hour FROM CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-### 1.5. <a name='PostgreSQL:findthefirstdayof'></a>PostgreSQL: find the first day of
+#### 1.5. <a name='PostgreSQL:findthefirstdayof'></a>PostgreSQL: find the first day of - `DATE_TRUNC(INTERVAL, date/timestamp)`
 
 ```sql
 SELECT
@@ -105,7 +173,7 @@ SELECT
     DATE(DATE_TRUNC('year', NOW()))  AS first_day_of_current_year
 ```
 
-### 1.6. <a name='PostgreSQL:findthelAStdayof'></a>PostgreSQL: find the lASt day of
+#### 1.6. <a name='PostgreSQL:findthelAStdayof'></a>PostgreSQL: find the last day of
 
 ```sql
 SELECT
@@ -120,7 +188,7 @@ SELECT
             + INTERVAL '2 month') - INTERVAL '1 day')  AS last_day_next_month
 ```
 
-### 1.7. <a name='PostgreSQL:findexactperiodbetweentwodates'></a>PostgreSQL: find exact period between two dates
+#### 1.7. <a name='PostgreSQL:findexactperiodbetweentwodates'></a>PostgreSQL: find exact period between two dates
 
 ```sql
 SELECT
