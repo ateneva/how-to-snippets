@@ -8,16 +8,17 @@ docker image rm <image id>                 # remove a docker image
 docker image rm $(docker image ls -a -q)   # run in windows
 ```
 
-### Building images 
+### Building images
+
 ```bash
 docker container run -it -v "%cd%": /data dev-env bash
-docker build -t <image name> .   # create the image 
+docker build -t <image name> .            # create the image 
 docker image ls
 docker container run -p 8888:8888 olympics
 ```
 
-
 ## Containers
+
 ```bash
 docker container ls                       # list all running containers
 docker container ls -a
@@ -27,32 +28,35 @@ docker container rm <container id>        # delete containers
 docker container run <image name>         # run the image
 docker container run -it <image name>     # run the image and interact with it
 ```
-https://docs.docker.com/engine/reference/commandline/container_rm/
-https://docs.docker.com/engine/reference/commandline/container_run/
+
+<https://docs.docker.com/engine/reference/commandline/container_rm/>
+<https://docs.docker.com/engine/reference/commandline/container_run/>
 
 ### Building (Re-creating) containers
+
 ```bash
 docker-compose -f docker-compose.yml up
 docker-compose -f docker-compose.yml up --force-recreate
 ```
-https://docs.docker.com/compose/reference/up/
-https://stackoverflow.com/questions/52106464/what-is-the-difference-between-the-build-and-force-recreate-flags-to-do
-https://stackoverflow.com/questions/47081505/docker-compose-force-recreate-specific-service
+
+<https://docs.docker.com/compose/reference/up/>
+<https://stackoverflow.com/questions/52106464/what-is-the-difference-between-the-build-and-force-recreate-flags-to-do>
+<https://stackoverflow.com/questions/47081505/docker-compose-force-recreate-specific-service>
 
 ### Execute a command on a running container
-```bash
-### start the container
- docker run --name ubuntu_bash --rm -i -t ubuntu bash
- 
-### execute a command on the container
-docker exec -d ubuntu_bash touch /tmp/execWorks
 
-### execute an interactive command 
- docker exec -it ubuntu_bash bash
+```bash
+docker run --name ubuntu_bash --rm -i -t ubuntu bash       ### start the container
+
+docker exec -d ubuntu_bash touch /tmp/execWorks            ### execute a command on the container
+
+docker exec -it ubuntu_bash bash                           ### execute an interactive command 
 ```
-https://docs.docker.com/engine/reference/commandline/exec/
+
+<https://docs.docker.com/engine/reference/commandline/exec/>
 
 ## Docker files
+
 ```bash
 # use the official image as a parent image
 FROM python: 3.7.3-slim    
@@ -91,19 +95,20 @@ CMD["python", "app.py"]
 
 ```
 
+### Pulling latest image
 
-### Pulling latest image 
 ```bash
 
 ```
 
-
 ### Pushing image to Container Registry (GCP)
+
 ```bash
 docker pull busybox
 docker tag busybox gcr.io/my-project/busybox
 docker push gcr.io/my-project/busybox
 ```
 
-# References: 
-* https://cloud.google.com/container-registry/docs/pushing-and-pulling
+# References
+
+* <https://cloud.google.com/container-registry/docs/pushing-and-pulling>
