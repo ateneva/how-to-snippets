@@ -39,7 +39,7 @@ cd Documents/postgress
 mkdir sample_db && cd sample_db
 ```
 
-* download the sample database from [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip) 
+* download the sample database from [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 
 ```bash
 # download zip file 
@@ -94,9 +94,9 @@ docker exec -ti postgres_dvd_rental_1 psql -U ateneva dvd
 
 <!-- markdownlint-disable MD033 -->
 
-### 1. <a name='DATETIMEfunctions'></a>DATETIME functions
+## 1. <a name='DATETIMEfunctions'></a>DATETIME functions
 
-#### 1.1. <a name='PostgreSQL:converttexttodate'></a>PostgreSQL: convert text to date
+### 1.1. <a name='PostgreSQL:converttexttodate'></a>PostgreSQL: convert text to date
 
 ```sql
 SELECT
@@ -104,7 +104,7 @@ SELECT
     TO_DATE('2017-03-31', 'YYYY-MM-DD')   AS date_field
 ```
 
-#### 1.2. <a name='PostgreSQL:DATEadditions'></a>PostgreSQL: add `INTERVAL` to a date
+### 1.2. <a name='PostgreSQL:DATEadditions'></a>PostgreSQL: add `INTERVAL` to a date
 
 ```sql
 SELECT
@@ -126,7 +126,7 @@ SELECT
     NOW() + INTERVAL '1 hour'    AS one_hour_from_now
 ```
 
-#### 1.3. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: `DATE_PART(INTERVAL, timestamp)`
+### 1.3. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: `DATE_PART(INTERVAL, timestamp)`
 
 ```sql
 SELECT
@@ -147,7 +147,7 @@ SELECT
     DATE_PART('hour', CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-#### 1.4. <a name='PostgreSQL:EXTRACTs'></a>PostgreSQL: `EXTRACT(INTERVAL FROM timestamp)`
+### 1.4. <a name='PostgreSQL:EXTRACTs'></a>PostgreSQL: `EXTRACT(INTERVAL FROM timestamp)`
 
 ```sql
 SELECT
@@ -164,7 +164,7 @@ SELECT
     EXTRACT(hour FROM CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-#### 1.5. <a name='PostgreSQL:findthefirstdayof'></a>PostgreSQL: find the first day of - `DATE_TRUNC(INTERVAL, date/timestamp)`
+### 1.5. <a name='PostgreSQL:findthefirstdayof'></a>PostgreSQL: find the first day of - `DATE_TRUNC(INTERVAL, date/timestamp)`
 
 ```sql
 SELECT
