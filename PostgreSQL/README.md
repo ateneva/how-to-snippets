@@ -24,7 +24,7 @@ services:
 * run the imavge in a container
 
 ```bash
-docker-compose -f dvd-retnal.yml up
+docker-compose -f dvd-rental.yml up
 ```
 
 # Loading DVD-rental sample database
