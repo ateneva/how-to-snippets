@@ -383,26 +383,28 @@ But, you can force the push to go through by passing the --force flag, like so:
 
 ## Resetting & Reverting
 
-* commit level
+You can also think of:
+
+* git revert as a tool for undoing committed changes,
+* git reset HEAD is for undoing uncommitted changes.
+
+* `commit level`
 
 ```bash
 git reset HEAD          # reset local branch to the latest commit
 git reset <commit>      # reset local branch to a specific commit
-git checkout            # switch between branches
-git revert <commit>     # undo published commits in a remote branch
+
+
+git revert HEAD         # revert the latest pushed commit
+git revert <commit SHA> # revert any previously pushed commit
 ```
 
-* file level
+* `file level`
 
 ```bash
 git reset       # unstage a file
 git checkout    # discard chnages in the working directory
 ```
-
-You can also think of:
-
-* git revert as a tool for undoing committed changes,
-* git reset HEAD is for undoing uncommitted changes.
 
 <https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting>
 
@@ -420,7 +422,7 @@ Git never loses those commits and through commands like git log and git reflog t
 
 ```bash
 git checkout main
-git cherry-pick commitSha
+git cherry-pick <commit SHA>
 ```
 
 <https://www.atlassian.com/git/tutorials/cherry-pick>
