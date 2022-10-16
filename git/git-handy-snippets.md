@@ -26,18 +26,21 @@ git config --global pull.rebase true   # rebase pull strategy
 git config --global pull.ff only       # fast-forward only
 ```
 
-Explanation:
-<https://www.atlassian.com/git/tutorials/syncing/git-pull>
+[EXPLANATION](<https://www.atlassian.com/git/tutorials/syncing/git-pull>)
 
-PRO:
-<https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge>
-<https://coderwall.com/p/7aymfa/please-oh-please-use-git-pull-rebase>
-<https://spin.atomicobject.com/2020/05/05/git-configurations-default/>
+**PRO:**
 
-CON:
-<https://stackoverflow.com/questions/2472254/when-should-i-use-git-pull-rebase>
+* <https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge>
 
-### Add .gitignore file
+* <https://coderwall.com/p/7aymfa/please-oh-please-use-git-pull-rebase>
+
+* <https://spin.atomicobject.com/2020/05/05/git-configurations-default/>
+
+**CON:**
+
+* <https://stackoverflow.com/questions/2472254/when-should-i-use-git-pull-rebase>
+
+### Add `.gitignore` file
 
 ```bash
 # specify a global exclusion list
@@ -91,7 +94,8 @@ git push --set-upstream git@gitlab.example.com:namespace/nonexistent-project.git
 git remote rename <old> <new>
 git remote remove <name>
 ```
-<https://www.git-tower.com/learn/git/faq/set-upstream/>
+
+* <https://www.git-tower.com/learn/git/faq/set-upstream/>
 
 ### Change local repo default tracking branch
 
@@ -152,7 +156,8 @@ git merge <branch> --ff        # fast-forward merge
 git merge <branch> --no-ff     # merge commit
 git merge <branch> --ff-only   # abort merge if fast-forward not possible
 ```
-<https://www.atlassian.com/git/tutorials/using-branches/git-merge>
+
+* <https://www.atlassian.com/git/tutorials/using-branches/git-merge>
 
 ### squash merge
 
@@ -189,7 +194,8 @@ git push origin --delete <branch_name>  # delete the remote branch
 
 git remote prune origin                 # remove local tracking branches that have been deleted on the remote
 ```
-<https://stackoverflow.com/questions/7726949/remove-tracking-branches-no-longer-on-remote>
+
+* <https://stackoverflow.com/questions/7726949/remove-tracking-branches-no-longer-on-remote>
 
 ## Committing
 
@@ -250,8 +256,9 @@ git commit --amend
 git rebase --continue
 ```
 
-* if the commit has already been pushed then you will need to force push after amending
-<https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commit-messages>
+If the commit has already been pushed then you will need to force push after amending
+
+* <https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commit-messages>
 
 * <https://www.git-tower.com/learn/git/faq/change-author-name-email>
 * <https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history>
@@ -266,9 +273,12 @@ git push origin <branch> -f
 git push origin <branch> --force
 git push <remote> <branch> -f
 ```
-<https://stackoverflow.com/questions/43567577/what-is-the-different-between-force-push-and-normal-push-in-git>#
-<https://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push>
-<https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push>
+
+* <https://stackoverflow.com/questions/43567577/what-is-the-different-between-force-push-and-normal-push-in-git>#
+
+* <https://stackoverflow.com/questions/5509543/how-do-i-properly-force-a-git-push>
+
+* <https://stackoverflow.com/questions/34995726/why-when-should-one-ever-force-push>
 
 ### discard local changes
 
@@ -373,13 +383,17 @@ If you try to push the rebased main branch back to a remote repository,
     Git will prevent you from doing so because it conflicts with the remote main branch.
 But, you can force the push to go through by passing the --force flag, like so:
 
-<https://www.atlassian.com/git/tutorials/merging-vs-rebasing>
-<https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase>
-<https://docs.gitlab.com/ee/topics/git/git_rebase.html>
-<https://medium.com/osedea/git-rebase-powerful-command-507bbac4a234>
+* <https://www.atlassian.com/git/tutorials/merging-vs-rebasing>
 
-<https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch>
-<https://howchoo.com/git/git-merge-conflicts-rebase-ours-theirs#using-ours-theirs-during-a-rebase>
+* <https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase>
+
+* <https://docs.gitlab.com/ee/topics/git/git_rebase.html>
+
+* <https://medium.com/osedea/git-rebase-powerful-command-507bbac4a234>
+
+* <https://stackoverflow.com/questions/52625081/git-pull-another-remote-branch-into-my-local-branch>
+
+* <https://howchoo.com/git/git-merge-conflicts-rebase-ours-theirs#using-ours-theirs-during-a-rebase>
 
 ## Resetting & Reverting
 
@@ -406,7 +420,7 @@ git reset       # unstage a file
 git checkout    # discard chnages in the working directory
 ```
 
-<https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting>
+* <https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting>
 
 ## Cherry picking
 
@@ -425,4 +439,4 @@ git checkout main
 git cherry-pick <commit SHA>
 ```
 
-<https://www.atlassian.com/git/tutorials/cherry-pick>
+* <https://www.atlassian.com/git/tutorials/cherry-pick>
