@@ -1,5 +1,6 @@
 
 # BigQuery DATE FUNCTIONS
+
 + `CURRENT_DATE([time_zone])`
 + `PARSE_DATE(format_string, date_string)`
 + `UNIX_DATE(date_expression)`
@@ -17,8 +18,8 @@
 
 + `DATE_TRUNC(date_expression, date_part)`
 
+## PARSE_DATE: convert string to date --> only applicable to dates
 
-### PARSE_DATE: convert string to date --> only applicable to dates
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -37,6 +38,7 @@ SELECT
 ```
 
 ### convert TO/FROM UNIX
+
 ```sql
 SELECT
   CURRENT_DATE()   AS NOW,
@@ -44,6 +46,7 @@ SELECT
   UNIX_DATE(CURRENT_DATE())      AS UNIX_CURRENT_DATE,
   DATE_FROM_UNIX_DATE(18574)     AS FROM_UNIX
 ```
+
 ```json
 [
   {
@@ -56,6 +59,7 @@ SELECT
 ```
 
 ### EXTRACT TIME from  DATE --> applicable to both dates and timestamps
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -86,6 +90,7 @@ SELECT
 ```
 
 ### DATE_ADD: add backward and forward date periods -->only applicable to dates
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -101,6 +106,7 @@ SELECT
   DATE_ADD(CURRENT_DATE(), INTERVAL 1 WEEK)     AS OneWeekFromNOW,
   DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY)      AS OneDayFromNOW
 ```
+
 ```json
 [
   {
@@ -120,6 +126,7 @@ SELECT
 ```
 
 ### DATE_SUB: add backward date periods--> only applicable to dates
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -135,6 +142,7 @@ SELECT
   DATE_SUB(CURRENT_DATE(), INTERVAL -1 WEEK)      AS OneWeekFromNOW,
   DATE_SUB(CURRENT_DATE(), INTERVAL -1 DAY)       AS OneDayFromNOW
 ```
+
 ```json
 [
   {
@@ -154,6 +162,7 @@ SELECT
 ```
 
 ### DATE_DIFF: calculate the difference between two days-->only applicable to dates
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -173,6 +182,7 @@ SELECT
   DATE_DIFF(CAST('2019-01-21' AS DATE), CURRENT_DATE(), WEEK(FRIDAY))   AS DefinedWeeksBetweenDates,
   DATE_DIFF(CAST('2019-01-21' AS DATE), CURRENT_DATE(), DAY)            AS DaysBetweenDates
 ```
+
 ```json
 [
   {
@@ -195,7 +205,9 @@ SELECT
   }
 ]
 ```
+
 ### DATE_TRUNC: calculate to the first date of the specified period--->only applicable to dates
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -248,6 +260,7 @@ SELECT
   LAST_DAY(CURRENT_DATETIME(), YEAR)            AS LastDayOfCurrentYear,
   LAST_DAY(CURRENT_DATETIME(), ISOYEAR)         AS LastDayOfCurrentISOYear
 ```
+
 ```json
 [
   {

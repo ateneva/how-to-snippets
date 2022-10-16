@@ -1,5 +1,6 @@
 
 # BigQuery DATETIME FUNCTIONS
+
 + `CURRENT_DATETIME([timezone])`
 + `DATE(timestamp_expression[, timezone])`
 + `PARSE_DATETIME(format_string, string)`
@@ -14,8 +15,8 @@
 
 + `DATETIME_TRUNC(datetime_expression, part)`
 
+## PARSE and FORMAT DATETIME
 
-### PARSE and FORMAT DATETIME
 ```sql
 SELECT
   CURRENT_DATETIME()       AS NOW,
@@ -30,6 +31,7 @@ SELECT
   FORMAT_DATETIME("%Y-%b-%d %H:%M:%S", 
     PARSE_DATETIME("%Y/%m/%d %H:%M:%S", "2012/12/21 21:59:13")) AS THE_DATETIME_FORMATTED,
 ```
+
 ```json
 [
   {
@@ -46,6 +48,7 @@ SELECT
 ```
 
 ### EXTRACT TIME from  DATE--->applicable to both dates and datetimes
+
 ```sql
 SELECT ---- also supports MILISECOND, MICROSECOND
   CURRENT_DATETIME() AS NOW,
@@ -61,6 +64,7 @@ SELECT ---- also supports MILISECOND, MICROSECOND
   EXTRACT(MINUTE FROM CURRENT_DATETIME())      AS CurrentMinute,
   EXTRACT(SECOND FROM CURRENT_DATETIME())      AS CurrentSecond
 ```
+
 ```json
 [
   {
@@ -81,6 +85,7 @@ SELECT ---- also supports MILISECOND, MICROSECOND
 ```
 
 ### DATETIME_ADD
+
 ```sql
 SELECT  -- also supports MILISECOND, MICROSECOND
   CURRENT_DATETIME() AS NOW,
@@ -103,6 +108,7 @@ SELECT  -- also supports MILISECOND, MICROSECOND
   DATETIME_ADD(CURRENT_DATETIME(), INTERVAL 1 MINUTE)   AS OneMinuteFromNOW,
   DATETIME_ADD(CURRENT_DATETIME(), INTERVAL 1 SECOND)   AS OneSecondFromNOW
 ```
+
 ```json
 [
   {
@@ -128,6 +134,7 @@ SELECT  -- also supports MILISECOND, MICROSECOND
 ```
 
 ### DATETIME_SUB()
+
 ```sql
 SELECT -- also supports MILISECOND, MICROSECOND
   CURRENT_DATETIME() AS NOW,
@@ -150,6 +157,7 @@ SELECT -- also supports MILISECOND, MICROSECOND
   DATETIME_SUB(CURRENT_DATETIME(), INTERVAL 1 MINUTE)   AS OneMinuteAgo,
   DATETIME_SUB(CURRENT_DATETIME(), INTERVAL 1 SECOND)   AS OneSecondAgo
 ```
+
 ```json
 [
   {
@@ -175,6 +183,7 @@ SELECT -- also supports MILISECOND, MICROSECOND
 ```
 
 ### DATETIME_DIFF(datetime_expression, datetime_expression, part)
+
 ```sql
 SELECT
   CURRENT_DATE() AS NOW,
@@ -201,6 +210,7 @@ SELECT
   DATETIME_DIFF(CAST('2019-01-21' AS DATE), CURRENT_DATE(), MINUTE)         AS MinutessBetweenDatetimes,
   DATETIME_DIFF(CAST('2019-01-21' AS DATE), CURRENT_DATE(), SECOND)         AS SecondsBetweenDatetimes
 ```
+
 ```json
 [
   {
@@ -230,6 +240,7 @@ SELECT
 ```
 
 ### DATETIME_TRUNC()
+
 ```sql
 SELECT
   CURRENT_DATETIME() AS NOW,
@@ -245,6 +256,7 @@ SELECT
   DATETIME_TRUNC(CURRENT_DATETIME(), YEAR)           AS FirstDayOfCurrentYear,
   DATETIME_TRUNC(CURRENT_DATETIME(), ISOYEAR)        AS FirstDayOfCurrentISOYear
 ```
+
 ```json
 [
   {
