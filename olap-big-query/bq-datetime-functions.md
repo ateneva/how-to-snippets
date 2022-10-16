@@ -3,19 +3,14 @@
 
 + `CURRENT_DATETIME([timezone])`
 + `DATE(timestamp_expression[, timezone])`
+
+## PARSE and FORMAT DATETIME
+
 + `PARSE_DATETIME(format_string, string)`
 + `PARSE_TIMESTAMP(format_string, string[, time_zone])`
 
-+ `EXTRACT(part FROM timestamp_expression [AT TIME ZONE tz_spec])`
-
-+ `DATETIME_ADD(datetime_expression, INTERVAL INT64_expr part)`
-+ `DATETIME_SUB(datetime_expression, INTERVAL INT64_expr part)`
-
-+ `DATETIME_DIFF(datetime_expression, datetime_expression, part)`
-
-+ `DATETIME_TRUNC(datetime_expression, part)`
-
-## PARSE and FORMAT DATETIME
++ `FORMAT_DATETIME(format_string, datetime)`
++ `FORMAT_TIMESTAMP(format_string, datetime)`
 
 ```sql
 SELECT
@@ -47,7 +42,11 @@ SELECT
 ]
 ```
 
-### EXTRACT TIME from  DATE--->applicable to both dates and datetimes
+### EXTRACT TIME from  DATE
+
++ applicable to both dates and datetimes
+
++ `EXTRACT(part FROM timestamp_expression [AT TIME ZONE tz_spec])`
 
 ```sql
 SELECT ---- also supports MILISECOND, MICROSECOND
@@ -84,7 +83,9 @@ SELECT ---- also supports MILISECOND, MICROSECOND
 ]
 ```
 
-### DATETIME_ADD
+### `DATETIME_ADD`
+
++ `DATETIME_ADD(datetime_expression, INTERVAL INT64_expr part)`
 
 ```sql
 SELECT  -- also supports MILISECOND, MICROSECOND
@@ -133,7 +134,9 @@ SELECT  -- also supports MILISECOND, MICROSECOND
 ]
 ```
 
-### DATETIME_SUB()
+### `DATETIME_SUB()`
+
++ `DATETIME_SUB(datetime_expression, INTERVAL INT64_expr part)`
 
 ```sql
 SELECT -- also supports MILISECOND, MICROSECOND
@@ -182,7 +185,9 @@ SELECT -- also supports MILISECOND, MICROSECOND
 ]
 ```
 
-### DATETIME_DIFF(datetime_expression, datetime_expression, part)
+### `DATETIME_DIFF`
+
++ `DATETIME_DIFF(datetime_expression, datetime_expression, part)`
 
 ```sql
 SELECT
@@ -239,7 +244,9 @@ SELECT
 ]
 ```
 
-### DATETIME_TRUNC()
+### `DATETIME_TRUNC()`
+
++ `DATETIME_TRUNC(datetime_expression, part)`
 
 ```sql
 SELECT

@@ -2,23 +2,12 @@
 # BigQuery DATE FUNCTIONS
 
 + `CURRENT_DATE([time_zone])`
-+ `PARSE_DATE(format_string, date_string)`
-+ `UNIX_DATE(date_expression)`
-+ `DATE_FROM_UNIX_DATE(INT64_expression)`
-
 + `DATE(year, month, day)`
 
-+ `EXTRACT(part FROM date_expression)`
+## PARSE_DATE: convert string to date
 
-+ `DATE_ADD(date_expression, INTERVAL INT64_expr date_part)`  -- can be positive or negative
-+ `DATE_SUB(date_expression, INTERVAL INT64_expr date_part)`  -- can be positive or negative
-
-+ `DATE_DIFF(later_date, earlier_date, date_part)` ---postiive difference
-+ `DATE_DIFF(earlier_date, later_date, date_part)` ---negative difference
-
-+ `DATE_TRUNC(date_expression, date_part)`
-
-## PARSE_DATE: convert string to date --> only applicable to dates
++ `PARSE_DATE(format_string, date_string)`
++ `FORMAT_DATE(format_string, date)`
 
 ```sql
 SELECT
@@ -39,6 +28,9 @@ SELECT
 
 ### convert TO/FROM UNIX
 
++ `UNIX_DATE(date_expression)`
++ `DATE_FROM_UNIX_DATE(INT64_expression)`
+
 ```sql
 SELECT
   CURRENT_DATE()   AS NOW,
@@ -58,7 +50,9 @@ SELECT
 ]
 ```
 
-### EXTRACT TIME from  DATE --> applicable to both dates and timestamps
+### `EXTRACT(part FROM date_expression)`
+
++ applicable to both dates and timestamps
 
 ```sql
 SELECT
@@ -89,7 +83,10 @@ SELECT
 ]
 ```
 
-### DATE_ADD: add backward and forward date periods -->only applicable to dates
+### `DATE_ADD`: add backward and forward date periods
+
++ only applicable to dates
++ `DATE_ADD(date_expression, INTERVAL INT64_expr date_part)`
 
 ```sql
 SELECT
@@ -125,7 +122,10 @@ SELECT
 ]
 ```
 
-### DATE_SUB: add backward date periods--> only applicable to dates
+### `DATE_SUB`: add backward date periods
+
++ only applicable to dates
++ `DATE_SUB(date_expression, INTERVAL INT64_expr date_part)`
 
 ```sql
 SELECT
@@ -161,7 +161,12 @@ SELECT
 ]
 ```
 
-### DATE_DIFF: calculate the difference between two days-->only applicable to dates
+### `DATE_DIFF`: calculate the difference between two days
+
++ only applicable to dates
+
++ `DATE_DIFF(later_date, earlier_date, date_part)` ---postiive difference
++ `DATE_DIFF(earlier_date, later_date, date_part)` ---negative difference
 
 ```sql
 SELECT
@@ -206,7 +211,11 @@ SELECT
 ]
 ```
 
-### DATE_TRUNC: calculate to the first date of the specified period--->only applicable to dates
+### `DATE_TRUNC`: calculate to the first date of the specified period
+
++ only applicable to dates
+
++ `DATE_TRUNC(date_expression, date_part)`
 
 ```sql
 SELECT
@@ -235,7 +244,9 @@ SELECT
 ]
 ```
 
-### LAST_DAY: calculate to the last date of the specified period --> applicable to both dates and timestamps
+### `LAST_DAY`: calculate to the last date of the specified period
+
++ applicable to both dates and timestamps
 
 ```sql
 SELECT
