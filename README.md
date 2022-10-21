@@ -77,6 +77,7 @@ virtualenv --version
 
 # create project folder
 cd Documents
+mkdir airflow_env
 virtualenv airflow_env -p python3
 
 # activate virtual environment

@@ -1,54 +1,66 @@
 
 # Setting up MySQL DB
 
-## check pre-requisites
+## with `mysql`
 
-* python3 is installed
-* pip is installed
+* `python3` [is installed](<https://github.com/ateneva/data-engineer-in-training#install-different-python-versions>)
 
-```bash
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
-```
+* `pip` [is installed](<https://github.com/ateneva/data-engineer-in-training#use-brew-to-install-pip-and-virtualenv>)
 
-## create virtual environment
+* [virtual env is in place](<https://github.com/ateneva/how-to-snippets#create-virtual-environment-with-a-particular-python-version>)
 
-```bash
-pip install virtualenv
-virtualenv --version
+* `mysql` [CLI is installed](<https://github.com/ateneva/data-engineer-in-training#install-mysql>)
 
-# create project folder
-cd Documents
-mkdir mysql_setup
+## with `docker`
 
-# create virtual environement
-cd mysql_setup
-virtualenv env_mysql -p python3
-
-# activate virtual environment
-source env_mysql/bin/activate
-```
-
-## install MySQL database with brew
+* pull latest official docker image
 
 ```bash
-brew install mysql
-
-export PATH=$PATH:/usr/local/mysql/bin
-mysql --version
-
-# start the mysql server 
-mysql.server start
-
-# access MySQL environment
-mysql -u root -p
-mysql> CREATE DATABASE airflow CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-mysql> GRANT ALL PRIVILEGES ON airflow.* To 'root'@'localhost';
-mysql> FLUSH PRIVILEGES;
+docker pull mysql
 ```
 
-* <https://flaviocopes.com/mysql-how-to-install/>
-* <https://stackoverflow.com/questions/22436028/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock-2>
+* verify the image exists on your machine
+
+```bash
+docker image ls -a
+```
+
+* prepare a `yml` file
+
+```yml
+version: '3.1'
+
+services:
+  dvd_rental:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports: 
+      - "3306:3306"
+    hostname: '%'
+    environment:
+      MYSQL_ROOT_PASSWORD: rentals
+      MYSQL_USER: ateneva
+      MYSQL_PASSWORD: ateneva_rentals
+      MYSQL_DATABASE: dvd
+      DATA: /var/lib/mysql
+    volumes: 
+      - /var/lib/mysql
+```
+
+* deploy and start the container
+
+```bash
+docker-compose -f dvd-rental.yml up
+```
+
+* verify the container is running
+
+```bash
+docker container ls -a
+```
+
+* <https://hevodata.com/learn/docker-mysql/>
 
 ## CREATE TABLE on the installed database
 
@@ -99,9 +111,17 @@ desc mysql.user;
 select user from mysql.user;
 ```
 
-<https://alvinalexander.com/blog/post/mysql/show-users-i-ve-created-in-mysql-database/>
+* <https://alvinalexander.com/blog/post/mysql/show-users-i-ve-created-in-mysql-database/>
 
-## set up MySQL connection through python
+# Loading `sample mysql` databases
+
+## sakila
+
+## employees
+
+## world_x
+
+# [CONNECT](https://github.com/ateneva/how-to-snippets/tree/main/oltp-mysql/python) to `MySQL` DB through `python`
 
 ```bash
 pip install mysqlclient
@@ -110,42 +130,7 @@ pip install pymysql
 pip install sqlalchemy
 ```
 
-* [check examples](https://github.com/ateneva/how-to-snippets/blob/e083e939d6600248ef853f5c63db2caf9c0f6471/MySQL/load-data-to-mysql-db-with-python.md)
-
-# Install MySQL database with Docker image
-
-* pull latest image
-
-```bash
-docker pull mysql
-docker pull mysql/mysql-server:latest
-```
-
-* verify the image exists on your machien
-
-```bash
-docker image ls -a
---or 
-sudo docker images
-```
-
-* deploy and start the container
-
-```bash
-docker run --name=mysql -d mysql/mysql-server:latest
-```
-
-* verify the container is running
-
-```bash
-docker container ls -a
----or 
-docker ps
-```
-
-* <https://hevodata.com/learn/docker-mysql/>
-
-# MySQL Functions
+# `MySQL` Functions
 
 ## DATETIME
 
@@ -207,7 +192,7 @@ EXTRACT(PART FROM DATE/TIMESTAMP)
 
 ```sql
 DATE_ADD(DATE/TIMESTAMP, INTERVAL, PART)  
-``` 
+```
 
 * ### subtract a datetime value (INTERVAL) from a date
 
