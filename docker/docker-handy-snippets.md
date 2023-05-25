@@ -8,10 +8,135 @@ docker image rm <image id>                 # remove a docker image
 docker image rm $(docker image ls -a -q)   # remove image on windows
 ```
 
+## Pulling latest image
+
+```bash
+
+```
+
 ## Building images
 
 ```bash
 docker build -t <image name> .            # create the image 
+```
+
+### [creating image from a container](https://www.dataset.com/blog/create-docker-image/)
+
+```bash
+# create an image from a container
+docker commit <container name>
+docker commit mysql_dvd_rental_1
+
+# check images 
+docker image ls
+
+# tag the newly-created image 
+docker tag <image id> <tag name>
+docker tag 6857a570e647 mysql-dvd
+```
+
+```text
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker commit mysql_dvd_rental_1
+sha256:6857a570e647eecd7a2c97bd717efbaab2de031a58cb4972586aff1563c5c090
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED          SIZE
+<none>                   <none>    6857a570e647   42 seconds ago   546MB
+postgres                 latest    0c3f88e824de   7 days ago       357MB
+mysql                    latest    262f364f4f01   9 days ago       546MB
+adminer                  latest    f0aa9b7b3eec   2 weeks ago      80.8MB
+mysql/mysql-server       latest    e588e8734686   2 months ago     471MB
+docker/getting-started   latest    157095baba98   6 months ago     27.4MB
+angelina.teneva@Angelinas-MacBook-Pro mysql % 
+
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+mysql-dvd                latest    6857a570e647   8 minutes ago   546MB
+postgres                 latest    0c3f88e824de   7 days ago      357MB
+mysql                    latest    262f364f4f01   9 days ago      546MB
+adminer                  latest    f0aa9b7b3eec   2 weeks ago     80.8MB
+mysql/mysql-server       latest    e588e8734686   2 months ago    471MB
+docker/getting-started   latest    157095baba98   6 months ago    27.4MB
+angelina.teneva@Angelinas-MacBook-Pro mysql % 
+```
+
+```bash
+# create an image from a container and tag it
+docker commit <container name> <tag name>
+docker commit mysql_dvd_rental_1 mysql-dvd-rental
+```
+
+```text
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+mysql-dvd-rental         latest    6b04072b74af   3 seconds ago   546MB
+mysql-dvd                latest    6857a570e647   9 minutes ago   546MB
+postgres                 latest    0c3f88e824de   7 days ago      357MB
+mysql                    latest    262f364f4f01   9 days ago      546MB
+adminer                  latest    f0aa9b7b3eec   2 weeks ago     80.8MB
+mysql/mysql-server       latest    e588e8734686   2 months ago    471MB
+docker/getting-started   latest    157095baba98   6 months ago    27.4MB
+```
+
+## [Pushing image to DockerHub](https://docs.docker.com/docker-hub/repos/)
+
+```bash
+# the image must be tagged as follows
+docker build -t <hub-user>/<repo-name>[:<tag>]
+
+docker push <hub-user>/<repo-name>:<tag>
+docker push tenevaa/mysql-dvd-rentals:mysql-dvd
+```
+
+### [Pushing image to Container Registry (GCP)](<https://cloud.google.com/container-registry/docs/pushing-and-pulling>)
+
+```bash
+docker pull busybox
+docker tag busybox gcr.io/my-project/busybox
+docker push gcr.io/my-project/busybox
+```
+
+### Pushing image to ECS (AWS)
+
+```bash
+```
+
+## [Removing Tags](https://docs.docker.com/engine/reference/commandline/rmi/)
+
+```text
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker image ls
+REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
+mysql-dvd-rentals           latest    6b04072b74af   8 days ago     546MB
+tenevaa/mysq-dvd-rentals    latest    6b04072b74af   8 days ago     546MB
+tenevaa/mysql-dvd-rentals   latest    6b04072b74af   8 days ago     546MB
+mysql-dvd-rental            latest    6b04072b74af   8 days ago     546MB
+mysql-dvd                   latest    6857a570e647   8 days ago     546MB
+postgres                    latest    0c3f88e824de   2 weeks ago    357MB
+mysql                       latest    262f364f4f01   2 weeks ago    546MB
+adminer                     latest    f0aa9b7b3eec   3 weeks ago    80.8MB
+mysql/mysql-server          latest    e588e8734686   3 months ago   471MB
+docker/getting-started      latest    157095baba98   6 months ago   27.4MB
+```
+
+```bash
+docker rmi <tag>
+
+docker rmi tenevaa/mysq-dvd-rentals
+docker rmi mysql-dvd-rentals
+docker rmi
+docker rmi mysql-dvd-rental
+```
+
+```text
+angelina.teneva@Angelinas-MacBook-Pro mysql % docker image ls
+REPOSITORY                  TAG       IMAGE ID       CREATED        SIZE
+tenevaa/mysql-dvd-rentals   latest    6b04072b74af   8 days ago     546MB
+mysql-dvd                   latest    6857a570e647   8 days ago     546MB
+postgres                    latest    0c3f88e824de   2 weeks ago    357MB
+mysql                       latest    262f364f4f01   2 weeks ago    546MB
+adminer                     latest    f0aa9b7b3eec   3 weeks ago    80.8MB
+mysql/mysql-server          latest    e588e8734686   3 months ago   471MB
+docker/getting-started      latest    157095baba98   6 months ago   27.4MB
+angelina.teneva@Angelinas-MacBook-Pro mysql % 
 ```
 
 # Containers
@@ -137,25 +262,4 @@ CMD["python", "app.py"]
 
 ```
 
-# Pulling latest image
-
-```bash
-
-```
-
-## Pushing image to Container Registry (GCP)
-
-```bash
-docker pull busybox
-docker tag busybox gcr.io/my-project/busybox
-docker push gcr.io/my-project/busybox
-```
-
-## Pushing image to ECS (AWS)
-
-```bash
-```
-
 # References
-
-* <https://cloud.google.com/container-registry/docs/pushing-and-pulling>
