@@ -319,8 +319,10 @@ git stash -u
 git stash pop
 
 # restore your stashed changes to working tree and keep them in your stash
-# useful if you want to apply them to multiple branches
-git stash apply
+# useful if you want to:
+    # apply stashes to multiple branches
+    # restore an earlier stash
+git stash apply stash@{3}
 
 # list all your stashes
 git stash list
