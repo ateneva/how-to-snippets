@@ -17,6 +17,9 @@ git config --global user.email ateneva@gmail.com
 git config --global user.name angelinateneva
 git config --global core.editor atom
 
+# config all new repos to default to main
+git config --global init.defaultBranch main
+
 # configure default branch name for all repositories
 git config --global init.defaultBranch <name>
 
@@ -313,6 +316,8 @@ git stash
 # to stash untracked files
 git stash -u
 
+# list all your stashes
+git stash list
 
 # restore your stashed changes to working tree and remove them from stashes
 # this only applies to the latest stash
@@ -323,9 +328,6 @@ git stash pop
     # apply stashes to multiple branches
     # restore an earlier stash
 git stash apply stash@{3}
-
-# list all your stashes
-git stash list
 
 # clean up a stash
 git stash drop stash@{1}
@@ -439,6 +441,11 @@ Git never loses those commits and through commands like git log and git reflog t
 ```bash
 git checkout main
 git cherry-pick <commit SHA>
+
+# apply changes from a different unmerged branch to the current one
+
+git cherry-pick -n <commit SHA>
+git cherry-pick --no commit <commit SHA>
 ```
 
 * <https://www.atlassian.com/git/tutorials/cherry-pick>
