@@ -1,5 +1,19 @@
 # How do I find the next Monday/Tuesday/etc?
 
+<!-- TOC -->
+
+- [How do I find the next Monday/Tuesday/etc?](#how-do-i-find-the-next-mondaytuesdayetc)
+    - [Vertica](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql
@@ -88,28 +102,56 @@ SELECT
     DATE(NOW()) AS today,
 
     DATE(NOW() + CAST((1 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 1 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_monday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 1 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_monday,
 
     DATE(NOW() + CAST((2 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 2 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_tuesday, 
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 2 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_tuesday, 
             
     DATE(NOW() + CAST((3 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 3 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_wednesday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 3 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_wednesday,
             
     DATE(NOW() + CAST((4 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 4 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_thursday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 4 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_thursday,
             
     DATE(NOW() + CAST((5 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 5 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_friday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 5 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_friday,
             
     DATE(NOW() + CAST((6 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 6 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_saturday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 6 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_saturday,
             
     DATE(NOW() + CAST((7 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY' AS INTERVAL)) AS next_sunday    
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 7 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY' AS INTERVAL)) AS next_sunday    
 ```
 
---------------------------------------OR------------------------------------------------------------------
+--------------------------------------OR-----------------------------------------------
 
 ```sql
 SELECT
@@ -123,25 +165,52 @@ SELECT
     DATE(NOW()) AS today,
 
     DATE(NOW() + "INTERVAL" ((1 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 1 THEN 0 ELSE 7 END) || ' DAY')) AS next_monday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 1 
+                THEN 0 
+                ELSE 7 END) || ' DAY')) AS next_monday,
 
     DATE(NOW() + "INTERVAL" ((2 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 2 THEN 0 ELSE 7 END) || ' DAY')) AS next_tuesday, 
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 2 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_tuesday, 
             
     DATE(NOW() + "INTERVAL" ((3 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 3 THEN 0 ELSE 7 END) || ' DAY')) AS next_wednesday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 3 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_wednesday,
             
     DATE(NOW() + "INTERVAL" ((4 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 4 THEN 0 ELSE 7 END) || ' DAY')) AS next_thursday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 4 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_thursday,
             
     DATE(NOW() + "INTERVAL" ((5 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 5 THEN 0 ELSE 7 END) || ' DAY')) AS next_friday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 5 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_friday,
             
     DATE(NOW() + "INTERVAL" ((6 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 6 THEN 0 ELSE 7 END) || ' DAY')) AS next_saturday,
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 6 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_saturday,
             
     DATE(NOW() + "INTERVAL" ((7 - EXTRACT(DOW FROM NOW()))
-            + (CASE WHEN EXTRACT(DOW FROM NOW()) < 7 THEN 0 ELSE 7 END) || ' DAY')) AS next_sunday 
+            + (CASE 
+                WHEN EXTRACT(DOW FROM NOW()) < 7 
+                THEN 0 
+                ELSE 7 
+                END) || ' DAY')) AS next_sunday 
 
 ```
 

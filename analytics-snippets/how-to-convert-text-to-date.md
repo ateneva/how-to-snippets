@@ -1,6 +1,20 @@
 
 # How do I convert string to a date?
 
+<!-- TOC -->
+
+- [How do I convert string to a date?](#how-do-i-convert-string-to-a-date)
+    - [Vertica](#vertica)
+    - [PostgreSQL](#postgresql)
+    - [MySQL](#mysql)
+    - [SQL Server](#sql-server)
+    - [BigQuery](#bigquery)
+    - [Reshift](#reshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

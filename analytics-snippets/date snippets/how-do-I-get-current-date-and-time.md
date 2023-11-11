@@ -1,5 +1,19 @@
 # How do I get current time?
 
+<!-- TOC -->
+
+- [How do I get current time?](#how-do-i-get-current-time)
+    - [VERTICA](#vertica)
+    - [MySQL](#mysql)
+    - [MS SQL Server](#ms-sql-server)
+    - [PostgreSQL](#postgresql)
+    - [BigQueryy](#bigqueryy)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## VERTICA
 
 ```sql

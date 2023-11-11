@@ -1,5 +1,19 @@
 # How do I calculate the remaining days until the end of a calendar quarter?
 
+<!-- TOC -->
+
+- [How do I calculate the remaining days until the end of a calendar quarter?](#how-do-i-calculate-the-remaining-days-until-the-end-of-a-calendar-quarter)
+    - [Vertica](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

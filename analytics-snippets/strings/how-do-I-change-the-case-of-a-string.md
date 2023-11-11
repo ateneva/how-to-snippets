@@ -1,5 +1,20 @@
 
 # How do I change the case of a string?
+<!-- TOC -->
+
+- [How do I change the case of a string?](#how-do-i-change-the-case-of-a-string)
+    - [Sample String](#sample-string)
+        - [SQL Server](#sql-server)
+        - [MySQL](#mysql)
+        - [PostgreSQL](#postgresql)
+        - [Bigquery](#bigquery)
+        - [Redshift](#redshift)
+        - [Python](#python)
+        - [Tableau](#tableau)
+
+<!-- /TOC -->
+
+## Sample String
 
 ```json
 [

@@ -1,6 +1,20 @@
 
 # How do I remove extra spaces from a string?
 
+<!-- TOC -->
+
+- [How do I remove extra spaces from a string?](#how-do-i-remove-extra-spaces-from-a-string)
+    - [Vertica](#vertica)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [SQL Server](#sql-server)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

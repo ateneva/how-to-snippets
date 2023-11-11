@@ -1,5 +1,18 @@
 
 # How do I concatenate strings?
+<!-- TOC -->
+
+- [How do I concatenate strings?](#how-do-i-concatenate-strings)
+    - [MySQL](#mysql)
+    - [SQL Server](#sql-server)
+    - [PostgreSQL](#postgresql)
+    - [Vertica](#vertica)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
 
 ## MySQL
 

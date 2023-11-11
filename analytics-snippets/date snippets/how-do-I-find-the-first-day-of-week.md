@@ -1,5 +1,19 @@
 # How do I find the first day of previous/next week?
 
+<!-- TOC -->
+
+- [How do I find the first day of previous/next week?](#how-do-i-find-the-first-day-of-previousnext-week)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [Vertica](#vertica)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## SQL Server
 
 ```sql
@@ -16,11 +30,11 @@ SELECT
         WHEN DATEPART(DW, GETDATE()) = 5 THEN CONVERT(DATE, DATEADD(DAY, -10, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 6 THEN CONVERT(DATE, DATEADD(DAY, -11, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 7 THEN CONVERT(DATE, DATEADD(DAY, -12, GETDATE()))
-    END AS first_day_of_previous_week,                                                         
+    END AS first_day_of_previous_week,
                                                          
     CASE ---------------NEXT WEEK--------------------------------------------------------
         WHEN DATEPART(DW, GETDATE()) = 1 THEN CONVERT(DATE, DATEADD(DAY, +1, GETDATE()))
-        WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY, +7, GETDATE()))  
+        WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY, +7, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 3 THEN CONVERT(DATE, DATEADD(DAY, +6, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 4 THEN CONVERT(DATE, DATEADD(DAY, +5, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 5 THEN CONVERT(DATE, DATEADD(DAY, +4, GETDATE()))
@@ -62,7 +76,7 @@ SELECT
         WHEN WEEKDAY(NOW()) = 6 THEN DATE(DATE_ADD(NOW(), INTERVAL +1 DAY))
     END AS first_dayof_next_week,
                     
-    DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 MONTH), '%Y-%M-01')   AS first_day_of_prv_month,                                           
+    DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 MONTH), '%Y-%M-01')   AS first_day_of_prv_month,
     
     DATE_FORMAT(DATE_ADD(NOW(), INTERVAL +1 MONTH), '%Y-%M-01')   AS first_dayof_next_month
  ```

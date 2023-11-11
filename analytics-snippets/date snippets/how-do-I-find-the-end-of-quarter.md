@@ -1,6 +1,21 @@
 
 # How do I find the end of a quarter?
 
+<!-- TOC -->
+
+- [How do I find the end of a quarter?](#how-do-i-find-the-end-of-a-quarter)
+    - [Vertica](#vertica)
+    - [PostgreSQL](#postgresql)
+    - [MySQL](#mysql)
+    - [SQL Server: Convert](#sql-server-convert)
+    - [SQL Server: Cast](#sql-server-cast)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

@@ -1,6 +1,20 @@
 
 # How can I compare values?
 
+<!-- TOC -->
+
+- [How can I compare values?](#how-can-i-compare-values)
+    - [Vertica](#vertica)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [SQL Server](#sql-server)
+    - [BigQuery](#bigquery)
+    - [Reshift](#reshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

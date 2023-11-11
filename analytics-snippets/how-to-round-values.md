@@ -1,6 +1,20 @@
 
 # How can I round numbers?
 
+<!-- TOC -->
+
+- [How can I round numbers?](#how-can-i-round-numbers)
+    - [Vertica](#vertica)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [SQL Server](#sql-server)
+    - [BigQuery](#bigquery)
+    - [Reshift](#reshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

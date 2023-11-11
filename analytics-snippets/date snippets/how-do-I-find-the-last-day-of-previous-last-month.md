@@ -1,5 +1,19 @@
 # How do I find the last day of the previous/next month?
 
+<!-- TOC -->
+
+- [How do I find the last day of the previous/next month?](#how-do-i-find-the-last-day-of-the-previousnext-month)
+    - [SQL Server](#sql-server)
+    - [Vertica](#vertica)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## SQL Server
 
 ```sql

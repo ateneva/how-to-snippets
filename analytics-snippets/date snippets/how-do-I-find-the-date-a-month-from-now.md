@@ -1,6 +1,20 @@
 
 # How do I find the date that is a number of months from/before now with SQL?
 
+<!-- TOC -->
+
+- [How do I find the date that is a number of months from/before now with SQL?](#how-do-i-find-the-date-that-is-a-number-of-months-frombefore-now-with-sql)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [VERTICA: timestampaddd](#vertica-timestampaddd)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## SQL Server
 
 ```sql

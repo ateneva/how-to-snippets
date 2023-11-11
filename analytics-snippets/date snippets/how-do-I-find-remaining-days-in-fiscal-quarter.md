@@ -1,6 +1,20 @@
 
 # How do I calculate the remaining days until the end of a fiscal quarter?
 
+<!-- TOC -->
+
+- [How do I calculate the remaining days until the end of a fiscal quarter?](#how-do-i-calculate-the-remaining-days-until-the-end-of-a-fiscal-quarter)
+    - [Vertica](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [Bigquery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql
@@ -30,6 +44,7 @@ SELECT
         THEN DATEDIFF('DD', DATE(NOW()), 
                 TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), 'YYYY-MM-DD')) 
     END AS remaining_days_in_quarter
+
 ```
 
 ## SQL Server
@@ -100,7 +115,19 @@ SELECT
  SELECT
     CASE 
         WHEN DATE_PART('MONTH', NOW()) IN (11,12,1) THEN 'FQ1'
-        WHEN DATE_PART('MONTH', NOW()) IN (2,3,4) THEN 'FQ2'
+        WHEN DATE_PART('MONTH'<!-- TOC -->
+
+- [How do I calculate the remaining days until the end of a fiscal quarter?](#how-do-i-calculate-the-remaining-days-until-the-end-of-a-fiscal-quarter)
+    - [Vertica](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [Bigquery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->, NOW()) IN (2,3,4) THEN 'FQ2'
         WHEN DATE_PART('MONTH', NOW()) IN (5,6,7) THEN 'FQ3'
         WHEN DATE_PART('MONTH', NOW()) IN (8,9,10) THEN 'FQ4'
     END AS current_fiscal_quarter,
@@ -108,25 +135,30 @@ SELECT
     CASE 
         WHEN DATE_PART('MONTH', NOW()) IN (11,12,1)
         THEN DATE_PART('DAY', 
-            TO_DATE(DATE_PART('YEAR', CURRENT_DATE)+1 || '-01-31', 'YYYY-MM-DD') - NOW() ) + 1
+            TO_DATE(DATE_PART('YEAR', CURRENT_DATE)+1 
+            || '-01-31', 'YYYY-MM-DD') - NOW() ) + 1
         
         WHEN DATE_PART('MONTH', NOW()) IN (2,3,4)
         THEN DATE_PART('DAY', 
-            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-04-30', 'YYYY-MM-DD') - NOW() ) + 1 
+            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) 
+            || '-04-30', 'YYYY-MM-DD') - NOW() ) + 1 
         
         WHEN DATE_PART('MONTH', NOW()) IN (5,6,7) 
         THEN DATE_PART('DAY', 
-            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-07-31', 'YYYY-MM-DD') - NOW() ) + 1
+            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) 
+            || '-07-31', 'YYYY-MM-DD') - NOW() ) + 1
 
         WHEN DATE_PART('MONTH', NOW()) IN (8,9,10) 
         THEN DATE_PART('DAY', 
-            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-10-31', 'YYYY-MM-DD') - NOW() ) + 1
+            TO_DATE(DATE_PART('YEAR', CURRENT_DATE) 
+            || '-10-31', 'YYYY-MM-DD') - NOW() ) + 1
     END AS remaining_in_fis_quarter
 ```
 
 ## Bigquery
 
 ```sql
+
 ```
 
 ## Redshift

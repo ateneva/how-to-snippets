@@ -1,5 +1,17 @@
 
 # How do I extract part of a string from another?
+<!-- TOC -->
+
+- [How do I extract part of a string from another?](#how-do-i-extract-part-of-a-string-from-another)
+    - [SQL Server](#sql-server)
+    - [PostgreSQL](#postgresql)
+    - [MySQL](#mysql)
+    - [Bigquery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
 
 ## SQL Server
 

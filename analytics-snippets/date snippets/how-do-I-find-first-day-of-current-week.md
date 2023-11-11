@@ -1,5 +1,19 @@
 # How do I find the first day of the current week?
 
+<!-- TOC -->
+
+- [How do I find the first day of the current week?](#how-do-i-find-the-first-day-of-the-current-week)
+    - [Vertica](#vertica)
+    - [PostgreSQL](#postgresql)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

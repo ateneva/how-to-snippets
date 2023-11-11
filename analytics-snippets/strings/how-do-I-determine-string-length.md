@@ -1,5 +1,17 @@
 
 # How do I determine string length?
+<!-- TOC -->
+
+- [How do I determine string length?](#how-do-i-determine-string-length)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
 
 ## SQL Server
 

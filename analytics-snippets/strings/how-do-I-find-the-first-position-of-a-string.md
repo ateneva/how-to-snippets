@@ -1,6 +1,22 @@
 
 # How do I find the first postion of a string?
 
+<!-- TOC -->
+
+- [How do I find the first postion of a string?](#how-do-i-find-the-first-postion-of-a-string)
+    - [Sample Sentence](#sample-sentence)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [SQL Server](#sql-server)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [<a name='Tableau'></a>Tableau](#a-nametableauatableau)
+
+<!-- /TOC -->
+
+## Sample Sentence
+
 ```json
 [
    {
@@ -51,7 +67,7 @@ FROM phrases
 ```python
 ```
 
-## 7. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

@@ -1,5 +1,19 @@
 # How do I find the difference between two dates?
 
+<!-- TOC -->
+
+- [How do I find the difference between two dates?](#how-do-i-find-the-difference-between-two-dates)
+    - [Vertica](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery datetime_expression, datetime_expression, part](#bigquery-datetime_expression-datetime_expression-part)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql

@@ -1,5 +1,20 @@
 # How do I extract part of a date?
 
+<!-- TOC -->
+
+- [How do I extract part of a date?](#how-do-i-extract-part-of-a-date)
+    - [Vertica](#vertica)
+    - [MS SQL Server](#ms-sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL: DATE_PART](#postgresql-date_part)
+    - [PostgreSQL: EXTRACT](#postgresql-extract)
+    - [BigQuery: EXTRACT](#bigquery-extract)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
+
+<!-- /TOC -->
+
 ## Vertica
 
 ```sql
@@ -86,7 +101,6 @@ SELECT
     CURRENT_TIMESTAMP                        AS my_local_date_and_time,
     EXTRACT(YEAR FROM CURRENT_TIMESTAMP)     AS current_year,
     EXTRACT(QUARTER FROM CURRENT_TIMESTAMP)  AS current_quarter,
-    EXTRACT(MONTH FROM CURRENT_TIMESTAMP)    AS current_month,
     EXTRACT(WEEK FROM CURRENT_TIMESTAMP)     AS current_week,
     EXTRACT(DAY FROM CURRENT_TIMESTAMP)      AS current_day,
     EXTRACT(HOUR FROM CURRENT_TIMESTAMP)     AS current_hour
