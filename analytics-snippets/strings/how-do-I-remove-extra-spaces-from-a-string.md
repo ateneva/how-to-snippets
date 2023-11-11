@@ -1,25 +1,7 @@
 
 # How do I remove extra spaces from a string?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [MySQL](#MySQL)
-* 3. [PostgreSQL](#PostgreSQL)
-* 4. [SQL Server](#SQLServer)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -30,7 +12,7 @@ SELECT
     TRIM('  I LOVE YOU ')                AS before_trim             
 ```
 
-## 2. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -47,7 +29,7 @@ SELECT
     LENGTH(TRIM(' I LOVE YOU  '))        AS after_trim
 ```
 
-## 3. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -64,7 +46,7 @@ SELECT
     LENGTH(TRIM(' I LOVE YOU  '))        AS after_trim
 ```
 
-## 4. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -79,22 +61,22 @@ SELECT
     DATALENGTH(LTRIM(' I LOVE YOU'))     AS after_ltrim
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

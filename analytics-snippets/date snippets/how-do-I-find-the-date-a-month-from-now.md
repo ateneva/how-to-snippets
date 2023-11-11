@@ -1,25 +1,7 @@
 
 # How do I find the date that is a number of months from/before now with SQL?
 
-<!-- vscode-markdown-toc -->
-* 1. [SQL Server](#SQLServer)
-* 2. [MySQL](#MySQL)
-* 3. [VERTICA: timestampaddd](#VERTICA:timestampaddd)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -41,7 +23,7 @@ SELECT
     DATEADD(HOUR,     1, GETDATE())   AS one_hour_from_now
 ```
 
-## 2. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -119,7 +101,7 @@ SELECT
                     END), 5) AS 5_months_from_now
 ```
 
-## 3. <a name='VERTICA:timestampaddd'></a>VERTICA: timestampaddd
+## VERTICA: timestampaddd
 
 ```sql
 SELECT
@@ -151,7 +133,7 @@ SELECT
     ADD_MONTHS(NOW(),-8) AS 8_months_ago
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -171,22 +153,22 @@ SELECT
     NOW() + INTERVAL '1 HOUR'    AS one_hour_from_now
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

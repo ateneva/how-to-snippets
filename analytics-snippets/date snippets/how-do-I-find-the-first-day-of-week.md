@@ -1,24 +1,6 @@
 # How do I find the first day of previous/next week?
 
-<!-- vscode-markdown-toc -->
-* 1. [SQL Server](#SQLServer)
-* 2. [MySQL](#MySQL)
-* 3. [PostgreSQL](#PostgreSQL)
-* 4. [Vertica](#Vertica)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT 
@@ -53,7 +35,7 @@ SELECT
         DATEADD(MONTH, +1, GETDATE()) , 120) + '-01') AS first_dayof_next_month
 ```
 
-## 2. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT 
@@ -85,7 +67,7 @@ SELECT
     DATE_FORMAT(DATE_ADD(NOW(), INTERVAL +1 MONTH), '%Y-%M-01')   AS first_dayof_next_month
  ```
 
-## 3. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -99,7 +81,7 @@ SELECT
     DATE(DATE_TRUNC('YEAR',  NOW() + INTERVAL '1 YEAR'))  AS first_day_of_next_year
 ```
 
-## 4. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -113,22 +95,22 @@ SELECT
     DATE(DATE_TRUNC('YEAR',  TIMESTAMPADD('YEAR', +1, NOW())))   AS first_day_of_next_year
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
  ```sql
  ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
  ```python
  ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
  ```text
  ```

@@ -1,25 +1,7 @@
 
 # How do I calculate the remaining days until the end of a fiscal quarter?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [SQL Server](#SQLServer)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [Bigquery](#Bigquery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 ---calculate remaining days in fiscal quarter
@@ -50,7 +32,7 @@ SELECT
     END AS remaining_days_in_quarter
 ```
 
-## 2. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -81,7 +63,7 @@ SELECT
   
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT  
@@ -112,7 +94,7 @@ SELECT
     END AS remaining_in_fis_quarter
  ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
  ```sql
  SELECT
@@ -142,22 +124,22 @@ SELECT
     END AS remaining_in_fis_quarter
 ```
 
-## 5. <a name='Bigquery'></a>Bigquery
+## Bigquery
 
 ```sql
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

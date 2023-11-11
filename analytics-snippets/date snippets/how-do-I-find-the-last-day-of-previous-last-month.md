@@ -1,24 +1,6 @@
 # How do I find the last day of the previous/next month?
 
-<!-- vscode-markdown-toc -->
-* 1. [SQL Server](#SQLServer)
-* 2. [Vertica](#Vertica)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -28,7 +10,7 @@ SELECT
     EOMONTH(GETDATE(),+1)   AS last_day_next_month
 ```
 
-## 2. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -38,7 +20,7 @@ SELECT
     LAST_DAY(ADD_MONTHS(NOW(), 1)) AS LastDayofNextMonth
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -48,7 +30,7 @@ SELECT
     LAST_DAY(ADDDATE(NOW(), +31)) AS last_day_next_month
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -64,7 +46,7 @@ SELECT
         + INTERVAL '2 MONTH') - INTERVAL '1 DAY')  AS last_day_next_month
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 SELECT
@@ -93,17 +75,17 @@ SELECT
 ]
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

@@ -1,24 +1,6 @@
 # How do I find the first day of the current week?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [PostgreSQL](#PostgreSQL)
-* 3. [SQL Server](#SQLServer)
-* 4. [MySQL](#MySQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -27,7 +9,7 @@ SELECT
     DATE(DATE_TRUNC('YEAR', NOW()))  AS first_day_of_current_year
 ```
 
-## 2. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -36,7 +18,7 @@ SELECT
     DATE(DATE_TRUNC('YEAR', NOW()))  AS first_day_of_current_year
 ```
 
-## 3. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -44,7 +26,8 @@ SELECT
     DATEPART(DW, GETDATE())  AS weekdaytoday,
 
     CASE ----------------------------MON-SUN WEEK---------------------------------
-        WHEN DATEPART(DW, GETDATE()) = 1 THEN CONVERT(DATE, DATEADD(DAY, -6, GETDATE()))WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY,  0, GETDATE()))
+        WHEN DATEPART(DW, GETDATE()) = 1 THEN CONVERT(DATE, DATEADD(DAY, -6, GETDATE()))
+        WHEN DATEPART(DW, GETDATE()) = 2 THEN CONVERT(DATE, DATEADD(DAY,  0, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 3 THEN CONVERT(DATE, DATEADD(DAY, -1, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 4 THEN CONVERT(DATE, DATEADD(DAY, -2, GETDATE()))
         WHEN DATEPART(DW, GETDATE()) = 5 THEN CONVERT(DATE, DATEADD(DAY, -3, GETDATE()))
@@ -57,7 +40,7 @@ SELECT
     CONVERT(DATE, CONVERT(VARCHAR(4), GETDATE(), 120) + '-01-01') AS first_day_of_current_year
 ```
 
-## 4. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -78,7 +61,7 @@ SELECT
     DATE_FORMAT(NOW(), '%Y-01-01')  AS first_day_of_current_year
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 SELECT
@@ -107,17 +90,17 @@ SELECT
 ]
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

@@ -1,24 +1,7 @@
 
 # How do I extract part of a string from another?
 
-<!-- vscode-markdown-toc -->
-* 1. [SQL Server](#SQLServer)
-* 2. [PostgreSQL](#PostgreSQL)
-* 3. [MySQL](#MySQL)
-* 4. [Bigquery](#Bigquery)
-* 5. [Redshift](#Redshift)
-* 6. [Python](#Python)
-* 7. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -36,7 +19,7 @@ SELECT
 
 ```
 
-## 2. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -54,7 +37,7 @@ SELECT
     --longer, more complex phrase but pattermn obvious
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -72,22 +55,22 @@ SELECT
 
 ```
 
-## 4. <a name='Bigquery'></a>Bigquery
+## Bigquery
 
 ```sql
 ```
 
-## 5. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 6. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 7. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

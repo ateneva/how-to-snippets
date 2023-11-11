@@ -1,25 +1,7 @@
 
 # How do I convert string to a date?
 
-<!-- vscode-markdown-toc -->
-* 1. [VERTICA](#VERTICA)
-* 2. [PostgreSQL](#PostgreSQL)
-* 3. [MySQL](#MySQL)
-* 4. [SQL Server](#SQLServer)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='VERTICA'></a>VERTICA
+## VERTICA
 
 ```sql
 SELECT
@@ -27,7 +9,7 @@ SELECT
   TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
-## 2. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -35,7 +17,7 @@ SELECT
   TO_DATE('2017-03-31', 'YYYY-MM-DD')   as date_field
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -43,7 +25,7 @@ SELECT
   STR_TO_DATE('2017-03-31', '%Y-%m-%d') as date_field
 ```
 
-## 4. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -52,7 +34,7 @@ SELECT
   CAST('2017-03-31' as date)            as date_field2
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 SELECT
@@ -73,17 +55,17 @@ SELECT
 ]
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

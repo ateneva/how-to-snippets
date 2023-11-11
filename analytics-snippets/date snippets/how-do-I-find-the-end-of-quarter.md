@@ -1,25 +1,7 @@
 
 # How do I find the end of a quarter?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [PostgreSQL](#PostgreSQL)
-* 3. [MySQL](#MySQL)
-* 4. [SQL Server: Convert](#SQLServer:Convert)
-* 5. [SQL Server: Cast](#SQLServer:Cast)
-* 6. [BigQuery](#BigQuery)
-* 7. [Redshift](#Redshift)
-* 8. [Python](#Python)
-* 9. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -34,7 +16,7 @@ SELECT
     TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), 'YYYY-MM-DD') AS end_of_fq4
 ```
 
-## 2. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -49,7 +31,7 @@ SELECT
     TO_DATE(DATE_PART('YEAR', CURRENT_DATE) || '-10-31', 'YYYY-MM-DD') AS end_of_fq4
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -64,7 +46,7 @@ SELECT
     STR_TO_DATE(CONCAT(YEAR(NOW()),'-10-31'), '%Y-%M-%D') AS end_of_fq4
 ```
 
-## 4. <a name='SQLServer:Convert'></a>SQL Server: Convert
+## SQL Server: Convert
 
 ```sql
 SELECT
@@ -79,7 +61,7 @@ SELECT
     CONVERT(DATE, CONCAT(YEAR(GETDATE()),'-10-31')) AS end_of_fq4
 ```
 
-## 5. <a name='SQLServer:Cast'></a>SQL Server: Cast
+## SQL Server: Cast
 
 ```sql
 SELECT
@@ -94,22 +76,22 @@ SELECT
     CAST(CONCAT(YEAR(GETDATE()),'-10-31') AS DATE) AS end_of_fq4
 ```
 
-## 6. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 ```
 
-## 7. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 8. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 9. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

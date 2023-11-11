@@ -1,23 +1,20 @@
 # How do I add hours to the current tumestamp?
 
-<!-- vscode-markdown-toc -->
-- [VERTICA](#VERTICA)
-- [SQL Server](#SQLServer)
+<!-- TOC -->
 
-- [MySQL](#MySQL)
-- [PostgreSQL](#PostgreSQL)
-- [BigQuery](#BigQuery)
-- [Redshift](#Redshift)
-- [Python](#Python)
-- [Tableau](#Tableau)
+- [How do I add hours to the current tumestamp?](#how-do-i-add-hours-to-the-current-tumestamp)
+    - [VERTICA](#vertica)
+    - [SQL Server](#sql-server)
+    - [MySQL](#mysql)
+    - [PostgreSQL](#postgresql)
+    - [BigQuery](#bigquery)
+    - [Redshift](#redshift)
+    - [Python](#python)
+    - [Tableau](#tableau)
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+<!-- /TOC -->
 
-## 1. <a name='VERTICA'></a>VERTICA
+## VERTICA
 
 ```sql
 SELECT
@@ -29,7 +26,7 @@ SELECT
     TIMESTAMPADD('HOUR', 7,  GETDATE())  AS seven_hours_from_now
 ```
 
-## 2. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -40,7 +37,7 @@ SELECT
     DATEADD(HOUR, 7, GETDATE())          AS seven_hours_from_now
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -51,7 +48,7 @@ SELECT
     DATE_ADD(NOW(), INTERVAL 7 HOUR)     AS seven_hours_from_now
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -62,22 +59,22 @@ SELECT
     NOW() + INTERVAL '7 HOUR'            AS seven_hours_from_now
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
  ```sql
  ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
  ```python
  ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
  ```text
  ```

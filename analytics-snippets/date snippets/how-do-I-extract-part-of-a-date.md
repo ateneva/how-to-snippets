@@ -1,25 +1,6 @@
 # How do I extract part of a date?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [MS SQL Server](#MSSQLServer)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL: DATE_PART](#PostgreSQL:DATE_PART)
-* 5. [PostgreSQL: EXTRACT](#PostgreSQL:EXTRACT)
-* 6. [BigQuery: EXTRACT](#BigQuery:EXTRACT)
-* 7. [Redshift](#Redshift)
-* 8. [Python](#Python)
-* 9. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -65,7 +46,7 @@ SELECT
     WEEK_ISO(NOW())                     AS weeknum_eu
 ```
 
-## 2. <a name='MSSQLServer'></a>MS SQL Server
+## MS SQL Server
 
 ```sql
 SELECT
@@ -98,7 +79,7 @@ SELECT
     DAY(GETDATE())         AS today
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -135,7 +116,7 @@ SELECT
     WEEK(NOW())          AS weeknum_us
 ```
 
-## 4. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: DATE_PART
+## PostgreSQL: DATE_PART
 
 ```sql
 SELECT
@@ -152,7 +133,7 @@ SELECT
     DATE_PART('HOUR', CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-## 5. <a name='PostgreSQL:EXTRACT'></a>PostgreSQL: EXTRACT
+## PostgreSQL: EXTRACT
 
 ```sql
 SELECT
@@ -171,7 +152,7 @@ SELECT
     EXTRACT(hour FROM CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-## 6. <a name='BigQuery:EXTRACT'></a>BigQuery: EXTRACT
+## BigQuery: EXTRACT
 
 ```sql
 SELECT ---- also supports MILISECOND, MICROSECOND
@@ -249,17 +230,17 @@ SELECT
 ]
 ```
 
-## 7. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 8. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 9. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

@@ -1,24 +1,6 @@
 # How do I calculate the remaining days until the end of a calendar quarter?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [SQL Server](#SQLServer)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 ---calculate remaining days in calendar quarter
@@ -43,7 +25,7 @@ SELECT
     END AS remaining_in_cal_quarter
 ```
 
-## 2. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -67,7 +49,7 @@ SELECT
     END AS remaining_in_cal_quarter
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## 3. MySQL
 
 ```sql
 SELECT
@@ -92,7 +74,7 @@ SELECT
     END AS remaining_in_cal_quarter
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -122,22 +104,22 @@ SELECT
     END AS remaining_in_cal_quarter
 ```
 
-## 5. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

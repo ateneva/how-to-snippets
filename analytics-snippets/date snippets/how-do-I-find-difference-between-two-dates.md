@@ -1,24 +1,6 @@
 # How do I find the difference between two dates?
 
-<!-- vscode-markdown-toc -->
-* 1. [Vertica](#Vertica)
-* 2. [SQL Server](#SQLServer)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery (datetime_expression, datetime_expression, part)](#BigQuerydatetime_expressiondatetime_expressionpart)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='Vertica'></a>Vertica
+## Vertica
 
 ```sql
 SELECT
@@ -60,7 +42,7 @@ DATEDIFF('YEAR', '1988-06-21', NOW()) AS years_between_dates,
 MONTHS_BETWEEN (NOW(),'2017-01-01')                                
 ```
 
-## 2. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -73,7 +55,7 @@ SELECT
     DATEDIFF(SECOND,  '1988-06-21', GETDATE()) AS seconds_between_dates
 ```
 
-## 3. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -98,7 +80,7 @@ PERIOD_DIFF(201712, 201707) AS past,
 PERIOD_DIFF(201806, 201712) AS future    
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -111,7 +93,7 @@ yearsbetweendates                                      |
 29 years 5 mons 19 days 21 hours 0 mins 39.466046 secs |
 ```
 
-## 5. <a name='BigQuerydatetime_expressiondatetime_expressionpart'></a>BigQuery (datetime_expression, datetime_expression, part)
+## BigQuery (datetime_expression, datetime_expression, part)
 
 ```sql
 SELECT
@@ -207,18 +189,18 @@ SELECT
 ]
 ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 
 ```
 
-## 7. <a name='Python'></a>Python
+## Python
 
 ```python
 ```
 
-## 8. <a name='Tableau'></a>Tableau
+## Tableau
 
 ```text
 ```

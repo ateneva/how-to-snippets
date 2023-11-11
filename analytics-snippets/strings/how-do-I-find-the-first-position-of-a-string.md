@@ -9,24 +9,7 @@
 ]
 ```
 
-<!-- vscode-markdown-toc -->
-* 1. [MySQL](#MySQL)
-* 2. [PostgreSQL](#PostgreSQL)
-* 3. [SQL Server](#SQLServer)
-* 4. [BigQuery](#BigQuery)
-* 5. [Redshift](#Redshift)
-* 6. [Python](#Python)
-* 7. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -34,7 +17,7 @@ SELECT
 FROM phrases
 ```
 
-## 2. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT
@@ -44,7 +27,7 @@ FROM phrases
 ---add full syntax
 ```
 
-## 3. <a name='SQLServer'></a>SQL Server
+## SQL Server
 
 ```sql
 SELECT
@@ -53,17 +36,17 @@ SELECT
 FROM phrases
 ```
 
-## 4. <a name='BigQuery'></a>BigQuery
+## BigQuery
 
 ```sql
 ```
 
-## 5. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 6. <a name='Python'></a>Python
+## Python
 
 ```python
 ```

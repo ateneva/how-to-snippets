@@ -1,24 +1,6 @@
 # How do I get current time?
 
-<!-- vscode-markdown-toc -->
-* 1. [VERTICA](#VERTICA)
-* 2. [MySQL](#MySQL)
-* 3. [MS SQL Server](#MSSQLServer)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='VERTICA'></a>VERTICA
+## VERTICA
 
 ```sql
 SELECT 
@@ -32,7 +14,7 @@ SELECT
     TIME(NOW())                AS MyTime
 ```
 
-## 2. <a name='MySQL'></a>MySQL
+## MySQL
 
 ```sql
 SELECT
@@ -47,7 +29,7 @@ SELECT
     TIME(NOW())                AS MyTime
 ```
 
-## 3. <a name='MSSQLServer'></a>MS SQL Server
+## MS SQL Server
 
 ```sql
 SELECT
@@ -58,7 +40,7 @@ SELECT
     CONVERT(TIME,GETDATE())    AS NOW 
 ```
 
-## 4. <a name='PostgreSQL'></a>PostgreSQL
+## PostgreSQL
 
 ```sql
 SELECT 
@@ -68,22 +50,22 @@ SELECT
     NOW()                      AS MyTimeRightNow
 ```
 
-## 5. <a name='BigQuery'></a>BigQueryy
+## BigQueryy
 
  ```sql
  ```
 
-## 6. <a name='Redshift'></a>Redshift
+## Redshift
 
 ```sql
 ```
 
-## 7. <a name='Python'></a>Pythonn
+## Python
 
  ```python
  ```
 
-## 8. <a name='Tableau'></a>Tableauu
+## Tableau
 
  ```text
  ```
