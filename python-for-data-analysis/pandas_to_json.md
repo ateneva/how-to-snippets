@@ -69,14 +69,14 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json')
 
 ### JSON FORMATS
 
-* `split`
-* `records`
-* `index`
-* `values`
-* `table`
-* `columns` (the default format)
+- `split`
+- `records`
+- `index`
+- `values`
+- `table`
+- `columns` (the default format)
 
-* `split`
+- `split`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='split')
@@ -116,19 +116,22 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='s
 ```
 
 ----------------------------
-* `records`
+
+- `records`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='records')
 ```
 
 ### can't be prettified
+
 ```json
 [{"Product":"Desktop Computer","Price":700},{"Product":"Tablet","Price":250},{"Product":"iPhone","Price":800},{"Product":"Laptop","Price":1200}]
 ```
 
 ----------------------------
-* `index`
+
+- `index`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='index')
@@ -157,7 +160,8 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='i
 ```
 
 ----------------------------
-* `values`
+
+- `values`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='values')
@@ -185,7 +189,8 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='v
 ```
 
 ----------------------------
-* `table`
+
+- `table`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='table')
@@ -239,7 +244,8 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='t
 ```
 
 ----------------------------
-* `columns`
+
+- `columns`
 
 ```python
 df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='columns')
@@ -263,12 +269,13 @@ df.to_json (r'/Users/angelina.teneva/Downloads/export_dataFrame.json', orient='c
 ```
 
 ## References
-* https://datatofish.com/export-pandas-dataframe-json/
-* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_json.html
-* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html
-* https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/
-* https://towardsdatascience.com/how-to-add-a-new-column-to-an-existing-pandas-dataframe-310a8e7baf8f
 
-* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html
-* https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html
-* https://stackoverflow.com/questions/52781750/pandas-and-doubled-double-quote-escaping-in-csv
+- <https://datatofish.com/export-pandas-dataframe-json/>
+- <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_json.html>
+- <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html>
+- <https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/>
+- <https://towardsdatascience.com/how-to-add-a-new-column-to-an-existing-pandas-dataframe-310a8e7baf8f>
+
+- <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html>
+- <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html>
+- <https://stackoverflow.com/questions/52781750/pandas-and-doubled-double-quote-escaping-in-csv>

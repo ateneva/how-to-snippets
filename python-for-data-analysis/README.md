@@ -1,9 +1,11 @@
 # Functions Best Practices
 
 ## Document your code
+
 With a docstring though, it is much easier to tell what the expected inputs and outputs should be, as well as what the function does. A docstring is a string written as the first line of a function. Because docstrings usually span multiple lines, they are enclosed in triple quotes, Python's way of writing multi-line strings:
 
 Every docstring has some (although usually not all) of these five key pieces of information:
+
  - Description of what the function does.
  - Description of the arguments, if any.
  - Description of the return value(s), if any.
