@@ -1,7 +1,26 @@
 
+# Intro
+<!-- TOC -->
+
+- [SETUP PostgreSQL Server](#setup-postgresql-server)
+- [Loading DVD-rental sample database](#loading-dvd-rental-sample-database)
+    - [Creating the table structure](#creating-the-table-structure)
+    - [Loading the data](#loading-the-data)
+- [PostgreSQL functions and syntax](#postgresql-functions-and-syntax)
+    - [DATETIME functions](#datetime-functions)
+        - [PostgreSQL: convert text to date](#postgresql-convert-text-to-date)
+        - [PostgreSQL: add INTERVAL to a date](#postgresql-add-interval-to-a-date)
+        - [PostgreSQL: DATE_PARTINTERVAL, timestamp](#postgresql-date_partinterval-timestamp)
+        - [PostgreSQL: EXTRACTINTERVAL FROM timestamp](#postgresql-extractinterval-from-timestamp)
+        - [PostgreSQL: find the first day of - DATE_TRUNCINTERVAL, date/timestamp](#postgresql-find-the-first-day-of---date_truncinterval-datetimestamp)
+            - [PostgreSQL: find the last day of](#postgresql-find-the-last-day-of)
+            - [PostgreSQL: find exact period between two dates](#postgresql-find-exact-period-between-two-dates)
+
+<!-- /TOC -->
+
 # SETUP PostgreSQL Server
 
-* prepare a `yml` file that pulls up the latest docker image
+- prepare a `yml` file that pulls up the latest docker image
 
 ```yml
 version: '3.4'
@@ -21,7 +40,7 @@ services:
       - ./dvd:/var/lib/dvd/data
 ```
 
-* run the imavge in a container
+- run the imavge in a container
 
 ```bash
 docker-compose -f dvd-rental.yml up
@@ -31,11 +50,11 @@ docker-compose -f dvd-rental.yml up
 
 ## Creating the table structure
 
-* run `how-to-snippets/postgresql/ddl-dvd-rental.sql`  to crate the table structure
+- run `how-to-snippets/postgresql/ddl-dvd-rental.sql`  to crate the table structure
 
 ## Loading the data
 
-* navigate to postgres designated folder and make a sample directory
+- navigate to postgres designated folder and make a sample directory
 
 ```bash
 # navigate to postgres designated folder
@@ -45,14 +64,14 @@ cd Documents/postgress
 mkdir sample_db && cd sample_db
 ```
 
-* download the sample database from [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
+- download the sample database from [here](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 
 ```bash
 # download zip file 
 wget https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 ```
 
-* unzip it and unarchive the `tar` files
+- unzip it and unarchive the `tar` files
 
 ```bash
 # unzip and create tar archive instead
@@ -62,19 +81,19 @@ unzip dvdrental.zip
 tar -xvf dvdrental.tar
 ```
 
-* copy the unzipped data files to the postgresql db container
+- copy the unzipped data files to the postgresql db container
 
 ```bash
 docker cp /Users/angelina.teneva/Documents/postgres/sample_db/. postgres_dvd_rental_1/:/home/
 ```
 
-* run psql with the container
+- run psql with the container
 
 ```bash
 docker exec -ti postgres_dvd_rental_1 psql -U ateneva dvd
 ```
 
-* execute the `COPY` commands from `how-to-snippets/postgresql/copy-dvd-rental.sql` in the following format
+- execute the `COPY` commands from `how-to-snippets/postgresql/copy-dvd-rental.sql` in the following format
 
 ```bash
 \COPY public.actor (actor_id, first_name, last_name, last_update) FROM 'home/3057.dat';
@@ -82,27 +101,9 @@ docker exec -ti postgres_dvd_rental_1 psql -U ateneva dvd
 
 # PostgreSQL functions and syntax
 
-<!-- vscode-markdown-toc -->
-* 1. [DATETIME functions](#DATETIMEfunctions)
-  * 1.1. [PostgreSQL: convert text to date](#PostgreSQL:converttexttodate)
-  * 1.2. [PostgreSQL: DATE additions](#PostgreSQL:DATEadditions)
-  * 1.3. [PostgreSQL: DATE_PART](#PostgreSQL:DATE_PART)
-  * 1.4. [PostgreSQL: EXTRACTs](#PostgreSQL:EXTRACTs)
-  * 1.5. [PostgreSQL: find the first day of](#PostgreSQL:findthefirstdayof)
-  * 1.6. [PostgreSQL: find the lASt day of](#PostgreSQL:findthelAStdayof)
-  * 1.7. [PostgreSQL: find exact period between two dates](#PostgreSQL:findexactperiodbetweentwodates)
+## DATETIME functions
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='DATETIMEfunctions'></a>DATETIME functions
-
-### 1.1. <a name='PostgreSQL:converttexttodate'></a>PostgreSQL: convert text to date
+### PostgreSQL: convert text to date
 
 ```sql
 SELECT
@@ -110,7 +111,7 @@ SELECT
     TO_DATE('2017-03-31', 'YYYY-MM-DD')   AS date_field
 ```
 
-### 1.2. <a name='PostgreSQL:DATEadditions'></a>PostgreSQL: add `INTERVAL` to a date
+### PostgreSQL: add `INTERVAL` to a date
 
 ```sql
 SELECT
@@ -132,7 +133,7 @@ SELECT
     NOW() + INTERVAL '1 hour'    AS one_hour_from_now
 ```
 
-### 1.3. <a name='PostgreSQL:DATE_PART'></a>PostgreSQL: `DATE_PART(INTERVAL, timestamp)`
+### PostgreSQL: `DATE_PART(INTERVAL, timestamp)`
 
 ```sql
 SELECT
@@ -153,7 +154,7 @@ SELECT
     DATE_PART('hour', CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-### 1.4. <a name='PostgreSQL:EXTRACTs'></a>PostgreSQL: `EXTRACT(INTERVAL FROM timestamp)`
+### PostgreSQL: `EXTRACT(INTERVAL FROM timestamp)`
 
 ```sql
 SELECT
@@ -170,7 +171,7 @@ SELECT
     EXTRACT(hour FROM CURRENT_TIMESTAMP)            AS current_hour
 ```
 
-### 1.5. <a name='PostgreSQL:findthefirstdayof'></a>PostgreSQL: find the first day of - `DATE_TRUNC(INTERVAL, date/timestamp)`
+### PostgreSQL: find the first day of - `DATE_TRUNC(INTERVAL, date/timestamp)`
 
 ```sql
 SELECT
@@ -179,7 +180,7 @@ SELECT
     DATE(DATE_TRUNC('year', NOW()))  AS first_day_of_current_year
 ```
 
-#### 1.6. <a name='PostgreSQL:findthelAStdayof'></a>PostgreSQL: find the last day of
+#### PostgreSQL: find the last day of
 
 ```sql
 SELECT
@@ -194,7 +195,7 @@ SELECT
             + INTERVAL '2 month') - INTERVAL '1 day')  AS last_day_next_month
 ```
 
-#### 1.7. <a name='PostgreSQL:findexactperiodbetweentwodates'></a>PostgreSQL: find exact period between two dates
+#### PostgreSQL: find exact period between two dates
 
 ```sql
 SELECT

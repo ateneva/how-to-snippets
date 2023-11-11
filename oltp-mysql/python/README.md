@@ -1,6 +1,32 @@
 
 # Loading data into a MySQL database
 
+<!-- TOC -->
+
+- [Loading data into a MySQL database](#loading-data-into-a-mysql-database)
+    - [using mysql-connector](#using-mysql-connector)
+        - [create databases](#create-databases)
+        - [connect to a database](#connect-to-a-database)
+        - [show databases](#show-databases)
+        - [create a single table](#create-a-single-table)
+        - [create multiple tables](#create-multiple-tables)
+        - [alter table schema](#alter-table-schema)
+        - [insert records](#insert-records)
+        - [read records](#read-records)
+        - [update records](#update-records)
+        - [drop table](#drop-table)
+    - [using pymysql](#using-pymysql)
+    - [using sqlalchemy](#using-sqlalchemy)
+        - [create engine](#create-engine)
+        - [create table](#create-table)
+- [References](#references)
+
+<!-- /TOC -->
+    host = "localhost",
+    user = "root",
+    passwd = "dbms"
+)
+
 ## using mysql-connector
 
 ### create databases
@@ -33,11 +59,6 @@ import mysql.connector as mysql
 
 ## connecting to the database using 'connect()' method
 ## it takes 3 required parameters 'host', 'user', 'passwd'
-db = mysql.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "dbms"
-)
 
 print(db) # it will print a connection object if everything is fine
 ```

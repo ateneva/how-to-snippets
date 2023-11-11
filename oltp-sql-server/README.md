@@ -1,34 +1,33 @@
+
+# Intro
+
+<!-- TOC -->
+
+- [Intro](#intro)
+- [SQL SERVER functions and syntax](#sql-server-functions-and-syntax)
+    - [DATE AND TIME FUNCTIONS](#date-and-time-functions)
+        - [CAST string AS DATE](#cast-string-as-date)
+        - [COMMON FUNCTIONS](#common-functions)
+        - [DATEPART](#datepart)
+        - [DATEADD](#dateadd)
+        - [DATEDIFF](#datediff)
+        - [EOMONTH](#eomonth)
+
+<!-- /TOC -->
 # SQL SERVER functions and syntax
 
-<!-- vscode-markdown-toc -->
-* 1. [DATE AND TIME FUNCTIONS](#DATEANDTIMEFUNCTIONS)
-  * 1.1. [CAST (string AS DATE)](#CASTstringASDATE)
-  * 1.2. [COMMON FUNCTIONS](#COMMONFUNCTIONS)
-  * 1.3. [DATEPART](#DATEPART)
-  * 1.4. [DATEADD](#DATEADD)
-  * 1.5. [DATEDIFF](#DATEDIFF)
-  * 1.6. [EOMONTH](#EOMONTH)
+## DATE AND TIME FUNCTIONS
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+- `CAST(string AS DATE)`
+- `GETDATE, GETUTCDATE, DAY, MONTH, YEAR`
+- `DATEPART`
+- `DATEFROMPARTS`
+- `DATEADD`
+- `DATEDIFF`
+- `EOMONTH`
+- `ISDATE`
 
-<!-- markdownlint-disable MD033 -->
-
-## 1. <a name='DATEANDTIMEFUNCTIONS'></a>DATE AND TIME FUNCTIONS
-
-* `CAST(string AS DATE)`
-* `GETDATE, GETUTCDATE, DAY, MONTH, YEAR`
-* `DATEPART`
-* `DATEFROMPARTS`
-* `DATEADD`
-* `DATEDIFF`
-* `EOMONTH`
-* `ISDATE`
-
-### 1.1. <a name='CASTstringASDATE'></a>CAST (string AS DATE)
+### CAST (string AS DATE)
 
 ```sql
 SELECT
@@ -37,7 +36,7 @@ SELECT
    CAST('2017-03-31' AS  DATE)           AS DateField2
 ```
 
-### 1.2. <a name='COMMONFUNCTIONS'></a>COMMON FUNCTIONS
+### COMMON FUNCTIONS
 
 ```sql
 SELECT
@@ -47,7 +46,7 @@ SELECT
    DAY(GETDATE())         AS Today
 ```
 
-### 1.3. <a name='DATEPART'></a>DATEPART
+### DATEPART
 
 ```sql
 SELECT
@@ -63,7 +62,7 @@ SELECT
    DATEPART(hh, CURRENT_TIMESTAMP)     AS Hour
 ```
 
-### 1.4. <a name='DATEADD'></a>DATEADD
+### DATEADD
 
 ```sql
 SELECT
@@ -75,7 +74,7 @@ SELECT
    DATEADD(HOUR,    -1, GETDATE())   AS OneHourAgo
 ```
 
-### 1.5. <a name='DATEDIFF'></a>DATEDIFF
+### DATEDIFF
 
 ```sql
 SELECT
@@ -88,7 +87,7 @@ SELECT
    DATEDIFF(SECOND,  '1988-06-21', GETDATE()) AS SecondsBetweenDates
 ```
 
-### 1.6. <a name='EOMONTH'></a>EOMONTH
+### EOMONTH
 
 ```sql
 SELECT
