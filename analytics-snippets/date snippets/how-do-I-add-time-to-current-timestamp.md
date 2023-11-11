@@ -1,23 +1,20 @@
-
 # How do I add hours to the current tumestamp?
 
 <!-- vscode-markdown-toc -->
-* 1. [VERTICA](#VERTICA)
-* 2. [SQL Server](#SQLServer)
-* 3. [MySQL](#MySQL)
-* 4. [PostgreSQL](#PostgreSQL)
-* 5. [BigQuery](#BigQuery)
-* 6. [Redshift](#Redshift)
-* 7. [Python](#Python)
-* 8. [Tableau](#Tableau)
+1. [VERTICA](#VERTICA)
+2. [SQL Server](#SQLServer)
+3. [MySQL](#MySQL)
+4. [PostgreSQL](#PostgreSQL)
+5. [BigQuery](#BigQuery)
+6. [Redshift](#Redshift)
+7. [Python](#Python)
+8. [Tableau](#Tableau)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
 	autoSave=true
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
-
-<!-- markdownlint-disable MD033 -->
 
 ## 1. <a name='VERTICA'></a>VERTICA
 
