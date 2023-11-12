@@ -13,31 +13,33 @@ Building infrastructure in a controlled way makes it:
 
 ## Setting up Terraform
 
-- setup terraform locally
+- `setup terraform locally`
 
 ```bash
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
 
-- verify installation
+- `verify installation`
 
 ```bash
 terraform -version
 terraform -help
 ```
 
-### Terraform comes pre-imnstalled in Google Cloud Shell
+**NB** Terraform comes pre-installed in Google Cloud Shell
+
+---
 
 ## USEFUL CLI
 
- - automatically download and install any provider binary for the providers to use within the configuration
+ - `download and install any provider binary for the providers to use within the configuration`
 
 ```bash
 terraform init
 ```
 
-- reformat your configuration in the standard style
+- `reformat your configuration in the standard style`
 
 ```bash
 # check if file format is according to standard style
@@ -50,7 +52,7 @@ terraform fmt
 terraform fmt -diff
 ```
 
-- create an execution plan
+- `create an execution plan`
 
 ```bash
 terraform plan
@@ -59,7 +61,7 @@ terraform plan
 terraform plan -out "my-bucket-config"
 ```
 
-- apply the execution plan
+- `apply the execution plan`
 
 ```bash
 terraform apply
@@ -68,19 +70,19 @@ terraform apply
 terraform apply "my-bucket-config"
 ```
 
-- show the current state of infrastructure config
+- `show the current state of infrastructure config`
 
 ```bash
 terraform show
 ```
 
-- Mark a resource instance as not fully functional and to be destroyed and recreated on next apply
+- `Mark a resource instance as not fully functional and to be destroyed and recreated on next apply`
 
 ```bash
 terraform taint
 ```
 
-- destroy infrastructure
+- `destroy infrastructure`
 
 ```bash
 terraform destroy
