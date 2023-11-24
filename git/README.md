@@ -415,6 +415,10 @@ git reset <commit>      # reset local branch to a specific commit
 
 git revert HEAD         # revert the latest pushed commit
 git revert <commit SHA> # revert any previously pushed commit
+
+# revert and apply a previous commit on your mocal branch
+git revert -n <commit SHA>
+git revert --no-commit <commit SHA>
 ```
 
 * `file level`
