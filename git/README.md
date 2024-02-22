@@ -125,6 +125,10 @@ git log --oneline --graph -10           # shows the last 10 commits in a graph
 
 git log origin/master --oneline -5      # shows the last 5 commits on master branch
 git log origin --oneline -5             # shows the last 5 commits on default tracking branch
+
+git log -S <keyword>                    # search previously committed files for certain keyword
+
+git reflog                              # review history of all actions that git took
 ```
 
 ### create a new branch
