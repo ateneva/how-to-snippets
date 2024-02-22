@@ -70,6 +70,9 @@ s = pd.Series([1,2,3,4,5],index = ['a','b','c','d','e'])
 #retrieve the first element
 print (s[0])
 
+#If a label is not contained, an exception is thrown
+print (s['f'])
+
 #retrieve the first three element
 print (s[:3])
 
@@ -82,6 +85,5 @@ print (s['a'])
 #retrieve multiple elements
 print (s[['a','c','d']])
 
-#If a label is not contained, an exception is thrown
-print (s['f'])
+
 ```
