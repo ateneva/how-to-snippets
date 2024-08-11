@@ -57,6 +57,12 @@ terraform fmt -diff
 ```bash
 terraform plan
 
+# only plan changes referring to specific resource
+terraform plan -target="resource_type.resource.name"
+
+# e.g.
+terraform plan -target="google_bigquery_dataset.the-look-data-quality"
+
 # save an execution plan to apply later
 terraform plan -out "my-bucket-config"
 ```
