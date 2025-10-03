@@ -119,8 +119,6 @@ The video below explains how to import existing infrastructure to Terraform.
 [Import Existing infrastructure using terraform](https://www.youtube.com/watch?v=7lJ9jOKZKyA) discusses the process of importing existing cloud resources, like storage buckets, into a Terraform state file.
 <http://googleusercontent.com/youtube_content/0>
 
----
-
 ## USEFUL CLI
 
  - `download and install any provider binary for the providers to use within the configuration`
