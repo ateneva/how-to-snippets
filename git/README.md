@@ -302,6 +302,7 @@ git rm <filename> -f        # remove a file completely from working tree
 ```bash
 git restore --staged <file>
 git restore --staged <directory>
+git restore --staged .
 
 OR
 
